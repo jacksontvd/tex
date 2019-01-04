@@ -1,6 +1,6 @@
-\ProvidesClass{hw}
+\ProvidesClass{notes}
 
-\LoadClass{article}
+\LoadClass{amsart}
 
 \usepackage{master}
 

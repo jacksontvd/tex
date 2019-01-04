@@ -1,0 +1,9 @@
+\newenvironment{overlay}
+{
+\begin{tikzpicture}[baseline]
+}{
+\end{tikzpicture}
+}
+
+\newcommand{\pict}[2]{\node at (0,0) {\includegraphics[width=#2\textwidth]{#1}};}
+\newcommand{\toptext}[2]{\draw (#2) node {#1};}

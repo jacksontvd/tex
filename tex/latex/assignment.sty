@@ -1,0 +1,19 @@
+\usepackage{etoolbox}
+\usepackage{environ}
+
+\newenvironment{question}
+{\item}{}
+
+\newenvironment{questions}
+{\begin{enumerate}}
+{\end{enumerate}}
+
+\newenvironment{qs}
+{\begin{enumerate}}{\end{enumerate}}
+
+\newtoggle{solutions}
+
+\newcommand{\startsolution}[1]{\iftoggle{solutions}{\color{blue}#1\color{black}}}
+
+
+\NewEnviron{solution}{\iftoggle{solutions}{\color{blue} \par \BODY\color{black}}{}}

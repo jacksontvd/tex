@@ -1,0 +1,32 @@
+\usetikzlibrary{snakes,positioning,arrows,decorations.markings}
+
+\tikzset{
+scalar/.style={thick,dashed, >=,
+	postaction={decorate},
+	decoration={markings,mark=at position 0.55 with {\arrow{stealth}}}
+	},
+electron/.style={thick,>=,
+	postaction={decorate},
+        decoration={markings,mark=at position 0.55 with {\arrow{stealth}}}
+        },
+fermion/.style={thick,>=>,
+	postaction={decorate},
+        decoration={markings,mark=at position 0.55 with {\arrow{stealth}}}
+	},
+photon/.style={thick,decorate,
+	decoration={snake,segment length=10pt,amplitude=2pt,post length=0pt}
+	},
+ghost/.style={thick,dotted,>=,
+	postaction={decorate},
+	decoration={markings,mark=at position 0.55 with {\arrow{stealth}}}
+	},
+gluon/.style={snake=coil , segment length=3pt, segment amplitude=2pt,>=,
+	decoration={markings,mark=at position 0.55 with {\arrow{stealth}}}
+	},
+label/.style={->,shorten <=5pt,shorten >=5pt
+	}
+}
+
+\newenvironment{feyn}
+{\begin{tikzcd}[arrows=dash]}
+{\end{tikzcd}}

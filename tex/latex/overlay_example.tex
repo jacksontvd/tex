@@ -1,0 +1,20 @@
+\documentclass{amsart}
+\usepackage{master}
+\usepackage{overlay}
+\begin{document}
+\title{Example}
+\author{}
+\date{}
+\maketitle
+See \cref{fig:example}.
+\begin{figure}
+\begin{overlay}
+% put the file name as the first argument and the width (multiple of whole text width) as the second argument
+\pict{picture.pdf}{0.5}
+% put the text you want on the picture in the first argument, and the ``coordinate'' in the second.
+\toptext{$\Sigma_2$}{1.5,0.5}
+\end{overlay}
+\caption{An example of a figure.}
+\label{fig:example}
+\end{figure}
+\end{document}

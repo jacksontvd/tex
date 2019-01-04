@@ -1,33 +1,54 @@
-\usepackage{amsthm, amsfonts, amssymb, amsmath, amscd,  amsrefs,
-hyperref, cleveref, nameref, thmtools,
-mathrsfs, mathtools,
-graphics, epsfig, slashed, gensymb, multicol,
-latexsym, float, framed, todonotes, enumitem, tensor, dsfont,
-graphicx, tikz, tikz-cd, tkz-berge, tkz-graph, pgfplots,
-polynom, stmaryrd, cancel
-}
+\usepackage{amsthm, amsfonts, amssymb, amsmath, amscd,  amsrefs, 
+nameref,mathtools, thmtools,comment,
+mathrsfs, relsize,
+graphics, epsfig, slashed, gensymb, multicol,marvosym,
+latexsym, float, todonotes, enumitem, tensor, dsfont,
+graphicx, tikz, tikz-cd, tkz-berge, tkz-graph, color,
+polynom, cancel}
+
+\usepackage{stmaryrd}
 %\usepackage{eqnnumwarn}
-\usepackage[compat=1.1.0 ]{tikz-feynman}
-\usepackage{simpler-wick}
+\usepackage[hidelinks,hypertexnames=false]{hyperref}
+\hypersetup{colorlinks = false}
+\usepackage[nameinlink]{cleveref}
+
+%\mathtoolsset{showonlyrefs=true}
+\usepackage{autonum}
+%\usepackage[margin=1in]{geometry}
+%\pagenumbering{gobble}
+
+%\usepackage[compat=1.1.0 ]{tikz-feynman}
+%\usepackage{simpler-wick}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{knots}
 
 \graphicspath{{visuals/}}
 
-\pgfplotsset{compat=1.13}
-
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
-
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt](char){#1};}}
 \usepackage{array}
 \newcolumntype{L}{>{$}l<{$}}
 \newcolumntype{C}{>{$}c<{$}}
 \newcolumntype{R}{>{$}r<{$}}
+
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
 \newcommand{\mathtabular}[1]{\[ \renewcommand{\arraystretch}{1.3} #1 \]}
 \newcommand{\cyc}[1]{\setlength\arraycolsep{0.1em}\begin{pmatrix}#1\end{pmatrix}}
-\renewcommand{\d}[1]{\, d #1 \,}
-
 \newenvironment{cd}
     {\begin{tikzcd}[column sep=small,row sep=small]}
     {\end{tikzcd}}
+\newenvironment{tinycd}
+    {\begin{tikzcd}[column sep=tiny,row sep=small]}
+    {\end{tikzcd}}
+\tikzset{
+    rot/.style={rotate=-90}
+}
+\newcommand{\numbers}{\arabic*}
+\newcommand{\abc}{\alph*}
+\newcommand{\iii}{\roman*}
+\newcommand{\III}{\Roman*}
+\newenvironment{enum}
+    {\begin{enumerate}}
+    {\end{enumerate}}
 \newenvironment{qenum}
     {\begin{enumerate}[label=\alph*.]}
     {\end{enumerate}}
@@ -35,18 +56,29 @@ polynom, stmaryrd, cancel
     {\begin{enumerate}[label={}]}
     {\end{enumerate}}
 \newenvironment{Proof}
+    {\begin{proof}}
     {\renewcommand{\qedsymbol}{$\blacksquare$}
-    \begin{proof}}
-    {\end{proof}\renewcommand{\qedsymbol}{$\square$}}
+    \end{proof}
+    \renewcommand{\qedsymbol}{$\square$}}
 \newenvironment{Matrix}
     {\renewcommand{\arraystretch}{1.3}\begin{pmatrix}}
     {\end{pmatrix}}
+\newenvironment{environment}{}{}
+\newenvironment{largebox}[1][0.9]
+	{\medskip\begin{minipage}[l]{#1\textwidth}\begin{framed}}{\end{framed}\end{minipage}\medskip}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
 
 %environments get:
 %	definition
 %	crefname
 %	numberwithin setting(in cls files)
-
 \newtheorem{thm}{Theorem}
 \Crefname{thm}{Theorem}{Theorems}
 \newtheorem{lem}{Lemma}
@@ -55,9 +87,11 @@ polynom, stmaryrd, cancel
 \Crefname{prop}{Proposition}{Propositions}
 \newtheorem{cor}{Corollary}
 \Crefname{cor}{Corollary}{Corollaries}
-\newtheorem{conj}{Conjecture}
-\Crefname{conj}{Conjecture}{Conjectures}
-
+\newtheorem{con}{Conjecture}
+\Crefname{con}{Conjecture}{Conjectures}
+\newtheorem{fact}{Fact}
+\Crefname{prop}{Fact}{Facts}
+%%%
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}
 \Crefname{defn}{Definition}{Definitions}
@@ -67,100 +101,289 @@ polynom, stmaryrd, cancel
 % \Crefname{sol}{Solution}{Solutions}
 \newtheorem{exm}{Example}
 \Crefname{exm}{Example}{Examples}
+\newtheorem{cexm}{Counterexample}
+\Crefname{cexm}{Counterexample}{Counterexamples}
 \newtheorem{wrn}{Warning}
 \Crefname{wrn}{Warning}{Warnings}
 \newtheorem{clm}{Claim}
 \Crefname{clm}{Claim}{Claims}
-
+%%%
 \theoremstyle{remark}
 \newtheorem{rmk}{Remark}
 \Crefname{rmk}{Remark}{Remarks}
+%%%
+\Crefname{axiom}{Axiom}{Axioms}
+%%%
+%\numberwithin{clm}{thm}
+\crefformat{footnote}{#2\footnotemark[#1]#3}
 
-\numberwithin{clm}{thm}
 
+\newcommand{\multunder}[1]{\substack{#1}}
 \newcommand{\mcal}[1]{\mathcal{#1}}
 \newcommand{\mfrak}[1]{\mathfrak{#1}}
 \newcommand{\bb}[1]{\mathbb{#1}}
-\newcommand{\one}{\mathds{1}}
-\newcommand{\mb}{\mathbf}
+\newcommand{\one}{\text{\rom{1}}}
+\newcommand{\two}{\text{\rom{2}}}
+\newcommand{\three}{\text{\rom{3}}}
+\newcommand{\four}{\text{\rom{4}}}
+%\newcommand{\one}{\mathds{1}}
+%\newcommand{\two}{\mathds{2}}
+%\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\mb}{\boldsymbol}
 \newcommand{\mscr}[1]{\mathscr{#1}}
 
-\newcommand{\A}{\mathcal{A}}
-\newcommand{\B}{\mathcal{B}}
+\newcommand{\CP}{\mathbb{CP}}
+\newcommand{\RP}{\mathbb{RP}}
+
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\BB}{\mathbb{B}}
 \newcommand{\CC}{\mathbb{C}}
-\newcommand{\C}{\mathcal{C}}
-\newcommand{\D}{\mathcal{D}}
-\newcommand{\E}{\mathcal{E}}
-\newcommand{\F}{\mathcal{F}}
+\newcommand{\DD}{\mathbb{D}}
+\newcommand{\EE}{\mathbb{E}}
 \newcommand{\FF}{\mathbb{F}}
+\newcommand{\GG}{\mathbb{G}}
 \newcommand{\HH}{\mathbb{H}}
-\newcommand{\I}{\mathcal{I}}
-\newcommand{\J}{\mathcal{J}}
-\renewcommand{\L}{\mathcal{L}}
-\newcommand{\M}{\mathcal{M}}
-\newcommand{\N}{\mathcal{N}}
+\newcommand{\II}{\mathbb{I}}
+\newcommand{\JJ}{\mathbb{J}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\LL}{\mathbb{L}}
+\newcommand{\MM}{\mathbb{M}}
 \newcommand{\NN}{\mathbb{N}}
-\renewcommand{\O}{\mathcal{O}}
 \newcommand{\OO}{\mathbb{O}}
-\renewcommand{\P}{\mathcal{P}}
 \newcommand{\PP}{\mathbb{P}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
-\newcommand{\T}{\mathcal{T}}
-\newcommand{\V}{\mathcal{V}}
+\renewcommand{\SS}{\mathbb{S}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\UU}{\mathbb{U}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\WW}{\mathbb{W}}
+\newcommand{\XX}{\mathbb{X}}
+\newcommand{\YY}{\mathbb{Y}}
 \newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\Z}{\mathcal{Z}}
+
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bO}{\mathbf{O}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
 
 \newcommand{\fa}{\mathfrak{a}}
 \newcommand{\fb}{\mathfrak{b}}
+\newcommand{\fc}{\mathfrak{c}}
+\newcommand{\fd}{\mathfrak{d}}
+\newcommand{\fe}{\mathfrak{e}}
+\newcommand{\ff}{\mathfrak{f}}
+\newcommand{\fg}{\mathfrak{g}}
+\newcommand{\fh}{\mathfrak{h}}
+% \renewcommand{\fi}{\mathfrak{i}}
+\newcommand{\fj}{\mathfrak{j}}
+\newcommand{\fk}{\mathfrak{k}}
+\newcommand{\fl}{\mathfrak{l}}
 \newcommand{\fm}{\mathfrak{m}}
 \newcommand{\fn}{\mathfrak{n}}
 \newcommand{\fo}{\mathfrak{o}}
 \newcommand{\fp}{\mathfrak{p}}
 \newcommand{\fq}{\mathfrak{q}}
+\newcommand{\fr}{\mathfrak{r}}
+\newcommand{\fs}{\mathfrak{s}}
+\newcommand{\ft}{\mathfrak{t}}
+\newcommand{\fu}{\mathfrak{u}}
+\newcommand{\fv}{\mathfrak{v}}
+\newcommand{\fw}{\mathfrak{w}}
+\newcommand{\fx}{\mathfrak{x}}
+\newcommand{\fy}{\mathfrak{y}}
+\newcommand{\fz}{\mathfrak{z}}
+
+\newcommand{\ba}{\mathbf{a}}
+% \newcommand{\bb}{\mathbf{b}}
+\newcommand{\bc}{\mathbf{c}}
+\newcommand{\bd}{\mathbf{d}}
+\newcommand{\be}{\mathbf{e}}
+% \newcommand{\bf}{\mathbf{f}}
+\newcommand{\bg}{\mathbf{g}}
+\newcommand{\bh}{\mathbf{h}}
+\newcommand{\bi}{\mathbf{i}}
+\newcommand{\bj}{\mathbf{j}}
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\bl}{\mathbf{l}}
+\newcommand{\bm}{\mathbf{m}}
+\newcommand{\bn}{\mathbf{n}}
+\newcommand{\bo}{\mathbf{o}}
+\newcommand{\bp}{\mathbf{p}}
+\newcommand{\bq}{\mathbf{q}}
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\bs}{\mathbf{s}}
+\newcommand{\bt}{\mathbf{t}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bz}{\mathbf{z}}
 
 \renewcommand{\b}{\beta}
 \newcommand{\dd}{\delta}
 \newcommand{\e}{\epsilon}
 \newcommand{\g}{\gamma}
+\newcommand{\Gam}{\Gamma}
+\renewcommand{\k}{\kappa}
+\newcommand{\h}{\hbar}
+\newcommand{\io}{\iota}
 \newcommand{\Lam}{\Lambda}
 \newcommand{\lam}{\lambda}
 \renewcommand{\l}{\lambda}
+\newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega}
 \newcommand{\p}{\partial}
 \newcommand{\z}{\zeta}
 
+\newcommand{\lineheight}{\baselineskip}
 \newcommand{\emp}{\emptyset}
 \renewcommand{\phi}{\varphi}
 \newcommand{\bphi}{\bar\varphi}
 \newcommand{\bpsi}{\bar\psi}
+\newcommand{\trans}{\pitchfork}
+\newcommand{\minus}{\setminus}
+\newcommand{\epi}{\twoheadrightarrow}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\inj}{\hookrightarrow}
 
+\newcommand{\invsurj}{\twoheadleftarrow}
+\newcommand{\invinj}{\hookleftarrow}
+\newcommand{\mono}{\hookrightarrow}
+\newcommand{\embed}{\hookrightarrow}
+\newcommand{\bij}{\leftrightarrow}
+\newcommand{\corr}{\;\, \widehat{ = } \;\,}
+\newcommand{\dalem}{\square}
+\newcommand{\down}{\downarrow}
+\newcommand{\up}{\uparrow}
+\newcommand{\nab}{\nabla}
+\newcommand{\acts}{ \ \rotatebox[origin=c]{-90}{$\circlearrowright$}\ }
+\newcommand{\racts}{ \ \rotatebox[origin=c]{90}{$\circlearrowleft$}\ }
+
+\newcommand{\alg}{\text{alg}}
+\newcommand{\topo}{\text{top}}
+\newcommand{\hw}{\text{hw}}
+\newcommand{\findim}{\text{fd}}
+\newcommand{\splitt}{\text{split}}
+\newcommand{\red}{\text{red}}
+\newcommand{\eqs}{ \text{eqs}}
+\newcommand{\std}{ \text{std}}
+\newcommand{\even}{ \text{even}}
+\newcommand{\odd}{ \text{odd}}
+\newcommand{\solv}{\text{solv}}
+\newcommand{\orb}{\text{orb}}
+\newcommand{\divis}{\text{div}}
+\newcommand{\nil}{\text{nil}}
+\newcommand{\ucsf}{\text{ucsf}}
 \newcommand{\spin}{\text{spin}}
+\newcommand{\finite}{\text{finite}}
+\newcommand{\PB}{\text{PB}}
 \newcommand{\tot}{\text{tot}}
 \newcommand{\pl}{\text{pl}}
 \newcommand{\eff}{\text{eff}}
 \newcommand{\ym}{\text{ym}}
+\newcommand{\tym}{\text{tym}}
 \newcommand{\orbits}{\text{orbits}}
 \newcommand{\cycl}{\text{cycl}}
 \newcommand{\BH}{\text{BH}}
 \newcommand{\orbit}{\text{orbit}}
 \newcommand{\suchthat}{\;\text{s.t.}\;}
-\newcommand{\st}{\, : \,}
+\newcommand{\st}{\, \vert \,}
 \newcommand{\loc}{\text{loc}}
 \newcommand{\inn}{\text{in}}
 \newcommand{\out}{\text{out}}
+\newcommand{\cl}{\text{cl}}
+\newcommand{\RG}{\text{RG}}
+\newcommand{\op}{\text{op}}
+\newcommand{\ini}{\textbf{in}}
+\newcommand{\fin}{\textbf{fin}}
+\newcommand{\EFT}{\text{EFT}}
+\newcommand{\QED}{\text{QED}}
+\newcommand{\SM}{\text{SM}}
+\newcommand{\FS}{\text{FS}}
+\newcommand{\brst}{\text{brst}}
+\newcommand{\phys}{\text{physical}}
+\newcommand{\closed}{\text{closed}}
+\newcommand{\exact}{\text{exact}}
+\newcommand{\ass}{\text{ass}}
+\newcommand{\aux}{\text{aux}}
+\newcommand{\GW}{\text{GW}}
+\newcommand{\redvir}{\text{red vir}}
+\newcommand{\AdS}{\text{AdS}}
+\newcommand{\pt}{\text{pt}}
 
+\newcommand{\tvi}{\looparrowright}
 \newcommand{\rinf}{\rightarrow \infty}
 \newcommand{\rarrow}{\rightarrow}
 \newcommand{\larrow}{\leftarrow}
 \newcommand{\rhup}{\rightharpoonup}
 \newcommand{\rhdown}{\rightharpoondown}
-\newcommand{\tp}{\otimes}
 \newcommand{\fromto}{\rightarrow}
+\newcommand{\backto}{\circlearrowleft}
+\newcommand{\lfromto}{\xrightarrow}
 \newcommand{\tofrom}{\leftarrow}
+\newcommand{\from}{\leftarrow}
 \newcommand{\comp}{\circ}
 \newcommand{\converse}{\Longleftarrow}
 \newcommand{\conv}{*}
+\newcommand{\btimes}{\bigtimes}
+\newcommand{\bdsum}{\bigoplus\limits}
+\newcommand{\dsum}{\oplus}
+\newcommand{\btp}{\bigotimes}
+\newcommand{\tp}{\otimes}
+\newcommand{\boxtp}{\boxtimes}
 \newcommand{\dun}{\amalg}
+\newcommand{\bdun}{\coprod}
 \newcommand{\un}{\cup}
 \newcommand{\bun}{\bigcup}
 \newcommand{\inter}{\cap}
@@ -168,6 +391,7 @@ polynom, stmaryrd, cancel
 \newcommand{\al}{\alpha}
 \newcommand{\compl}{\mathrm{c}}
 \newcommand{\clos}[1]{\overline{#1}}
+\newcommand{\interior}[1]{#1^{\circ}}
 \newcommand{\dirlim}{\varinjlim}
 \newcommand{\invlim}{\varprojlim}
 \newcommand{\ceq}{\coloneq}
@@ -178,13 +402,26 @@ polynom, stmaryrd, cancel
 \newcommand{\msin}{\perp}
 \newcommand{\act}{\cdot}
 \newcommand{\something}{\bullet}
+\newcommand{\point}{\bullet}
 \newcommand{\somethingg}{*}
-\newcommand{\imbed}{\hookrightarrow}
+\newcommand{\cp}{\amalg}
+\newcommand{\nsup}{\triangleright}
+\newcommand{\nsub}{\triangleleft}
+\newcommand{\charsub}{\triangleleft \! \Mapsfromchar}
+\newcommand{\charsup}{\Mapstochar \! \triangleright}
+\newcommand{\subeq}{\subseteq}
+\newcommand{\sub}{\subset}
+\newcommand{\subneq}{\subsetneq}
+\newcommand{\sups}{\supset}
+\newcommand{\supeq}{\supseteq}
+\newcommand{\supneq}{\supsetneq}
+\newcommand{\cupp}{\smile}
+\newcommand{\preq}{/_{\text{pre}} \, }
 
 \newcommand{\dx}{\,dx\,}
 \newcommand{\dy}{\,dy\,}
 \newcommand{\dz}{\,dz\,}
-
+\renewcommand{\d}[1]{\, d #1 \,}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\lr}[1]{\left\langle #1 \right\rangle}
@@ -194,27 +431,81 @@ polynom, stmaryrd, cancel
 \newcommand{\ket}[1]{\left\vert #1  \right\rangle}
 \newcommand{\fsl}[1]{\slashed{#1}}
 %\newcommand{\fsl}[1]{\ensuremath{\mathrlap{\!\not{\phantom{#1}}}#1}}
+\newcommand{\libr}[1]{\left[ #1 \right]}
 \newcommand{\cop}[1]{\left[ #1 \right) }
 \newcommand{\opc}[1]{\left( #1 \right] }
-\newcommand{\restr}[2]{#1 \vert_{#2}}
+\newcommand{\restr}[2]{\left.#1 \right\vert_{#2}}
+\newcommand{\conj}[1]{#1^*}
+\newcommand{\leftdual}[1]{ \, ^\vee #1 }
+\newcommand{\rightdual}[1]{ #1^\vee }
+\newcommand{\rdual}{\rightdual}
 \newcommand{\dual}[1]{ #1^* }
+\newcommand{\hodge}[1]{\star #1}
 \newcommand{\ddual}[1]{ #1^{**} }
+\newcommand{\tpose}[1]{#1^{T}}
+\newcommand{\tens}[2]{\tensor{#1}{#2}}
+\newcommand{\ttilde}[1]{\widetilde{#1}}
+\newcommand{\uc}[1]{\widetilde{#1}}
+\newcommand{\barr}[1]{\overline{#1}}
+\newcommand{\hatt}[1]{\widehat{#1}}
+\newcommand{\shff}[1]{#1^{\textrm{Sh}}}
+
+\DeclareFontFamily{U}{mathx}{\hyphenchar\font45}
+\DeclareFontShape{U}{mathx}{m}{n}{
+      <5> <6> <7> <8> <9> <10>
+      <10.95> <12> <14.4> <17.28> <20.74> <24.88>
+      mathx10
+      }{}
+\DeclareSymbolFont{mathx}{U}{mathx}{m}{n}
+\DeclareFontSubstitution{U}{mathx}{m}{n}
+\DeclareMathAccent{\widecheck}{0}{mathx}{"71}
+\DeclareMathAccent{\wideparen}{0}{mathx}{"75}
+%\newcommand{\checkk}[1]{\widecheck{#1}}
+\newcommand{\checkk}[1]{\check #1}
 
 \newcommand{\given}{\vert}
 \renewcommand{\div}{\vert}
 \newcommand{\ndiv}{\hspace{-0.2ex}\not\hspace{0.6ex}\mid}
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\under}[1]{\underline{#1}}
 \newcommand{\oline}[1]{\overline{#1}}
-\newcommand{\Modp}[1]{ \, \left(\mathrm{mod} \, #1\right) \, }
-\newcommand{\Mod}[1]{\, \mathrm{mod} \, #1 \,}
-\newcommand{\cmod}[1]{ \, \equiv \, \left(\mathrm{mod} \, #1\right)\,}
+\newcommand{\modp}[1]{ \, \left(\mathrm{mod} \, #1\right) \, }
+\renewcommand{\mod}[1]{\, \mathrm{mod} \, #1 \,}
+\newcommand{\cmod}[2]{ \, \equiv \, #1 \, \left(\mathrm{mod} \, #2\right)\,}
 \newcommand{\ubr}[2]{\underbrace{#1}_{#2}}
-\newcommand{\obr}[2]{\overbrace{#1}_{#2}}
+\newcommand{\obr}[2]{\overbrace{#1}^{#2}}
 \newcommand{\units}[1]{#1^\times}
 \newcommand{\ps}[1]{\left\llbracket #1 \right\rrbracket}
+\newcommand{\ls}[1]{\left(\!\left( #1 \right)\!\right)}
+\newcommand{\tv}[1]{\left\llbracket #1 \right\rrbracket}
+\newcommand{\ext}{\wedge}
+\newcommand{\bigext}{\bigwedge}
+\newcommand{\biset}[3]{{}_{#2} {#1}_{#3}}
+\newcommand{\dblcs}[3]{#2 \backslash #1  / #3}
+\newcommand{\rightcs}[2]{#2 \backslash #1}
+\newcommand{\leftorbits}[2]{\,_{#2}#1}
+\newcommand{\gcl}[2]{\, ^{#2}#1}
+\newcommand{\gcr}[2]{#1^{#2}}
+\newcommand{\anti}[1]{{#1}^*}
+\newcommand{\gnum}[1]{\text{gh}\#\left(#1\right)}
+\newcommand{\agnum}[1]{\text{anti-gh}\#\left(#1\right)}
+\newcommand{\consh}[1]{\underline{\underline{#1}}}
+\newcommand{\dunder}[1]{\underline{\underline{#1}}}
+\newcommand{\lmod}[2]{^{#2}#1}
+\newcommand{\dmod}[2]{^{#2}#1}
+\newcommand{\amod}[2]{#1_{#2}}
+\newcommand{\damod}[3]{^{#2}{#1}_{#3}}
+\newcommand{\rad}[1]{\sqrt{#1}}
+%\newcommand{\rad}{\sqrt{\vphantom{x}}}
 
 \newcommand{\cat}{\mathbf}
+\newcommand{\Rep}{\cat{Rep}}
+\newcommand{\Sh}{\cat{Sh}}
+\newcommand{\PreSh}{\cat{PreSh}}
 \newcommand{\Grp}{\cat{Grp}}
+\newcommand{\Mfd}{\cat{Mfd}}
+\newcommand{\SymplMfd}{\cat{Sympl Mfd}}
+\newcommand{\Mon}{\cat{Mon}}
 \newcommand{\Cat}{\cat{Cat}}
 \newcommand{\Ab}{\cat{Ab}}
 \newcommand{\Fr}{\cat{Fr}}
@@ -229,30 +520,163 @@ polynom, stmaryrd, cancel
 \newcommand{\Crig}{\cat{Crig}}
 \newcommand{\Crng}{\cat{Crng}}
 \newcommand{\Cring}{\cat{Cring}}
+\newcommand{\Semiring}{\cat{Semiring}}
 \newcommand{\Root}{\cat{Root}}
 \newcommand{\Semi}{\cat{Semi}}
+\newcommand{\Open}{\cat{Open}}
 \newcommand{\Simp}{\cat{Simp}}
 \newcommand{\SN}{\cat{SN}}
 \newcommand{\Top}{\cat{Top}}
 \newcommand{\TVS}{\cat{TVS}}
+\newcommand{\ExtGr}{\cat{ExtGr}}
+\newcommand{\LocSys}{\cat{LocSys}}
 \newcommand{\Uni}{\cat{Uni}}
 \newcommand{\Vect}{\cat{Vect}}
+\newcommand{\FVect}{\cat{FDVect}}
+\newcommand{\GVect}{\cat{GrdVect}}
+\newcommand{\GFVect}{\cat{GrdFDVect}}
+\newcommand{\DAMod}[2]{^{#1}\cat{Mod}_{#2}}
+\newcommand{\Rmod}{R\text{-}\cat{Mod}}
+\newcommand{\dMod}[1]{^{#1}\cat{Mod}}
+\newcommand{\aMod}[1]{\cat{Mod}_{#1}}
+\newcommand{\lMod}[1]{#1\text{-}\cat{Mod}}
+\newcommand{\rMod}[1]{\cat{Mod}\text{-}#1}
+\newcommand{\Mod}[2]{#1\text{-}\cat{Mod}\text{-}#2}
+\newcommand{\Module}{\cat{Mod}}
+\newcommand{\Alg}{\cat{Alg}}
+\newcommand{\lAlg}[1]{#1\text{-}\cat{Alg}}
+\newcommand{\rAlg}[1]{\cat{Alg}\text{-}#1}
+\newcommand{\Gset}{G\text{-} \cat{set}}
+\newcommand{\Biset}[2]{\cat{#1}\text{-}\Set\text{-}\cat{#2}}
+\newcommand{\lbis}[1]{#1\text{-}\Set}
+\newcommand{\rbis}[1]{\Set\text{-}#1}
+\newcommand{\kcoalg}[1]{ k \text{-}\cat{Coalg} }
+\newcommand{\Chain}[1]{\cat{Ch\left( #1 \right)}}
+\newcommand{\Ch}{\cat{Ch}}
+\newcommand{\Coalg}{\cat{Coalg}}
+\newcommand{\Bialg}{\cat{Bialg}}
+\newcommand{\Hopf}{\cat{Hopf}}
+\newcommand{\AlgVar}{\cat{Alg Var}}
+\newcommand{\Lie}{\cat{Lie}}
+\newcommand{\LieAlg}{\cat{Lie}\text{-}\cat{Alg}}
+\newcommand{\LieGp}{\cat{Lie}\text{-}\cat{Gp}}
+\newcommand{\Lrsp}{\cat{LRSp}}
+\newcommand{\LRSp}{\cat{LRSp}}
+\newcommand{\Affsch}{\cat{AffSch}}
+\newcommand{\AffSch}{\cat{AffSch}}
+\newcommand{\Sch}{\cat{Sch}}
+\newcommand{\Schemes}{\cat{Sch}}
+\newcommand{\Functors}{\cat{Functors}}
+\newcommand{\Jac}{\cat{Jac}}
 
+\let\Bar\undefined
+\DeclareMathOperator{\Bar}{Bar}
+\DeclareMathOperator{\FT}{FT}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Skel}{Skel}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Sob}{Sob}
+\DeclareMathOperator{\Derivations}{Der}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\component}{comp}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\cent}{center}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\Fuk}{Fuk}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\Slope}{Sl}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\nd}{nd}
+\DeclareMathOperator{\PD}{PD}
+\DeclareMathOperator{\SW}{SW}
+\DeclareMathOperator{\HFK}{HFK}
+\DeclareMathOperator{\DFK}{DFK}
+\DeclareMathOperator{\AFK}{AFK}
+\DeclareMathOperator{\DAFK}{DAFK}
+\DeclareMathOperator{\CFK}{CFK}
+\DeclareMathOperator{\HF}{HF}
+\DeclareMathOperator{\CF}{CF}
+\DeclareMathOperator{\CFD}{CFD}
+\DeclareMathOperator{\CFDA}{CFDA}
+\DeclareMathOperator{\CW}{CW}
+\DeclareMathOperator{\HW}{HW}
+\DeclareMathOperator{\HM}{HM}
+\DeclareMathOperator{\CM}{CM}
+\DeclareMathOperator{\CKh}{CKh}
+\DeclareMathOperator{\inv}{inv}
+\DeclareMathOperator{\Foc}{Foc}
+\DeclareMathOperator{\Fus}{Fus}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\Cts}{Cts}
+\DeclareMathOperator{\Tot}{Tot}
+\DeclareMathOperator{\cone}{cone}
+\DeclareMathOperator{\Fit}{Fit}
+\DeclareMathOperator{\HB}{HB}
+\DeclareMathOperator{\St}{St}
+\DeclareMathOperator{\Bl}{Bl}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Hol}{Hol}
+\DeclareMathOperator{\Sect}{Sect}
+\DeclareMathOperator{\Solv}{Solv}
+\DeclareMathOperator{\coinv}{coinv}
+\DeclareMathOperator{\rep}{Rep}
+\DeclareMathOperator{\height}{ht}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Diffeo}{Diffeo}
+\DeclareMathOperator{\vect}{Vect}
+\DeclareMathOperator{\Split}{Split}
+\DeclareMathOperator{\Tors}{Tors}
+\DeclareMathOperator{\val}{val}
+\DeclareMathOperator{\Dehn}{Dehn}
+\DeclareMathOperator{\Fl}{Fl}
+\DeclareMathOperator{\LGr}{LGr}
+\DeclareMathOperator{\Transversals}{Transversals}
+\DeclareMathOperator{\Forget}{Forget}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\Symp}{Symp}
+\DeclareMathOperator{\Ham}{Ham}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Nat}{Nat}
 \DeclareMathOperator{\Mor}{Mor}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Out}{Out}
 \DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Coind}{Coind}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\Ass}{Ass}
+\DeclareMathOperator{\Inf}{Inf}
+\DeclareMathOperator{\Def}{Def}
+\DeclareMathOperator{\ad}{ad}
 \DeclareMathOperator{\Iso}{Iso}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\mSpec}{m-Spec}
 \DeclareMathOperator{\Obj}{Obj}
 \DeclareMathOperator{\Perm}{Perm}
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Alt}{Alt}
 \DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\Sgr}{Sgr}
 \DeclareMathOperator{\Free}{Free}
 \DeclareMathOperator{\cliff}{Cliff}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\Op}{Op}
+\DeclareMathOperator{\Gr}{Gr}
 \DeclareMathOperator{\discr}{discr}
+\DeclareMathOperator{\crossing}{cr}
+\DeclareMathOperator{\weight}{weight}
+\DeclareMathOperator{\circles}{circ}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\id}{id}
@@ -261,29 +685,35 @@ polynom, stmaryrd, cancel
 \DeclareMathOperator{\cont}{c}
 \DeclareMathOperator{\EL}{EL}
 \DeclareMathOperator{\Ball}{B}
-\DeclareMathOperator{\op}{op}
 \DeclareMathOperator{\colim}{colim}
 \DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\ind}{ind}
 \DeclareMathOperator{\Tor}{Tor}
 \DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Der}{Der}
 \DeclareMathOperator{\Dy}{Dy}
 \DeclareMathOperator{\dist}{dist}
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\acc}{acc}
 \DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\Area}{Area}
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\Ima}{Im}
 \DeclareMathOperator{\Rea}{Re}
-\DeclareMathOperator*{\Res}{Res}
+\DeclareMathOperator*{\Residue}{Res}
+\DeclareMathOperator{\ch}{ch}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\meas}{m}
 \DeclareMathOperator{\ess}{ess}
 \DeclareMathOperator{\chara}{char}
 \DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\PU}{PU}
+\DeclareMathOperator{\PGL}{PGL}
 \newcommand{\gl}{\mfrak{gl}}
 \DeclareMathOperator{\PSL}{PSL}
-%\DeclareMathOperator{\@O}{O}
-%\renewcommand{\O}{\@O}
+\let\O\undefined
+\DeclareMathOperator{\O}{O}
+\renewcommand{\o}{\mfrak{o}}
 \DeclareMathOperator{\SL}{SL}
 \renewcommand{\sl}{\mfrak{sl}}
 \let\SO\undefined
@@ -294,5 +724,9 @@ polynom, stmaryrd, cancel
 \DeclareMathOperator{\SU}{SU}
 \newcommand{\su}{\mfrak{su}}
 \DeclareMathOperator{\U}{U}
+\let\uu\u
 \renewcommand{\u}{\mfrak{u}}
+
+\newcommand{\lienil}{\mfrak{nil}}
+\newcommand{\lierad}{\mfrak{rad}}
 
