@@ -9,7 +9,11 @@ polynom, cancel}
 \usepackage{stmaryrd}
 %\usepackage{eqnnumwarn}
 \usepackage[hidelinks,hypertexnames=false]{hyperref}
-\hypersetup{colorlinks = false}
+\hypersetup{colorlinks = true,
+            linkcolor = black,
+            urlcolor  = blue,
+            citecolor = black,
+}
 \usepackage[nameinlink]{cleveref}
 
 %\mathtoolsset{showonlyrefs=true}
@@ -20,7 +24,9 @@ polynom, cancel}
 %\usepackage[compat=1.1.0 ]{tikz-feynman}
 %\usepackage{simpler-wick}
 \usetikzlibrary{backgrounds}
-\usetikzlibrary{knots}
+%\usetikzlibrary{knots}
+%\usetikzlibrary{decorations.pathmorphing}
+%this is for the crazier arrows in tikcd (squiggly etc)
 
 \graphicspath{{visuals/}}
 
@@ -108,6 +114,8 @@ polynom, cancel}
 \Crefname{cexm}{Counterexample}{Counterexamples}
 \newtheorem{wrn}{Warning}
 \Crefname{wrn}{Warning}{Warnings}
+\newtheorem{qn}{Question}
+\Crefname{qn}{Question}{Questions}
 \newtheorem{clm}{Claim}
 \Crefname{clm}{Claim}{Claims}
 %%%
@@ -368,8 +376,12 @@ polynom, cancel}
 \newcommand{\AdS}{\text{AdS}}
 \newcommand{\pt}{\text{pt}}
 
+\newcommand{\determines}{\vdash}
+\newcommand{\proves}{\vdash}
+\newcommand{\bands}{\bigvee}
 \newcommand{\ands}{\vee}
 \newcommand{\ors}{\wedge}
+\newcommand{\bors}{\bigwedge}
 \newcommand{\tvi}{\looparrowright}
 \newcommand{\rinf}{\rightarrow \infty}
 \newcommand{\rarrow}{\rightarrow}
@@ -679,6 +691,7 @@ polynom, cancel}
 \DeclareMathOperator{\Irr}{Irr}
 \DeclareMathOperator{\Sgr}{Sgr}
 \DeclareMathOperator{\Free}{Free}
+\DeclareMathOperator{\type}{tp}
 \DeclareMathOperator{\cliff}{Cliff}
 \DeclareMathOperator{\Cl}{Cl}
 \DeclareMathOperator{\Op}{Op}
@@ -709,6 +722,8 @@ polynom, cancel}
 \DeclareMathOperator{\Area}{Area}
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\Ima}{Im}
+\let\Im\undefined
+\DeclareMathOperator{\Im}{Im}
 \DeclareMathOperator{\Rea}{Re}
 \DeclareMathOperator*{\Residue}{Res}
 \DeclareMathOperator{\ch}{ch}
