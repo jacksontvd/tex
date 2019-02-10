@@ -15,5 +15,7 @@
 
 \newcommand{\startsolution}[1]{\iftoggle{solutions}{\color{blue}#1\color{black}}}
 
-
-\NewEnviron{solution}{\iftoggle{solutions}{\color{blue} \par \BODY\color{black}}{}}
+% no 'Solution' label
+%\NewEnviron{solution}{\iftoggle{solutions}{\color{blue} \par \BODY\color{black}}{}}
+% yes 'Solution' label
+\NewEnviron{solution}{\iftoggle{solutions}{\color{blue} \par\begin{sol} \BODY\end{sol}\color{black}}{}}
