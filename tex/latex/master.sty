@@ -302,6 +302,7 @@ polynom, cancel}
 \newcommand{\p}{\partial}
 \newcommand{\z}{\zeta}
 
+\newcommand{\Fraisse}{Fra\"{i}ss\'{e}\ }
 \newcommand{\lineheight}{\baselineskip}
 \newcommand{\emp}{\emptyset}
 \renewcommand{\phi}{\varphi}
@@ -381,8 +382,8 @@ polynom, cancel}
 \newcommand{\determines}{\vdash}
 \newcommand{\proves}{\vdash}
 \newcommand{\bands}{\bigvee}
-\newcommand{\ands}{\vee}
-\newcommand{\ors}{\wedge}
+\newcommand{\ands}{\wedge}
+\newcommand{\ors}{\vee}
 \newcommand{\bors}{\bigwedge}
 \newcommand{\tvi}{\looparrowright}
 \newcommand{\rinf}{\rightarrow \infty}
@@ -414,7 +415,8 @@ polynom, cancel}
 \newcommand{\al}{\alpha}
 \newcommand{\compl}{\mathrm{c}}
 \newcommand{\clos}[1]{\overline{#1}}
-\newcommand{\interior}[1]{#1^{\circ}}
+%\newcommand{\interior}[1]{#1^{\circ}}
+\DeclareMathOperator{\interior}{int}
 \newcommand{\dirlim}{\varinjlim}
 \newcommand{\invlim}{\varprojlim}
 \newcommand{\ceq}{\coloneq}
@@ -428,6 +430,9 @@ polynom, cancel}
 \newcommand{\point}{\bullet}
 \newcommand{\somethingg}{*}
 \newcommand{\cp}{\amalg}
+\newcommand{\order}{\trianglelefteq}
+\newcommand{\orderr}{\preccurlyeq}
+\newcommand{\orderrr}{\underline{\lessdot}}
 \newcommand{\nsup}{\triangleright}
 \newcommand{\nsub}{\triangleleft}
 \newcommand{\charsub}{\triangleleft \! \Mapsfromchar}
@@ -590,13 +595,19 @@ polynom, cancel}
 \newcommand{\AffSch}{\cat{AffSch}}
 \newcommand{\Sch}{\cat{Sch}}
 \newcommand{\Schemes}{\cat{Sch}}
-\newcommand{\Qco}{\cat{QCO}}
+\newcommand{\Coh}{\cat{Coh}}
+\newcommand{\Qco}{\cat{QCoh}}
+\newcommand{\QCoh}{\cat{QCoh}}
+\newcommand{\Qcoh}{\cat{QCoh}}
 \newcommand{\Functors}{\cat{Functors}}
 \newcommand{\Jac}{\cat{Jac}}
 
 \let\Bar\undefined
 \DeclareMathOperator{\Bar}{Bar}
+\DeclareMathOperator{\wind}{wind}
+\DeclareMathOperator{\Pic}{Pic}
 \DeclareMathOperator{\FT}{FT}
+\DeclareMathOperator{\sh}{sh}
 \DeclareMathOperator{\Proj}{Proj}
 \DeclareMathOperator{\Skel}{Skel}
 \DeclareMathOperator{\proj}{proj}
@@ -617,6 +628,7 @@ polynom, cancel}
 \DeclareMathOperator{\nd}{nd}
 \DeclareMathOperator{\PD}{PD}
 \DeclareMathOperator{\SW}{SW}
+\DeclareMathOperator{\SH}{SH}
 \DeclareMathOperator{\HFK}{HFK}
 \DeclareMathOperator{\DFK}{DFK}
 \DeclareMathOperator{\AFK}{AFK}
