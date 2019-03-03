@@ -18,8 +18,18 @@ polynom, cancel}
 
 %\mathtoolsset{showonlyrefs=true}
 \usepackage{autonum}
+
+%suppress pagenumbers:
 %\usepackage[margin=1in]{geometry}
 %\pagenumbering{gobble}
+
+%suppress numbering subsections within sections:
+% \usepackage{chngcntr}
+% \counterwithout{subsection}{section}
+%determine what to show in toc:
+%-1 part     1 section     3 subsubsection  5 subparagraph
+%0 chapter  2 subsection  4 paragraph
+%\setcounter{tocdepth}{4}
 
 %\usepackage[compat=1.1.0 ]{tikz-feynman}
 %\usepackage{simpler-wick}
@@ -327,6 +337,8 @@ polynom, cancel}
 \newcommand{\acts}{ \ \rotatebox[origin=c]{-90}{$\circlearrowright$}\ }
 \newcommand{\racts}{ \ \rotatebox[origin=c]{90}{$\circlearrowleft$}\ }
 
+
+\newcommand{\aff}{\text{aff}}
 \newcommand{\alg}{\text{alg}}
 \newcommand{\topo}{\text{top}}
 \newcommand{\hw}{\text{hw}}
@@ -378,13 +390,16 @@ polynom, cancel}
 \newcommand{\redvir}{\text{red vir}}
 \newcommand{\AdS}{\text{AdS}}
 \newcommand{\pt}{\text{pt}}
+\newcommand{\graded}{\text{grd}}
 
 \newcommand{\determines}{\vdash}
 \newcommand{\proves}{\vdash}
+\newcommand{\bland}{\bigvee}
 \newcommand{\bands}{\bigvee}
 \newcommand{\ands}{\wedge}
 \newcommand{\ors}{\vee}
 \newcommand{\bors}{\bigwedge}
+\newcommand{\blor}{\bigwedge}
 \newcommand{\tvi}{\looparrowright}
 \newcommand{\rinf}{\rightarrow \infty}
 \newcommand{\rarrow}{\rightarrow}
@@ -430,9 +445,16 @@ polynom, cancel}
 \newcommand{\point}{\bullet}
 \newcommand{\somethingg}{*}
 \newcommand{\cp}{\amalg}
+\newcommand{\trianglerightneq}{\mathrel{\ooalign{\raisebox{-0.5ex}{\reflectbox{\rotatebox{90}{$\nshortmid$}}}\cr$\triangleright$\cr}\mkern-3mu}}
+\newcommand{\triangleleftneq}{\mathrel{\reflectbox{$\trianglerightneq$}}}
 \newcommand{\order}{\trianglelefteq}
+\newcommand{\orderl}{\trianglelefteq}
+\newcommand{\sorderl}{\triangleleftneq}
+\newcommand{\sorderg}{\trianglerightneq}
 \newcommand{\orderr}{\preccurlyeq}
+\newcommand{\orderrl}{\preccurlyeq}
 \newcommand{\orderrr}{\underline{\lessdot}}
+\newcommand{\orderrrl}{\underline{\lessdot}}
 \newcommand{\nsup}{\triangleright}
 \newcommand{\nsub}{\triangleleft}
 \newcommand{\charsub}{\triangleleft \! \Mapsfromchar}
@@ -477,6 +499,7 @@ polynom, cancel}
 \newcommand{\barr}[1]{\overline{#1}}
 \newcommand{\hatt}[1]{\widehat{#1}}
 \newcommand{\shff}[1]{#1^{\textrm{Sh}}}
+\newcommand{\squo}[2]{#1/\!\!/#2}
 
 \DeclareFontFamily{U}{mathx}{\hyphenchar\font45}
 \DeclareFontShape{U}{mathx}{m}{n}{
@@ -605,6 +628,7 @@ polynom, cancel}
 \let\Bar\undefined
 \DeclareMathOperator{\Bar}{Bar}
 \DeclareMathOperator{\wind}{wind}
+\DeclareMathOperator{\Forb}{Forb}
 \DeclareMathOperator{\Pic}{Pic}
 \DeclareMathOperator{\FT}{FT}
 \DeclareMathOperator{\sh}{sh}
@@ -736,8 +760,10 @@ polynom, cancel}
 \DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\acc}{acc}
 \DeclareMathOperator{\Vol}{Vol}
-\DeclareMathOperator{\Area}{Area}
+\DeclareMathOperator{\Area}{area}
+\DeclareMathOperator{\area}{area}
 \DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\theory}{Th}
 \DeclareMathOperator{\Ima}{Im}
 \let\Im\undefined
 \DeclareMathOperator{\Im}{Im}
