@@ -40,7 +40,7 @@ polynom, cancel}
 
 \graphicspath{{visuals/}}
 
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt](char){#1};}}
+%ENVIRONMENTS
 \usepackage{array}
 \newcolumntype{L}{>{$}l<{$}}
 \newcolumntype{C}{>{$}c<{$}}
@@ -84,7 +84,6 @@ polynom, cancel}
 %workaround which does not require the package 'mdframed' only 'framed'
 %\newenvironment{largebox}[1][0.9]{\medskip\begin{minipage}[l]{#1\textwidth}\begin{framed}}{\end{framed}\end{minipage}\medskip}
 %\newenvironment{Largebox}{\medskip\begin{oframed}}{\end{oframed}\medskip}
-
 
 \makeatletter
 \renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
@@ -143,20 +142,7 @@ polynom, cancel}
 %make arxiv links actually link to the website
 \renewcommand{\eprint}[1]{\href{https://arxiv.org/abs/#1}{arXiv:#1}}
 
-\newcommand{\multunder}[1]{\substack{#1}}
-\newcommand{\mcal}[1]{\mathcal{#1}}
-\newcommand{\mfrak}[1]{\mathfrak{#1}}
-\newcommand{\bb}[1]{\mathbb{#1}}
-\newcommand{\rone}{\text{\rom{1}}}
-\newcommand{\rtwo}{\text{\rom{2}}}
-\newcommand{\rthree}{\text{\rom{3}}}
-\newcommand{\rfour}{\text{\rom{4}}}
-\newcommand{\one}{\mathbf{1}}
-%\newcommand{\one}{\mathds{1}}
-%\newcommand{\two}{\mathds{2}}
-%\newcommand{\mb}[1]{\mathbf{#1}}
-\newcommand{\mb}{\boldsymbol}
-\newcommand{\mscr}[1]{\mathscr{#1}}
+%LETTERS
 
 \newcommand{\CP}{\mathbb{CP}}
 \newcommand{\RP}{\mathbb{RP}}
@@ -312,32 +298,9 @@ polynom, cancel}
 \newcommand{\p}{\partial}
 \newcommand{\z}{\zeta}
 
+
+% TEXT 
 \newcommand{\Fraisse}{Fra\"{i}ss\'{e}\ }
-\newcommand{\lineheight}{\baselineskip}
-\newcommand{\emp}{\emptyset}
-\renewcommand{\phi}{\varphi}
-\newcommand{\bphi}{\bar\varphi}
-\newcommand{\bpsi}{\bar\psi}
-\newcommand{\trans}{\pitchfork}
-\newcommand{\minus}{\setminus}
-\newcommand{\epi}{\twoheadrightarrow}
-\newcommand{\surj}{\twoheadrightarrow}
-\newcommand{\inj}{\hookrightarrow}
-
-\newcommand{\invsurj}{\twoheadleftarrow}
-\newcommand{\invinj}{\hookleftarrow}
-\newcommand{\mono}{\hookrightarrow}
-\newcommand{\embed}{\hookrightarrow}
-\newcommand{\bij}{\leftrightarrow}
-\newcommand{\corr}{\;\, \widehat{ = } \;\,}
-\newcommand{\dalem}{\square}
-\newcommand{\down}{\downarrow}
-\newcommand{\up}{\uparrow}
-\newcommand{\nab}{\nabla}
-\newcommand{\acts}{ \ \rotatebox[origin=c]{-90}{$\circlearrowright$}\ }
-\newcommand{\racts}{ \ \rotatebox[origin=c]{90}{$\circlearrowleft$}\ }
-
-
 \newcommand{\aff}{\text{aff}}
 \newcommand{\alg}{\text{alg}}
 \newcommand{\topo}{\text{top}}
@@ -392,6 +355,54 @@ polynom, cancel}
 \newcommand{\pt}{\text{pt}}
 \newcommand{\graded}{\text{grd}}
 
+%ARROWS
+\newcommand{\rarrow}{\rightarrow}
+\newcommand{\fromto}{\rightarrow}
+\newcommand{\lfromto}{\xrightarrow}
+%\newcommand{\to}{\rightarrow}
+\newcommand{\lto}{\xrightarrow}
+\newcommand{\inj}{\hookrightarrow}
+\newcommand{\linj}{\xhookrightarrow}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\lsurj}{\xtwoheadrightarrow}
+\newcommand{\epi}{\twoheadrightarrow}
+\newcommand{\mono}{\hookrightarrow}
+\newcommand{\embed}{\hookrightarrow}
+\newcommand{\larrow}{\leftarrow}
+\newcommand{\tofrom}{\leftarrow}
+\newcommand{\ltofrom}{\xleftarrow}
+\newcommand{\from}{\leftarrow}
+\newcommand{\lfrom}{\xleftarrow}
+\newcommand{\invinj}{\hookleftarrow}
+\newcommand{\linvinj}{\xhookleftarrow}
+\newcommand{\invsurj}{\twoheadleftarrow}
+\newcommand{\linvsurj}{\xtwoheadleftarrow}
+\newcommand{\bij}{\leftrightarrow}
+\newcommand{\lbij}{\xleftrightarrow}
+\newcommand{\backto}{ \ \rotatebox[origin=c]{90}{$\circlearrowleft$}\ }
+\newcommand{\acts}{ \ \rotatebox[origin=c]{-90}{$\circlearrowright$}\ }
+\newcommand{\racts}{\backto}
+\newcommand{\acted}{\backto}
+\newcommand{\tvi}{\looparrowright}%this is for self transverse immersion (princeton summer 18, Pardon)
+\newcommand{\paut}{\dashrightarrow}%partial automorphism (ucb model theory (229) spring 19)
+\newcommand{\rinf}{\rightarrow \infty}
+\newcommand{\rhup}{\rightharpoonup}
+\newcommand{\rhdown}{\rightharpoondown}
+\newcommand{\down}{\downarrow}
+\newcommand{\up}{\uparrow}
+\newcommand{\bleadsto}{\leftrightsquigarrow}
+
+% SYMBOLS
+\newcommand{\lineheight}{\baselineskip}
+\newcommand{\emp}{\emptyset}
+\renewcommand{\phi}{\varphi}
+\newcommand{\bphi}{\bar\varphi}
+\newcommand{\bpsi}{\bar\psi}
+\newcommand{\trans}{\pitchfork}
+\newcommand{\minus}{\setminus}
+\newcommand{\corr}{\;\, \widehat{ = } \;\,}
+\newcommand{\dalem}{\square}
+\newcommand{\nab}{\nabla}
 \newcommand{\determines}{\vdash}
 \newcommand{\proves}{\vdash}
 \newcommand{\bland}{\bigvee}
@@ -400,18 +411,6 @@ polynom, cancel}
 \newcommand{\ors}{\vee}
 \newcommand{\bors}{\bigwedge}
 \newcommand{\blor}{\bigwedge}
-\newcommand{\tvi}{\looparrowright}
-\newcommand{\rinf}{\rightarrow \infty}
-\newcommand{\rarrow}{\rightarrow}
-\newcommand{\larrow}{\leftarrow}
-\newcommand{\rhup}{\rightharpoonup}
-\newcommand{\rhdown}{\rightharpoondown}
-\newcommand{\paut}{\dashrightarrow}
-\newcommand{\fromto}{\rightarrow}
-\newcommand{\backto}{\circlearrowleft}
-\newcommand{\lfromto}{\xrightarrow}
-\newcommand{\tofrom}{\leftarrow}
-\newcommand{\from}{\leftarrow}
 \newcommand{\comp}{\circ}
 \newcommand{\converse}{\Longleftarrow}
 \newcommand{\conv}{*}
@@ -467,10 +466,14 @@ polynom, cancel}
 \newcommand{\supneq}{\supsetneq}
 \newcommand{\cupp}{\smile}
 \newcommand{\preq}{/_{\text{pre}} \, }
-
+ \newcommand{\given}{\vert}
+\renewcommand{\div}{\vert}
+\newcommand{\ndiv}{\hspace{-0.2ex}\not\hspace{0.6ex}\mid}
 \newcommand{\dx}{\,dx\,}
 \newcommand{\dy}{\,dy\,}
 \newcommand{\dz}{\,dz\,}
+
+%COMMAND WITH ARGUMENTS
 \renewcommand{\d}[1]{\, d #1 \,}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\abs}[1]{\left| #1 \right|}
@@ -500,7 +503,21 @@ polynom, cancel}
 \newcommand{\hatt}[1]{\widehat{#1}}
 \newcommand{\shff}[1]{#1^{\textrm{Sh}}}
 \newcommand{\squo}[2]{#1/\!\!/#2}
-
+\newcommand{\multunder}[1]{\substack{#1}}
+\newcommand{\mcal}[1]{\mathcal{#1}}
+\newcommand{\mfrak}[1]{\mathfrak{#1}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\rone}{\text{\rom{1}}}
+\newcommand{\rtwo}{\text{\rom{2}}}
+\newcommand{\rthree}{\text{\rom{3}}}
+\newcommand{\rfour}{\text{\rom{4}}}
+\newcommand{\one}{\mathbf{1}}
+%\newcommand{\one}{\mathds{1}}
+%\newcommand{\two}{\mathds{2}}
+%\newcommand{\mb}[1]{\mathbf{#1}}
+\newcommand{\mb}{\boldsymbol}
+\newcommand{\mscr}[1]{\mathscr{#1}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt](char){#1};}}
 \DeclareFontFamily{U}{mathx}{\hyphenchar\font45}
 \DeclareFontShape{U}{mathx}{m}{n}{
       <5> <6> <7> <8> <9> <10>
@@ -513,10 +530,6 @@ polynom, cancel}
 \DeclareMathAccent{\wideparen}{0}{mathx}{"75}
 %\newcommand{\checkk}[1]{\widecheck{#1}}
 \newcommand{\checkk}[1]{\check #1}
-
-\newcommand{\given}{\vert}
-\renewcommand{\div}{\vert}
-\newcommand{\ndiv}{\hspace{-0.2ex}\not\hspace{0.6ex}\mid}
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\under}[1]{\underline{#1}}
 \newcommand{\overl}[1]{\overline{#1}}
@@ -550,6 +563,7 @@ polynom, cancel}
 \newcommand{\rad}[1]{\sqrt{#1}}
 %\newcommand{\rad}{\sqrt{\vphantom{x}}}
 
+%CATEGORIES
 \newcommand{\cat}{\mathbf}
 \newcommand{\Rep}{\cat{Rep}}
 \newcommand{\Sh}{\cat{Sh}}
@@ -625,6 +639,7 @@ polynom, cancel}
 \newcommand{\Functors}{\cat{Functors}}
 \newcommand{\Jac}{\cat{Jac}}
 
+%OPERATORS
 \let\Bar\undefined
 \DeclareMathOperator{\Bar}{Bar}
 \DeclareMathOperator{\wind}{wind}
@@ -794,7 +809,6 @@ polynom, cancel}
 \DeclareMathOperator{\U}{U}
 \let\uu\u
 \renewcommand{\u}{\mfrak{u}}
-
 \newcommand{\lienil}{\mfrak{nil}}
 \newcommand{\lierad}{\mfrak{rad}}
 
