@@ -1,11 +1,9 @@
 \usepackage{amsthm, amsfonts, amssymb, amsmath, amscd,  amsrefs, 
 nameref,mathtools, thmtools,comment,
-mathrsfs, relsize,
-graphics, epsfig, slashed, gensymb, multicol,marvosym,mdframed,
-latexsym, float, todonotes, enumitem, tensor, dsfont,lipsum,
-graphicx, tikz, tikz-cd, tkz-berge, tkz-graph, color,
-polynom, cancel}
+mathrsfs}
+\usepackage{graphics, slashed, multicol, latexsym, float, todonotes, enumitem, tensor,lipsum, graphicx, tikz, tikz-cd, tkz-berge, tkz-graph, color, cancel}
 
+%\usepackage{gensymb,polynom,relsize,dsfont,marvosym,mdframed}
 \usepackage{stmaryrd}
 %\usepackage{eqnnumwarn}
 \usepackage[hidelinks,hypertexnames=false]{hyperref}
@@ -15,9 +13,6 @@ polynom, cancel}
             citecolor = black,
 }
 \usepackage[nameinlink]{cleveref}
-
-%\mathtoolsset{showonlyrefs=true}
-\usepackage{autonum}
 
 %suppress pagenumbers:
 %\usepackage[margin=1in]{geometry}
@@ -646,6 +641,8 @@ polynom, cancel}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
+\DeclareMathOperator{\hlim}{hlim}
+\DeclareMathOperator{\hcolim}{hcolim}
 \let\Bar\undefined
 \DeclareMathOperator{\Bar}{Bar}
 \DeclareMathOperator{\wind}{wind}

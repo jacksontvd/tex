@@ -1,0 +1,42 @@
+\documentclass{amsart}
+\usepackage{master}
+\begin{document}
+\title{Getting started with \LaTeX\ and vim}
+\author{Jackson Van Dyke}
+\date{\today}
+\maketitle
+
+This guide is written primarily for a mac, though most of what is written here would work
+fine for any Unix machine.
+\todo{snippets (ultisnips) \href{https://castel.dev/post/lecture-notes-1/}{link}}
+
+\section{Displaying the PDF}
+
+In my opinion there are only two effective options for live updating PDF viewers on a mac.
+
+\subsection{Using Skim}
+
+To install Skim enter the following into the command line:
+\begin{center}
+\begin{verbatim}
+$ brew cask install skim
+\end{verbatim}
+\end{center}
+
+\subsection{Using Zathura}
+
+To tap, install, and link Zathura/the required plugins 
+enter the following into the command line:
+\begin{center}
+\begin{verbatim}
+$ brew tap zegervdv/zathura
+$ brew install zathura --with-synctex
+$ brew install zathura-pdf-poppler
+$ brew install xdotool
+$ mkdir -p $(brew --prefix zathura)/lib/zathura
+$ ln -s $(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib 
+        $(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib
+\end{verbatim}
+\end{center}
+
+\end{document}
