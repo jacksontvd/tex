@@ -1,0 +1,12 @@
+\contentsline {section}{\tocsection {}{1}{Introduction}}{1}{section.2}
+\contentsline {section}{\tocsection {}{2}{Setting up \LaTeX }}{2}{section.3}
+\contentsline {subsection}{\tocsubsection {}{2.1}{Installation}}{2}{subsection.4}
+\contentsline {subsection}{\tocsubsection {}{2.2}{Macros}}{2}{subsection.5}
+\contentsline {section}{\tocsection {}{3}{Setting up Vim}}{2}{section.6}
+\contentsline {subsection}{\tocsubsection {}{3.1}{Installation}}{2}{subsection.7}
+\contentsline {subsection}{\tocsubsection {}{3.2}{Writing a \texttt {vimrc}}}{2}{subsection.8}
+\contentsline {subsection}{\tocsubsection {}{3.3}{Packages for Vim}}{2}{subsection.9}
+\contentsline {section}{\tocsection {}{4}{Displaying the PDF}}{3}{section.16}
+\contentsline {subsection}{\tocsubsection {}{4.1}{Using Skim}}{3}{subsection.17}
+\contentsline {subsection}{\tocsubsection {}{4.2}{Using Zathura}}{3}{subsection.18}
+\contentsline {subsection}{\tocsubsection {}{4.3}{Making a choice}}{3}{subsection.19}

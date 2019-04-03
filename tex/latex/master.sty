@@ -3,16 +3,28 @@ nameref,mathtools, thmtools,comment,
 mathrsfs}
 \usepackage{graphics, slashed, multicol, latexsym, float, todonotes, enumitem, tensor,lipsum, graphicx, tikz, tikz-cd, tkz-berge, tkz-graph, color, cancel}
 
+%The following must be loaded in this order
+\usepackage[hidelinks,hypertexnames=false]{hyperref}
+\usepackage[nameinlink]{cleveref}
+%suppress equation numbers unless labeled 
+\usepackage{autonum}
+
+% some heavy packages I don't always use
 %\usepackage{gensymb,polynom,relsize,dsfont,marvosym,mdframed}
 \usepackage{stmaryrd}
+
 %\usepackage{eqnnumwarn}
-\usepackage[hidelinks,hypertexnames=false]{hyperref}
 \hypersetup{colorlinks = true,
             linkcolor = black,
             urlcolor  = blue,
             citecolor = black,
 }
-\usepackage[nameinlink]{cleveref}
+
+%used to silence warnings
+%\usepackage{silence}
+
+%suppress hbox overfull warnings
+\hfuzz=20pt 
 
 %suppress pagenumbers:
 %\usepackage[margin=1in]{geometry}
@@ -34,7 +46,7 @@ mathrsfs}
 %this is for the crazier arrows in tikcd (squiggly etc)
 
 %this is for smiley and frownie
-%\usepackage{wasysym}
+\usepackage{wasysym}
 
 \graphicspath{{visuals/}}
 
@@ -95,6 +107,7 @@ mathrsfs}
 %	definition
 %	crefname
 %	numberwithin setting(in cls files)
+%	Snippet
 \newtheorem{thm}{Theorem}
 \Crefname{thm}{Theorem}{Theorems}
 \newtheorem{lem}{Lemma}
@@ -392,6 +405,7 @@ mathrsfs}
 \newcommand{\bleadsto}{\leftrightsquigarrow}
 
 % SYMBOLS
+\newcommand{\frowny}{\frownie}
 \newcommand{\lineheight}{\baselineskip}
 \newcommand{\emp}{\emptyset}
 \renewcommand{\phi}{\varphi}
@@ -663,7 +677,7 @@ mathrsfs}
 \DeclareMathOperator{\Spin}{Spin}
 \DeclareMathOperator{\component}{comp}
 \DeclareMathOperator{\Supp}{Supp}
-\DeclareMathOperator{\cent}{center}
+\DeclareMathOperator{\centerr}{center}
 \DeclareMathOperator{\Pin}{Pin}
 \DeclareMathOperator{\Tw}{Tw}
 \DeclareMathOperator{\Fuk}{Fuk}
@@ -679,6 +693,7 @@ mathrsfs}
 \DeclareMathOperator{\AFK}{AFK}
 \DeclareMathOperator{\DAFK}{DAFK}
 \DeclareMathOperator{\CFK}{CFK}
+\let\HF\undefined
 \DeclareMathOperator{\HF}{HF}
 \DeclareMathOperator{\CF}{CF}
 \DeclareMathOperator{\CFD}{CFD}

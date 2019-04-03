@@ -1,18 +1,117 @@
 \documentclass{amsart}
 \usepackage{master}
 \begin{document}
-\title{Getting started with \LaTeX\ and vim}
+\title{Getting started with \LaTeX\ and Vim}
 \author{Jackson Van Dyke}
 \date{\today}
 \maketitle
+\tableofcontents
+
+I wrote this document to archive the process of setting up my workflow for taking notes
+and writing papers in case I needed to reference it for some reason in the future. 
+I figured there's no reason not to share it, in case someone might find it useful.
+This is by no means exhaustive, and is meant as a jumping-off-point. The actual
+documentation of the various software/packages should be the reader's next stop.
+The \texttt{.tex} file for this document is available at 
+\href{https://github.com/jacksontvd/tex/tree/master/getting_started}{this repository}.
+
+If you just want my style files, these can found at 
+\href{https://github.com/jacksontvd/tex}{this repository}, and if you just want my vimrc,
+this can be found at \href{https://github.com/jacksontvd/vim}{this repository}.
 
 This guide is written primarily for a mac, though most of what is written here would work
 fine for any Unix machine.
-\todo{snippets (ultisnips) \href{https://castel.dev/post/lecture-notes-1/}{link}}
+
+\section{Introduction}
+
+\LaTeX\ is a very simple typesetting tool which creates, in my opinion, very visually
+appealing documents. Much of the generic appeal of \LaTeX\ is that a \texttt{.tex} document
+comes in the form of a plaintext document which is somehow modular.
+One sense in which this is true is that it can be compiled using any `document class'.
+This means that if you decide to write a paper hoping to submit it to one journal which
+wants the paper to look one way, and later decide to submit the paper to another journal
+which wants it to look another way, the structure of the actual pdf document can be
+changed immediately. This is just one example of the many things which make \LaTeX\ so
+great. For more information and a much better technical introduction to how this thing
+actually works, I suggest the canonical reference, \textit{The Texbook}, available
+\href{http://www.ctex.org/documents/shredder/src/texbook.pdf}{here}.
+
+\section{Setting up \LaTeX}
+
+\subsection{Installation}
+
+Download from, and follow instructions from \href{http://www.tug.org/mactex/}{this
+webpage}.
+
+\subsection{Macros}
+
+\LaTeX\ macros should be thought of as custom `settings'. A basic example of such a thing
+is the following:
+\begin{verbatim}
+\newcommand{\RR}{\mathbb{R}}
+\end{verbatim}
+which says that whenever one types \textbackslash\texttt{RR}
+it is interpreted as \textbackslash\texttt{mathbb}\{\texttt{R}\}. All such rules are collected in what
+is called a style file (a file with ending \texttt{.sty}) which lives in the directory 
+\begin{verbatim}
+~/Library/texmf/tex/latex/
+\end{verbatim}
+or the directory of whatever file you are editing. This is also where class files live.
+See \href{https://github.com/jacksontvd/tex/tree/master/tex/latex}{this repository} for
+mine.
+
+\section{Setting up Vim}
+
+\subsection{Installation}
+
+Vim should come with your machine, but to make sure you have the latest version, or to
+install it for the first time, it is easiest to use homebrew. I.e. enter the following to
+the command line:
+\begin{verbatim}
+brew install vim
+\end{verbatim}
+
+\subsection{Writing a \texttt{vimrc}}
+
+The content of a \texttt{vimrc} file should be thought of as custom settings for Vim.
+When starting out it is tempting to copy and past someone else's. If you would like to do
+this, mine can be found at \href{https://github.com/jacksontvd/vim}{this repository}. I
+would however suggest building up your own gradually, adding things as you need them.
+Google is helpful for this. 
+By default your vimrc just lives in \texttt{/User/} but I prefer to have it in 
+$\sim$\texttt{/.vim} so it is easier to push to by backup repository.
+
+\subsection{Packages for Vim}
+
+There are countless packages available for Vim. I mention the main ones I use. Consult the
+documentation directly for more information.
+\begin{enumerate}
+\item Pathogen: In short, this package creates a directory such that whenever a package is
+placed in it, the package is loaded. There are many alternatives to this. 
+\item Nerd commenter: This package lets one comment lines quickly. It detects the document
+type so one doesn't have to keep track of which symbols comment lines in which document
+type, and instead one can have a designated keystroke combination which comments lines in
+any language. 
+\item Spell: Offers spell checking, and spell correction.
+\item Ulti-Snips: Snippets are far too complicated to get into in depth, but they
+basically allow you to type an abbreviation for something, hit a special key (by default
+\texttt{<tab>}) and this abbreviation will expand to the larger predesignated thing. As
+one can imagine, this is extremely useful for typing things quickly. Especially in \LaTeX.
+\item Vimtex: This is, in my opinion, the best package supporting writing \LaTeX with Vim.
+The alternative, Vim-LaTeX, is much heavier and isn't as flexible. In combination with
+Ulti-Snips, vimtex can do much more. 
+\item Vim-tex-fold: Supports folding of a \LaTeX document in Vim. This means that, for
+example, sections will be collapsed to a single line on ones display when they are not
+being edited. 
+\end{enumerate}
 
 \section{Displaying the PDF}
 
-In my opinion there are only two effective options for live updating PDF viewers on a mac.
+When editing notes quickly, it is useful to let the compiler run every time the document
+is saved. This is the default mode in vim-tex. This means the PDF viewer one is using must
+change as the file changes. Most PDF viewers do not support this. 
+In my opinion there are only two effective options for PDF viewers on a mac that support
+live updating: Skim and Zathura.
 
 \subsection{Using Skim}
 
@@ -38,5 +137,18 @@ $ ln -s $(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib
         $(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib
 \end{verbatim}
 \end{center}
+
+\subsection{Making a choice}
+
+If using vim-tex, once you have determined which viewer you would like to use, add one of the following
+lines to your \texttt{vimrc}:
+\begin{verbatim}
+let g:vimtex_view_method='zathura'
+let g:vimtex_view_method='skim'
+\end{verbatim}
+and the pdf file will automatically open in your chosen viewer when it is compiled.
+Use \textbackslash\texttt{ll} to compile a document in vim-tex.
+See the documentation of vim-tex for more information on PDF viewer support and compiling
+documents.
 
 \end{document}

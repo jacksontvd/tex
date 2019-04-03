@@ -1,3 +1,12 @@
-\BOOKMARK [1][-]{section.2}{1. Displaying the PDF}{}% 1
-\BOOKMARK [2][-]{subsection.3}{1.1. Using Skim}{section.2}% 2
-\BOOKMARK [2][-]{subsection.4}{1.2. Using Zathura}{section.2}% 3
+\BOOKMARK [1][-]{section.2}{1. Introduction}{}% 1
+\BOOKMARK [1][-]{section.3}{2. Setting up LaTeX}{}% 2
+\BOOKMARK [2][-]{subsection.4}{2.1. Installation}{section.3}% 3
+\BOOKMARK [2][-]{subsection.5}{2.2. Macros}{section.3}% 4
+\BOOKMARK [1][-]{section.6}{3. Setting up Vim}{}% 5
+\BOOKMARK [2][-]{subsection.7}{3.1. Installation}{section.6}% 6
+\BOOKMARK [2][-]{subsection.8}{3.2. Writing a vimrc}{section.6}% 7
+\BOOKMARK [2][-]{subsection.9}{3.3. Packages for Vim}{section.6}% 8
+\BOOKMARK [1][-]{section.16}{4. Displaying the PDF}{}% 9
+\BOOKMARK [2][-]{subsection.17}{4.1. Using Skim}{section.16}% 10
+\BOOKMARK [2][-]{subsection.18}{4.2. Using Zathura}{section.16}% 11
+\BOOKMARK [2][-]{subsection.19}{4.3. Making a choice}{section.16}% 12
