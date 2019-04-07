@@ -11,7 +11,7 @@ mathrsfs}
 
 % some heavy packages I don't always use
 %\usepackage{gensymb,polynom,relsize,dsfont,marvosym,mdframed}
-\usepackage{stmaryrd}
+\usepackage{stmaryrd,framed,mdframed}
 
 %\usepackage{eqnnumwarn}
 \hypersetup{colorlinks = true,
@@ -90,6 +90,7 @@ mathrsfs}
     {\renewcommand{\arraystretch}{1.3}\begin{pmatrix}}
     {\end{pmatrix}}
 \newenvironment{environment}{}{}
+
 \newenvironment{largebox}{\medskip\begin{mdframed}}{\end{mdframed}\medskip}
 %workaround which does not require the package 'mdframed' only 'framed'
 %\newenvironment{largebox}[1][0.9]{\medskip\begin{minipage}[l]{#1\textwidth}\begin{framed}}{\end{framed}\end{minipage}\medskip}
@@ -418,12 +419,12 @@ mathrsfs}
 \newcommand{\nab}{\nabla}
 \newcommand{\determines}{\vdash}
 \newcommand{\proves}{\vdash}
-\newcommand{\bland}{\bigvee}
-\newcommand{\bands}{\bigvee}
+\newcommand{\bland}{\bigwedge}
+\newcommand{\bands}{\bigwedge}
 \newcommand{\ands}{\wedge}
 \newcommand{\ors}{\vee}
-\newcommand{\bors}{\bigwedge}
-\newcommand{\blor}{\bigwedge}
+\newcommand{\bors}{\bigvee}
+\newcommand{\blor}{\bigvee}
 \newcommand{\comp}{\circ}
 \newcommand{\converse}{\Longleftarrow}
 \newcommand{\conv}{*}
