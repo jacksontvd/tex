@@ -12,6 +12,7 @@ mathrsfs}
 % some heavy packages I don't always use
 %\usepackage{gensymb,polynom,relsize,dsfont,marvosym,mdframed}
 \usepackage{stmaryrd,framed,mdframed}
+\usepackage{moreenum}
 
 %\usepackage{eqnnumwarn}
 \hypersetup{colorlinks = true,
@@ -25,6 +26,10 @@ mathrsfs}
 
 %suppress hbox overfull warnings
 \hfuzz=20pt 
+%suppress all hbox issues
+%\hbadness=10000
+%suppress all "vbox" issues
+%\vbadness
 
 %suppress pagenumbers:
 %\usepackage[margin=1in]{geometry}
@@ -42,8 +47,8 @@ mathrsfs}
 %\usepackage{simpler-wick}
 \usetikzlibrary{backgrounds}
 %\usetikzlibrary{knots}
-%\usetikzlibrary{decorations.pathmorphing}
 %this is for the crazier arrows in tikcd (squiggly etc)
+%\usetikzlibrary{decorations.pathmorphing}
 
 %this is for smiley and frownie
 \usepackage{wasysym}
@@ -70,8 +75,10 @@ mathrsfs}
 }
 \newcommand{\numbers}{\arabic*}
 \newcommand{\abc}{\alph*}
+\newcommand{\ABC}{\Alph*}
 \newcommand{\iii}{\roman*}
 \newcommand{\III}{\Roman*}
+\newcommand{\albe}{\greek*}
 \newenvironment{enum}
     {\begin{enumerate}}
     {\end{enumerate}}
@@ -240,6 +247,8 @@ mathrsfs}
 \newcommand{\cY}{\mathcal{Y}}
 \newcommand{\cZ}{\mathcal{Z}}
 
+\newcommand{\cl}{\ell}
+
 \newcommand{\fa}{\mathfrak{a}}
 \newcommand{\fb}{\mathfrak{b}}
 \newcommand{\fc}{\mathfrak{c}}
@@ -309,6 +318,7 @@ mathrsfs}
 \newcommand{\om}{\omega}
 \newcommand{\p}{\partial}
 \newcommand{\z}{\zeta}
+\newcommand{\gam}{\gamma}
 
 
 % TEXT 
@@ -346,7 +356,6 @@ mathrsfs}
 \newcommand{\loc}{\text{loc}}
 \newcommand{\inn}{\text{in}}
 \newcommand{\out}{\text{out}}
-\newcommand{\cl}{\text{cl}}
 \newcommand{\RG}{\text{RG}}
 \newcommand{\op}{\text{op}}
 \newcommand{\ini}{\textbf{in}}
@@ -443,8 +452,9 @@ mathrsfs}
 \newcommand{\al}{\alpha}
 \newcommand{\compl}{\mathrm{c}}
 \newcommand{\clos}[1]{\overline{#1}}
+\newcommand{\closure}[1]{\overline{#1}}
 %\newcommand{\interior}[1]{#1^{\circ}}
-\DeclareMathOperator{\interior}{int}
+\newcommand{\interior}[1]{\operatorname{int}\left(#1\right)}
 \newcommand{\dirlim}{\varinjlim}
 \newcommand{\invlim}{\varprojlim}
 \newcommand{\ceq}{\coloneq}
@@ -656,6 +666,7 @@ mathrsfs}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
+\DeclareMathOperator{\crit}{crit}
 \DeclareMathOperator{\hlim}{hlim}
 \DeclareMathOperator{\hcolim}{hcolim}
 \let\Bar\undefined
@@ -675,6 +686,7 @@ mathrsfs}
 \DeclareMathOperator{\Sob}{Sob}
 \DeclareMathOperator{\Derivations}{Der}
 \DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\codim}{Codim}
 \DeclareMathOperator{\Spin}{Spin}
 \DeclareMathOperator{\component}{comp}
 \DeclareMathOperator{\Supp}{Supp}
@@ -697,6 +709,7 @@ mathrsfs}
 \let\HF\undefined
 \DeclareMathOperator{\HF}{HF}
 \DeclareMathOperator{\CF}{CF}
+\DeclareMathOperator{\cz}{cz}
 \DeclareMathOperator{\CFD}{CFD}
 \DeclareMathOperator{\CFDA}{CFDA}
 \DeclareMathOperator{\CW}{CW}
