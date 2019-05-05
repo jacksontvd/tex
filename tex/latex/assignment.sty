@@ -11,6 +11,9 @@
 \newenvironment{qs}
 {\begin{enumerate}}{\end{enumerate}}
 
+%use the two lines to turn on (resp. off) solutions
+%\toggletrue{solutions}
+%\togglefalse{solutions}
 \newtoggle{solutions}
 
 \newcommand{\startsolution}[1]{\iftoggle{solutions}{\color{blue}#1\color{black}}}

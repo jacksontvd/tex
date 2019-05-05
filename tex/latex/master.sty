@@ -305,6 +305,7 @@ mathrsfs}
 
 \renewcommand{\b}{\beta}
 \newcommand{\dd}{\delta}
+\newcommand{\Del}{\Delta}
 \newcommand{\e}{\epsilon}
 \newcommand{\g}{\gamma}
 \newcommand{\Gam}{\Gamma}
@@ -353,7 +354,8 @@ mathrsfs}
 \newcommand{\BH}{\text{BH}}
 \newcommand{\orbit}{\text{orbit}}
 \newcommand{\suchthat}{\;\text{s.t.}\;}
-\newcommand{\st}{\, \vert \,}
+%\newcommand{\st}{\, \vert \,}
+\newcommand{\st}{\, \middle\vert \,}
 \newcommand{\loc}{\text{loc}}
 \newcommand{\inn}{\text{in}}
 \newcommand{\out}{\text{out}}
@@ -429,6 +431,7 @@ mathrsfs}
 \newcommand{\dalem}{\square}
 \newcommand{\nab}{\nabla}
 \newcommand{\determines}{\vdash}
+\newcommand{\satisfies}{\models}
 \newcommand{\proves}{\vdash}
 \newcommand{\bland}{\bigwedge}
 \newcommand{\bands}{\bigwedge}
@@ -454,7 +457,9 @@ mathrsfs}
 \newcommand{\al}{\alpha}
 \newcommand{\compl}{\mathrm{c}}
 \newcommand{\clos}[1]{\overline{#1}}
-\newcommand{\closure}[1]{\overline{#1}}
+\newcommand{\tclos}[1]{\overline{#1}}
+\newcommand{\tclosure}[1]{\overline{#1}}
+\newcommand{\closure}[1]{\operatorname{cl}\left(#1\right)}
 %\newcommand{\interior}[1]{#1^{\circ}}
 \newcommand{\interior}[1]{\operatorname{int}\left(#1\right)}
 \newcommand{\dirlim}{\varinjlim}
@@ -499,13 +504,23 @@ mathrsfs}
 \newcommand{\dx}{\,dx\,}
 \newcommand{\dy}{\,dy\,}
 \newcommand{\dz}{\,dz\,}
+%define new symbol for forking independent (model theory)
+\newcommand{\forkindep}[1][]{%
+  \mathrel{
+    \mathop{
+      \vcenter{
+        \hbox{\oalign{\noalign{\kern-.3ex}\hfil$\vert$\hfil\cr
+              \noalign{\kern-.7ex}
+              $\smile$\cr\noalign{\kern-.3ex}}}}}\displaylimits_{#1}}}
+%\def\forkindep{\mathrel{\raise0.2ex\hbox{\ooalign{\hidewidth$\vert$\hidewidth\cr\raise-0.9ex\hbox{$\smile$}}}}}
+\newcommand{\indfrom}{\forkindep}
 
 %COMMAND WITH ARGUMENTS
 \renewcommand{\d}[1]{\, d #1 \,}
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\lr}[1]{\left\langle #1 \right\rangle}
-\newcommand{\braket}[3]{\left\langle #1 \left\vert #2 \right\vert #3 \right\rangle}
+\newcommand{\braket}[3]{\left\langle #1 \middle\vert #2 \middle\vert #3 \right\rangle}
 \newcommand{\brkt}[2]{\left\langle #1 \vert #2  \right\rangle}
 \newcommand{\bra}[1]{\left\langle #1  \right\vert}
 \newcommand{\ket}[1]{\left\vert #1  \right\rangle}
@@ -702,25 +717,35 @@ mathrsfs}
 \DeclareMathOperator{\Slope}{Sl}
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\nd}{nd}
+\DeclareMathOperator{\czind}{cz}
 \DeclareMathOperator{\PD}{PD}
 \DeclareMathOperator{\SW}{SW}
+%Symplectic homology
 \DeclareMathOperator{\SH}{SH}
 \DeclareMathOperator{\HFK}{HFK}
 \DeclareMathOperator{\DFK}{DFK}
 \DeclareMathOperator{\AFK}{AFK}
 \DeclareMathOperator{\DAFK}{DAFK}
 \DeclareMathOperator{\CFK}{CFK}
+%Floer 
 \let\HF\undefined
 \DeclareMathOperator{\HF}{HF}
 \DeclareMathOperator{\CF}{CF}
-\DeclareMathOperator{\czind}{cz}
+%Floer bimodules
 \DeclareMathOperator{\CFD}{CFD}
 \DeclareMathOperator{\CFDA}{CFDA}
+%Wrapped
 \DeclareMathOperator{\CW}{CW}
 \DeclareMathOperator{\HW}{HW}
+%Monopole
 \DeclareMathOperator{\HM}{HM}
 \DeclareMathOperator{\CM}{CM}
+%Khovanov 
 \DeclareMathOperator{\CKh}{CKh}
+%cyclidrical contact 
+\DeclareMathOperator{\CH}{CH}
+\DeclareMathOperator{\cyC}{CC}
+%
 \DeclareMathOperator{\inv}{inv}
 \DeclareMathOperator{\Foc}{Foc}
 \DeclareMathOperator{\Fus}{Fus}
