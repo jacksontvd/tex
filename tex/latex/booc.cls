@@ -1,6 +1,7 @@
 \ProvidesClass{booc}
 
-\LoadClass[oneside]{book}
+%\LoadClass[oneside]{book}
+\LoadClass[oneside]{amsbook}
 
 \usepackage{master}
 
