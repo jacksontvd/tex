@@ -1,7 +1,7 @@
 \usepackage{amsthm, amsfonts, amssymb, amsmath, amscd,  amsrefs, 
 nameref,mathtools, thmtools,comment,
 mathrsfs}
-\usepackage{graphics, slashed, multicol, latexsym, float, todonotes, enumitem, tensor,lipsum, graphicx, tikz, tikz-cd, tkz-berge, tkz-graph, color, cancel}
+\usepackage{graphics, slashed, multicol, latexsym, float, todonotes, enumitem, tensor,lipsum, graphicx, tikz, tikz-cd, tkz-berge, tkz-graph, color, cancel,marginnote}
 
 %The following must be loaded in this order
 \usepackage[hidelinks,hypertexnames=false]{hyperref}
@@ -460,7 +460,7 @@ mathrsfs}
 \newcommand{\clos}[1]{\overline{#1}}
 \newcommand{\tclos}[1]{\overline{#1}}
 \newcommand{\tclosure}[1]{\overline{#1}}
-\newcommand{\closure}[1]{\operatorname{cl}\left(#1\right)}
+\newcommand{\closure}[1]{\operatorname{Cl}\left(#1\right)}
 %\newcommand{\interior}[1]{#1^{\circ}}
 \newcommand{\interior}[1]{\operatorname{int}\left(#1\right)}
 \newcommand{\dirlim}{\varinjlim}
@@ -684,6 +684,8 @@ mathrsfs}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
+\DeclareMathOperator{\starr}{St}
+\DeclareMathOperator{\link}{Lk}
 \DeclareMathOperator{\const}{const}
 \DeclareMathOperator{\Lan}{Lan}
 \DeclareMathOperator{\Ran}{Ran}
@@ -710,7 +712,6 @@ mathrsfs}
 \DeclareMathOperator{\Derivations}{Der}
 \DeclareMathOperator{\Ad}{Ad}
 \DeclareMathOperator{\codim}{Codim}
-\DeclareMathOperator{\Spin}{Spin}
 \DeclareMathOperator{\component}{comp}
 \DeclareMathOperator{\Supp}{Supp}
 \DeclareMathOperator{\centerr}{center}
@@ -754,6 +755,7 @@ mathrsfs}
 \DeclareMathOperator{\rel}{rel}
 \DeclareMathOperator{\Arg}{Arg}
 \DeclareMathOperator{\Foc}{Foc}
+\DeclareMathOperator{\Hilb}{Hilb}
 \DeclareMathOperator{\Fus}{Fus}
 \DeclareMathOperator{\Fun}{Fun}
 \DeclareMathOperator{\Cts}{Cts}
@@ -882,6 +884,16 @@ mathrsfs}
 \DeclareMathOperator{\U}{U}
 \let\uu\u
 \renewcommand{\u}{\mfrak{u}}
+\DeclareMathOperator{\BSO}{BSO}
+\DeclareMathOperator{\BO}{BO}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\BSpin}{BSpin}
+\DeclareMathOperator{\TOP}{TOP}
+\DeclareMathOperator{\BTOP}{BTOP}
+\DeclareMathOperator{\PL}{PL}
+\DeclareMathOperator{\BPL}{BPL}
+
+
 \newcommand{\lienil}{\mfrak{nil}}
 \newcommand{\lierad}{\mfrak{rad}}
 
