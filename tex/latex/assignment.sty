@@ -1,5 +1,7 @@
 \usepackage{etoolbox}
 \usepackage{environ}
+\usepackage{comment}
+
 
 \newenvironment{question}
 {\item}{}
@@ -11,14 +13,14 @@
 \newenvironment{qs}
 {\begin{enumerate}}{\end{enumerate}}
 
-%use the two lines to turn on (resp. off) solutions
-%\toggletrue{solutions}
-%\togglefalse{solutions}
-\newtoggle{solutions}
+%use the two lines to turn on (resp. off) solutions (use Ultisnips "ass" to get the appropriate order automatically in the preamble)
+%\showtrue
+%\showfalse
 
-\newcommand{\startsolution}[1]{\iftoggle{solutions}{\color{blue}#1\color{black}}}
-
-% no 'Solution' label
-%\NewEnviron{solution}{\iftoggle{solutions}{\color{blue} \par \BODY\color{black}}{}}
-% yes 'Solution' label
-\NewEnviron{solution}{\iftoggle{solutions}{\color{blue} \par\begin{sol} \BODY\end{sol}\color{black}}{}}
+\ifshow
+    \newenvironment{solution}
+    {\begin{sol} \color{blue}}
+    {\end{sol}}
+\else
+    \excludecomment{solution}
+\fi

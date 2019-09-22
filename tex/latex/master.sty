@@ -98,6 +98,9 @@ mathrsfs}
     {\end{pmatrix}}
 \newenvironment{environment}{}{}
 
+%in the assignment.sty file we use this if to comment out the solutions to exercises if desired. We need to define it before we declare it to be true or false in the document so we define it here.
+\newif\ifshow
+
 \newenvironment{largebox}{\medskip\begin{mdframed}}{\end{mdframed}\medskip}
 %workaround which does not require the package 'mdframed' only 'framed'
 %\newenvironment{largebox}[1][0.9]{\medskip\begin{minipage}[l]{#1\textwidth}\begin{framed}}{\end{framed}\end{minipage}\medskip}
@@ -439,6 +442,8 @@ mathrsfs}
 \newcommand{\ors}{\vee}
 \newcommand{\bors}{\bigvee}
 \newcommand{\blor}{\bigvee}
+\newcommand{\wsum}{\vee}
+\newcommand{\bwsum}{\bigvee}
 \newcommand{\comp}{\circ}
 \newcommand{\converse}{\Longleftarrow}
 \newcommand{\conv}{*}
@@ -612,6 +617,7 @@ mathrsfs}
 \newcommand{\Sh}{\cat{Sh}}
 \newcommand{\PreSh}{\cat{PreSh}}
 \newcommand{\Grp}{\cat{Grp}}
+\newcommand{\Grpd}{\cat{Grpd}}
 \newcommand{\TopGrp}{\cat{TopGrp}}
 \newcommand{\Mfd}{\cat{Mfd}}
 \newcommand{\SymplMfd}{\cat{Sympl Mfd}}
