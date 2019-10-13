@@ -121,7 +121,7 @@ mathrsfs}
 %	Snippet
 \newtheorem{thm}{Theorem}
 \Crefname{thm}{Theorem}{Theorems}
-\newtheorem{lem}{Lemma}
+\newtheorem{lem}[thm]{Lemma}
 \Crefname{lem}{Lemma}{Lemmata}
 \newtheorem{prop}[thm]{Proposition}
 \Crefname{prop}{Proposition}{Propositions}
@@ -328,6 +328,7 @@ mathrsfs}
 
 
 % TEXT 
+\newcommand{\virt}{\text{virt}}
 \newcommand{\ab}{\text{ab}}
 \newcommand{\Fraisse}{Fra\"{i}ss\'{e}\ }
 \newcommand{\aff}{\text{aff}}
@@ -447,6 +448,8 @@ mathrsfs}
 \newcommand{\blor}{\bigvee}
 \newcommand{\wsum}{\vee}
 \newcommand{\bwsum}{\bigvee}
+\newcommand{\sprod}{\wedge}
+\newcommand{\bsprod}{\bigwedge}
 \newcommand{\csum}{\#}
 \newcommand{\bcsum}{\mathlarger{\mathlarger{\#}}}
 %\newcommand{\bcsum}[1]{\underset{#1}{\largecsum}}
@@ -512,6 +515,7 @@ mathrsfs}
 \newcommand{\supeq}{\supseteq}
 \newcommand{\supneq}{\supsetneq}
 \newcommand{\cupp}{\smile}
+\newcommand{\capp}{\frown}
 \newcommand{\symd}{\triangle}
  \newcommand{\given}{\vert}
 \renewcommand{\div}{\vert}
@@ -700,6 +704,8 @@ mathrsfs}
 
 %OPERATORS
 %\DeclareMathOperator{\inv}{inv}
+\DeclareMathOperator{\Hess}{Hess}
+\DeclareMathOperator{\divisor}{div}
 \DeclareMathOperator{\Hur}{Hur}
 \DeclareMathOperator{\starr}{St}
 \DeclareMathOperator{\link}{Lk}
