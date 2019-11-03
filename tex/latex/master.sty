@@ -6,8 +6,9 @@ mathrsfs}
 %The following must be loaded in this order
 \usepackage[hidelinks,hypertexnames=false]{hyperref}
 \usepackage[nameinlink]{cleveref}
+
 %suppress equation numbers unless labeled 
-\usepackage{autonum}
+%\usepackage{autonum}
 
 % some heavy packages I don't always use
 %\usepackage{gensymb,polynom,relsize,dsfont,marvosym,mdframed}
@@ -170,6 +171,7 @@ mathrsfs}
 
 \newcommand{\CP}{\mathbb{CP}}
 \newcommand{\RP}{\mathbb{RP}}
+\newcommand{\HP}{\mathbb{HP}}
 
 \renewcommand{\AA}{\mathbb{A}}
 \newcommand{\BB}{\mathbb{B}}
@@ -280,6 +282,7 @@ mathrsfs}
 \newcommand{\fx}{\mathfrak{x}}
 \newcommand{\fy}{\mathfrak{y}}
 \newcommand{\fz}{\mathfrak{z}}
+\newcommand{\fT}{\mathfrak{T}}
 
 \newcommand{\ba}{\mathbf{a}}
 % \newcommand{\bb}{\mathbf{b}}
@@ -426,6 +429,7 @@ mathrsfs}
 \newcommand{\bleadsto}{\leftrightsquigarrow}
 
 % SYMBOLS
+\newcommand{\adj}{\dashv}
 \newcommand{\frowny}{\frownie}
 \newcommand{\lineheight}{\baselineskip}
 \newcommand{\emp}{\emptyset}
@@ -490,6 +494,7 @@ mathrsfs}
 \newcommand{\msin}{\perp}
 \newcommand{\act}{\cdot}
 \newcommand{\something}{\bullet}
+\newcommand{\dott}{\bullet}
 \newcommand{\point}{\bullet}
 \newcommand{\somethingg}{*}
 \newcommand{\cp}{\amalg}
@@ -626,7 +631,10 @@ mathrsfs}
 
 %CATEGORIES
 \newcommand{\cat}{\mathbf}
+\newcommand{\ShvCat}{\cat{ShvCat}}
 \newcommand{\Rep}{\cat{Rep}}
+\newcommand{\lRep}[1]{#1\text{-}\cat{Rep}}
+\newcommand{\rRep}[1]{\cat{Rep}\text{-}#1}
 \newcommand{\Sh}{\cat{Sh}}
 \newcommand{\PreSh}{\cat{PreSh}}
 \newcommand{\Grp}{\cat{Grp}}
@@ -699,11 +707,14 @@ mathrsfs}
 \newcommand{\Qco}{\cat{QCoh}}
 \newcommand{\QCoh}{\cat{QCoh}}
 \newcommand{\Qcoh}{\cat{QCoh}}
+\newcommand{\QC}{\cat{QC}}
 \newcommand{\Functors}{\cat{Functors}}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
 %\DeclareMathOperator{\inv}{inv}
+\DeclareMathOperator{\quot}{Quot}
+\DeclareMathOperator{\Perf}{Perf}
 \DeclareMathOperator{\Hess}{Hess}
 \DeclareMathOperator{\divisor}{div}
 \DeclareMathOperator{\Hur}{Hur}
@@ -747,6 +758,9 @@ mathrsfs}
 \DeclareMathOperator{\nd}{nd}
 \DeclareMathOperator{\czind}{cz}
 \DeclareMathOperator{\PD}{PD}
+%Hochschild homology
+\DeclareMathOperator{\Hh}{HH}
+\DeclareMathOperator{\HC}{HC}
 %Symplectic homology
 \DeclareMathOperator{\SH}{SH}
 \DeclareMathOperator{\HFK}{HFK}
@@ -908,6 +922,7 @@ mathrsfs}
 \renewcommand{\sp}{\mfrak{sp}}
 \DeclareMathOperator{\SU}{SU}
 \newcommand{\su}{\mfrak{su}}
+\let\U\undefined
 \DeclareMathOperator{\U}{U}
 \let\uu\u
 \renewcommand{\u}{\mfrak{u}}
