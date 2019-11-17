@@ -5,7 +5,7 @@ mathrsfs}
 
 %The following must be loaded in this order
 \usepackage[hidelinks,hypertexnames=false]{hyperref}
-\usepackage[nameinlink]{cleveref}
+\usepackage[nameinlink,capitalise]{cleveref}
 
 %suppress equation numbers unless labeled 
 %\usepackage{autonum}
@@ -31,6 +31,12 @@ mathrsfs}
 %\hbadness=10000
 %suppress all "vbox" issues
 %\vbadness
+
+%Suppress blank page after title in amsbook
+%\usepackage{etoolbox}
+%\makeatletter
+%\patchcmd{\@maketitle}{\newpage}{}{}{} 
+%\makeatother
 
 %suppress pagenumbers:
 %\usepackage[margin=1in]{geometry}
@@ -490,6 +496,7 @@ mathrsfs}
 \newcommand{\ceqq}{\coloneqq}
 \newcommand{\eqqc}{\eqqcolon}
 \newcommand{\simeqq}{\cong}
+\newcommand\chom{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny c}}}{\cong}}}
 \newcommand{\orth}{\perp}
 \newcommand{\msin}{\perp}
 \newcommand{\act}{\cdot}
@@ -581,6 +588,7 @@ mathrsfs}
 %\newcommand{\one}{\mathds{1}}
 %\newcommand{\two}{\mathds{2}}
 %\newcommand{\mb}[1]{\mathbf{#1}}
+% use \pmb if warning for mp
 \newcommand{\mb}{\boldsymbol}
 \newcommand{\mscr}[1]{\mathscr{#1}}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt](char){#1};}}
@@ -712,11 +720,15 @@ mathrsfs}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
-%\DeclareMathOperator{\inv}{inv}
+\DeclareMathOperator{\mesh}{mesh}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\chull}{conv}
 \DeclareMathOperator{\quot}{Quot}
 \DeclareMathOperator{\Perf}{Perf}
 \DeclareMathOperator{\Hess}{Hess}
 \DeclareMathOperator{\divisor}{div}
+\DeclareMathOperator{\Div}{Div}
 \DeclareMathOperator{\Hur}{Hur}
 \DeclareMathOperator{\starr}{St}
 \DeclareMathOperator{\link}{Lk}
@@ -772,6 +784,8 @@ mathrsfs}
 \let\HF\undefined
 \DeclareMathOperator{\HF}{HF}
 \DeclareMathOperator{\CF}{CF}
+\DeclareMathOperator{\CFI}{CFI}
+\DeclareMathOperator{\HFI}{HFI}
 %Floer bimodules
 \DeclareMathOperator{\CFD}{CFD}
 \DeclareMathOperator{\CFDA}{CFDA}
@@ -863,6 +877,9 @@ mathrsfs}
 \DeclareMathOperator{\type}{tp}
 \DeclareMathOperator{\cliff}{Cliff}
 \DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\DCL}{Cl}
+\DeclareMathOperator{\Cadiv}{CaDiv}
+\DeclareMathOperator{\Cacl}{CaCl}
 \DeclareMathOperator{\Op}{Op}
 \DeclareMathOperator{\Gr}{Gr}
 \DeclareMathOperator{\discr}{discr}
