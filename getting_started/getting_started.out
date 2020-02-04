@@ -1,13 +1,13 @@
-\BOOKMARK [1][-]{section.3}{1. Introduction}{}% 1
-\BOOKMARK [1][-]{section.4}{2. Setting up LaTeX}{}% 2
-\BOOKMARK [2][-]{subsection.5}{2.1. Installation}{section.4}% 3
-\BOOKMARK [2][-]{subsection.6}{2.2. Macros}{section.4}% 4
-\BOOKMARK [1][-]{section.7}{3. Setting up Vim}{}% 5
-\BOOKMARK [2][-]{subsection.8}{3.1. Installation}{section.7}% 6
-\BOOKMARK [2][-]{subsection.9}{3.2. Writing a vimrc}{section.7}% 7
-\BOOKMARK [2][-]{subsection.10}{3.3. Packages for Vim}{section.7}% 8
-\BOOKMARK [1][-]{section.17}{4. Displaying the PDF}{}% 9
-\BOOKMARK [2][-]{subsection.18}{4.1. Using Skim}{section.17}% 10
-\BOOKMARK [2][-]{subsection.19}{4.2. Using Zathura}{section.17}% 11
-\BOOKMARK [2][-]{subsection.20}{4.3. Making a choice}{section.17}% 12
-\BOOKMARK [1][-]{section.21}{5. Writing a document}{}% 13
+\BOOKMARK [1][-]{section.2}{1.\040Introduction}{}% 1
+\BOOKMARK [1][-]{section.3}{2.\040Setting\040up\040LaTeX}{}% 2
+\BOOKMARK [2][-]{subsection.4}{2.1.\040Installation}{section.3}% 3
+\BOOKMARK [2][-]{subsection.5}{2.2.\040Macros}{section.3}% 4
+\BOOKMARK [1][-]{section.6}{3.\040Setting\040up\040Vim}{}% 5
+\BOOKMARK [2][-]{subsection.7}{3.1.\040Installation}{section.6}% 6
+\BOOKMARK [2][-]{subsection.8}{3.2.\040Writing\040a\040vimrc}{section.6}% 7
+\BOOKMARK [2][-]{subsection.9}{3.3.\040Packages\040for\040Vim}{section.6}% 8
+\BOOKMARK [1][-]{section.16}{4.\040Displaying\040the\040PDF}{}% 9
+\BOOKMARK [2][-]{subsection.17}{4.1.\040Using\040Skim}{section.16}% 10
+\BOOKMARK [2][-]{subsection.18}{4.2.\040Using\040Zathura}{section.16}% 11
+\BOOKMARK [2][-]{subsection.19}{4.3.\040Making\040a\040choice}{section.16}% 12
+\BOOKMARK [1][-]{section.20}{5.\040Writing\040a\040document}{}% 13

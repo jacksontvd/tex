@@ -128,6 +128,8 @@ mathrsfs}
 %	Snippet
 \newtheorem{thm}{Theorem}
 \Crefname{thm}{Theorem}{Theorems}
+\newtheorem*{thm*}{Theorem}
+\Crefname{thm*}{Theorem}{Theorems}
 \newtheorem{lem}[thm]{Lemma}
 \Crefname{lem}{Lemma}{Lemmata}
 \newtheorem{prop}[thm]{Proposition}
@@ -365,6 +367,7 @@ mathrsfs}
 
 
 % TEXT 
+\newcommand{\sing}{\text{sing}}
 \newcommand{\nov}{\text{nov}}
 \newcommand{\virt}{\text{virt}}
 \newcommand{\ab}{\text{ab}}
@@ -536,16 +539,28 @@ mathrsfs}
 \newcommand{\point}{\bullet}
 \newcommand{\somethingg}{*}
 \newcommand{\cp}{\amalg}
+\newcommand{\cupp}{\smile}
+\newcommand{\capp}{\frown}
+\newcommand{\symd}{\triangle}
+ \newcommand{\given}{\vert}
+\renewcommand{\div}{\vert}
+\newcommand{\ndiv}{\hspace{-0.2ex}\not\hspace{0.6ex}\mid}
+\newcommand{\dx}{\,dx\,}
+\newcommand{\dy}{\,dy\,}
+\newcommand{\dz}{\,dz\,}
+%ORDERS
+\newcommand{\cless}{\prec}
+\newcommand{\cleq}{\preccurlyeq}
+%\newcommand{\cleq}{\preceq}
+\newcommand{\cgr}{\succ}
+\newcommand{\cgeq}{\succeq}
+%\newcommand{\cgeq}{\succcurlyeq}
+\newcommand{\dless}{\lessdot}
+\newcommand{\dleq}{\underline{\lessdot}}
+\newcommand{\dgr}{\gtrdot}
+\newcommand{\dgeq}{\underline{gtrdot}}
 \newcommand{\trianglerightneq}{\mathrel{\ooalign{\raisebox{-0.5ex}{\reflectbox{\rotatebox{90}{$\nshortmid$}}}\cr$\triangleright$\cr}\mkern-3mu}}
 \newcommand{\triangleleftneq}{\mathrel{\reflectbox{$\trianglerightneq$}}}
-\newcommand{\order}{\trianglelefteq}
-\newcommand{\orderl}{\trianglelefteq}
-\newcommand{\sorderl}{\triangleleftneq}
-\newcommand{\sorderg}{\trianglerightneq}
-\newcommand{\orderr}{\preccurlyeq}
-\newcommand{\orderrl}{\preccurlyeq}
-\newcommand{\orderrr}{\underline{\lessdot}}
-\newcommand{\orderrrl}{\underline{\lessdot}}
 \newcommand{\nsup}{\triangleright}
 \newcommand{\nsub}{\triangleleft}
 \newcommand{\nsubeq}{\ \underline{\triangleleft}\ }
@@ -557,25 +572,7 @@ mathrsfs}
 \newcommand{\sups}{\supset}
 \newcommand{\supeq}{\supseteq}
 \newcommand{\supneq}{\supsetneq}
-\newcommand{\cupp}{\smile}
-\newcommand{\capp}{\frown}
-\newcommand{\symd}{\triangle}
- \newcommand{\given}{\vert}
-\renewcommand{\div}{\vert}
-\newcommand{\ndiv}{\hspace{-0.2ex}\not\hspace{0.6ex}\mid}
-\newcommand{\dx}{\,dx\,}
-\newcommand{\dy}{\,dy\,}
-\newcommand{\dz}{\,dz\,}
-%define new symbol for forking independent (model theory)
-\newcommand{\forkindep}[1][]{%
-  \mathrel{
-    \mathop{
-      \vcenter{
-        \hbox{\oalign{\noalign{\kern-.3ex}\hfil$\vert$\hfil\cr
-              \noalign{\kern-.7ex}
-              $\smile$\cr\noalign{\kern-.3ex}}}}}\displaylimits_{#1}}}
-%\def\forkindep{\mathrel{\raise0.2ex\hbox{\ooalign{\hidewidth$\vert$\hidewidth\cr\raise-0.9ex\hbox{$\smile$}}}}}
-\newcommand{\indfrom}{\forkindep}
+
 
 %COMMAND WITH ARGUMENTS
 \renewcommand{\d}[1]{\, d #1 \,}
@@ -754,6 +751,8 @@ mathrsfs}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
+\DeclareMathOperator{\LO}{LO}
+\DeclareMathOperator{\homeo}{Homeo}
 \DeclareMathOperator{\mult}{mult}
 \DeclareMathOperator{\VHS}{VHS}
 \DeclareMathOperator{\mesh}{mesh}

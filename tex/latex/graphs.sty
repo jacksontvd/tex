@@ -1,0 +1,7 @@
+\makeatletter
+\tikzset{my loop/.style =  {to path={
+  \pgfextra{\let\tikztotarget=\tikztostart}
+  [looseness=12,min distance=10mm]
+  \tikz@to@curve@path},font=\sffamily\small
+  }}
+\makeatletter
