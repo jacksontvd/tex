@@ -1,4 +1,5 @@
-\usetikzlibrary{positioning,arrows,decorations.markings,decorations.pathmorphing}
+%\usetikzlibrary{snakes,positioning,arrows,decorations.markings}
+\usetikzlibrary{snakes,positioning,arrows,decorations.markings}
 
 \tikzset{
 scalar/.style={thick,dashed, >=,
@@ -20,9 +21,8 @@ ghost/.style={thick,dotted,>=,
 	postaction={decorate},
 	decoration={markings,mark=at position 0.55 with {\arrow{stealth}}}
 	},
-gluon/.style={>=, decorate,
-%	decoration={coil,markings,mark=at position 0.55 with {\arrow{stealth}}}
-	decoration={coil,amplitude=2pt,segment length=3pt}
+gluon/.style={snake=coil , segment length=3pt, segment amplitude=2pt,>=,
+	decoration={markings,mark=at position 0.55 with {\arrow{stealth}}}
 	},
 label/.style={->,shorten <=5pt,shorten >=5pt
 	}

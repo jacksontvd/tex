@@ -19,3 +19,7 @@
 \numberwithin{clm}{chapter}
 \numberwithin{rmk}{chapter}
 
+\pdfstringdefDisableCommands{%
+  \let\enspace\empty  % this causes the warning for \kern
+  \let\noindent\empty % this causes the warning for \indent
+}

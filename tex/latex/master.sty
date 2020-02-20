@@ -1,11 +1,13 @@
-\usepackage{amsthm, amsfonts, amssymb, amsmath, amscd,  amsrefs, 
-nameref,mathtools, thmtools,comment,
+\usepackage{amsthm,amsfonts, amssymb, amsmath, amscd,  amsrefs, 
+nameref,mathtools, comment,
 mathrsfs}
+\usepackage{thmtools}
 \usepackage{graphics, slashed, multicol, latexsym, float, todonotes, enumitem, tensor,lipsum, graphicx, tikz, tikz-cd, tkz-berge, tkz-graph, color, cancel,marginnote,relsize}
 
 %The following must be loaded in this order
 \usepackage[hidelinks,hypertexnames=false]{hyperref}
-\usepackage[nameinlink,capitalise]{cleveref}
+\usepackage[nameinlink]{cleveref}
+% \usepackage[nameinlink,capitalise]{cleveref}
 
 %suppress equation numbers unless labeled (this package is out of date because it relies on etextools)
 %\usepackage{autonum}
@@ -62,7 +64,81 @@ mathrsfs}
 
 \graphicspath{{visuals/}}
 
+%make arxiv links actually link to the website
+\renewcommand{\eprint}[1]{\href{https://arxiv.org/abs/#1}{arXiv:#1}}
+
 %ENVIRONMENTS
+%environments get:
+%	definition
+%	crefname (theorems, lemmas, propositions, and conjectures are always capitalized.
+%	Everything else is controlled by cref)
+%	numberwithin setting(in cls files)
+%	Snippet
+\newtheorem{thm}{Theorem}
+\crefname{thm}{Theorem}{Theorems}
+\newtheorem*{thm*}{Theorem}
+\crefname{thm*}{Theorem}{Theorems}
+\newtheorem{lem}[thm]{Lemma}
+\crefname{lem}{Lemma}{Lemmata}
+\newtheorem{prop}[thm]{Proposition}
+\crefname{prop}{Proposition}{Propositions}
+\newtheorem{cor}[thm]{Corollary}
+\crefname{cor}{Corollary}{Corollaries}
+\newtheorem{con}{Conjecture}
+\crefname{con}{Conjecture}{Conjectures}
+\newtheorem{fact}{Fact}
+\Crefname{fact}{Fact}{Facts}
+\newtheorem{obs}{Observation}
+\Crefname{obs}{Observation}{Observations}
+%%%
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\Crefname{defn}{Definition}{Definitions}
+\newtheorem{exr}{Exercise}
+\Crefname{exr}{Exercise}{Exercises}
+\newtheorem*{sol}{Solution}
+% \Crefname{sol}{Solution}{Solutions}
+\newtheorem{exm}{Example}
+\Crefname{exm}{Example}{Examples}
+\newtheorem{cexm}{Counterexample}
+\Crefname{cexm}{Counterexample}{Counterexamples}
+\newtheorem{wrn}{Warning}
+\Crefname{wrn}{Warning}{Warnings}
+\newtheorem{qn}{Question}
+\Crefname{qn}{Question}{Questions}
+\newtheorem{clm}{Claim}
+\Crefname{clm}{Claim}{Claims}
+\newtheorem{proof_clm}{Claim}[thm]
+% proof_clm is for claims inside of a proof. So they are numbered within theorems
+%%%
+\theoremstyle{remark}
+\newtheorem{rmk}{Remark}
+\Crefname{rmk}{Remark}{Remarks}
+\newtheorem{dig}{Digression}
+\Crefname{dig}{Digression}{Digressions}
+%%%
+\Crefname{axiom}{Axiom}{Axioms}
+%%%
+\crefformat{footnote}{#2\footnotemark[#1]#3}
+%%%
+%%% custom environments
+% i.e. environments where you can give it any label you like (this is useful for claim 1, claim 2, claim 2', claim 3)
+% custom must be referenced with ref, i.e. it must have the type in the label. This
+% explains why I made a
+% new environment for customclm rather than just typing claim into custom whenever I want
+% a custom label on a claim, because I want cref to
+% still control its capitalization.
+\newtheorem{innercustomthm}{}
+\newenvironment{custom}[1]
+  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+  {\endinnercustomthm}
+%
+\newtheorem{innercustomclm}{Claim}
+\newenvironment{custom_clm}[1]
+  {\renewcommand\theinnercustomclm{#1}\innercustomclm}
+  {\endinnercustomthm}
+\Crefname{innercustomclm}{Claim}{Claims}
+
 \usepackage{array}
 \newcolumntype{L}{>{$}l<{$}}
 \newcolumntype{C}{>{$}c<{$}}
@@ -120,60 +196,6 @@ mathrsfs}
   \array{#1}}
 \makeatother
 
-
-%environments get:
-%	definition
-%	crefname
-%	numberwithin setting(in cls files)
-%	Snippet
-\newtheorem{thm}{Theorem}
-\Crefname{thm}{Theorem}{Theorems}
-\newtheorem*{thm*}{Theorem}
-\Crefname{thm*}{Theorem}{Theorems}
-\newtheorem{lem}[thm]{Lemma}
-\Crefname{lem}{Lemma}{Lemmata}
-\newtheorem{prop}[thm]{Proposition}
-\Crefname{prop}{Proposition}{Propositions}
-\newtheorem{cor}[thm]{Corollary}
-\Crefname{cor}{Corollary}{Corollaries}
-\newtheorem{con}{Conjecture}
-\Crefname{con}{Conjecture}{Conjectures}
-\newtheorem{fact}{Fact}
-\Crefname{fact}{Fact}{Facts}
-\newtheorem{obs}{Observation}
-\Crefname{obs}{Observation}{Observations}
-%%%
-\theoremstyle{definition}
-\newtheorem{defn}{Definition}
-\Crefname{defn}{Definition}{Definitions}
-\newtheorem{exr}{Exercise}
-\Crefname{exr}{Exercise}{Exercises}
-\newtheorem*{sol}{Solution}
-% \Crefname{sol}{Solution}{Solutions}
-\newtheorem{exm}{Example}
-\Crefname{exm}{Example}{Examples}
-\newtheorem{cexm}{Counterexample}
-\Crefname{cexm}{Counterexample}{Counterexamples}
-\newtheorem{wrn}{Warning}
-\Crefname{wrn}{Warning}{Warnings}
-\newtheorem{qn}{Question}
-\Crefname{qn}{Question}{Questions}
-\newtheorem{clm}{Claim}
-\Crefname{clm}{Claim}{Claims}
-%%%
-\theoremstyle{remark}
-\newtheorem{rmk}{Remark}
-\Crefname{rmk}{Remark}{Remarks}
-\newtheorem{dig}{Digression}
-\Crefname{dig}{Digression}{Digressions}
-%%%
-\Crefname{axiom}{Axiom}{Axioms}
-%%%
-%\numberwithin{clm}{thm}
-\crefformat{footnote}{#2\footnotemark[#1]#3}
-
-%make arxiv links actually link to the website
-\renewcommand{\eprint}[1]{\href{https://arxiv.org/abs/#1}{arXiv:#1}}
 
 %LETTERS
 
@@ -641,7 +663,7 @@ mathrsfs}
 \newcommand{\cmod}[2]{ \, \equiv \, #1 \, \left(\mathrm{mod} \, #2\right)\,}
 \newcommand{\ubr}[2]{\underbrace{#1}_{#2}}
 \newcommand{\obr}[2]{\overbrace{#1}^{#2}}
-\newcommand{\units}[1]{#1^\times}
+\newcommand{\units}[1]{{#1^\times}}
 \newcommand{\ps}[1]{\left\llbracket #1 \right\rrbracket}
 \newcommand{\ls}[1]{\left(\!\left( #1 \right)\!\right)}
 \newcommand{\tv}[1]{\left\llbracket #1 \right\rrbracket}
@@ -668,6 +690,7 @@ mathrsfs}
 %CATEGORIES
 \newcommand{\cat}{\mathbf}
 \newcommand{\ShvCat}{\cat{ShvCat}}
+\newcommand{\RW}{\cat{RW}}
 \newcommand{\Cob}{\cat{Cob}}
 \newcommand{\Hilb}{\cat{Hilb}}
 \newcommand{\Rep}{\cat{Rep}}
@@ -751,6 +774,11 @@ mathrsfs}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
+\DeclareMathOperator{\hilb}{Hilb}
+\DeclareMathOperator{\MCG}{MCG}
+\DeclareMathOperator{\inner}{inner}
+\DeclareMathOperator{\Bun}{Bun}
+\DeclareMathOperator{\FQ}{FQ}
 \DeclareMathOperator{\LO}{LO}
 \DeclareMathOperator{\homeo}{Homeo}
 \DeclareMathOperator{\mult}{mult}
@@ -855,6 +883,7 @@ mathrsfs}
 \DeclareMathOperator{\Map}{Map}
 \DeclareMathOperator{\Maps}{Maps}
 \DeclareMathOperator{\Hol}{Hol}
+\DeclareMathOperator{\hol}{hol}
 \DeclareMathOperator{\Sect}{Sect}
 \DeclareMathOperator{\Solv}{Solv}
 \DeclareMathOperator{\coinv}{coinv}
@@ -885,7 +914,9 @@ mathrsfs}
 \DeclareMathOperator{\Nat}{Nat}
 \DeclareMathOperator{\Mor}{Mor}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\sHom}{\cH om}
 \DeclareMathOperator{\cHom}{\cH om}
+\DeclareMathOperator{\RHom}{RHom}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Out}{Out}
@@ -935,6 +966,8 @@ mathrsfs}
 \DeclareMathOperator{\ind}{ind}
 \DeclareMathOperator{\Tor}{Tor}
 \DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\sExt}{\mathcal{E}xt}
+\DeclareMathOperator{\cExt}{\mathcal{E}xt}
 \DeclareMathOperator{\Der}{Der}
 \DeclareMathOperator{\Dy}{Dy}
 \DeclareMathOperator{\dist}{dist}
