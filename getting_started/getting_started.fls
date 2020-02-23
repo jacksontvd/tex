@@ -67,6 +67,10 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/tools/calc.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/tools/calc.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/mathtools/mhsetup.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/mathtools/mhsetup.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/comment/comment.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/comment/comment.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/thmtools/thmtools.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/thmtools/thmtools.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/thmtools/thm-patch.sty
@@ -87,10 +91,6 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/thmtools/thm-restate.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/thmtools/thm-restate.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/thmtools/thm-amsthm.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/thmtools/thm-amsthm.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/comment/comment.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/comment/comment.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty

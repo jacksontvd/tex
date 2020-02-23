@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1580231916 "getting_started.tex" "getting_started.pdf" "getting_started" 1580231918
-  "/Users/jacksontvd/Library/texmf/tex/latex/master.sty" 1580231538 32136 88aa4ee26074088a43fc5954e89b25c1 ""
+["pdflatex"] 1581704837 "getting_started.tex" "getting_started.pdf" "getting_started" 1581704839
+  "/Users/jacksontvd/Library/texmf/tex/latex/master.sty" 1581701646 32934 2a55085ad810235dbf559c398fb7d4dc ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -233,13 +233,13 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1463979168 3520378 010aaf5a738348f136b1de9595fa7567 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "getting_started.aux" 1580231918 2177 ab5ef5033a110253eafdb27a388466ca ""
-  "getting_started.out" 1580231918 882 a48c9477ec9fc7fc5f32efdfd404a98e ""
-  "getting_started.tex" 1580231916 7221 6673fcbe967696ebfb3382a6c894d297 ""
-  "getting_started.toc" 1580231918 1049 336b13f6da8d40ea3ca6548fdd322623 ""
+  "getting_started.aux" 1581704839 2177 bff95522790ffd909ce7f61f604f5333 ""
+  "getting_started.out" 1581704839 882 a48c9477ec9fc7fc5f32efdfd404a98e ""
+  "getting_started.tex" 1581704835 7797 842af549d27c7a3fda0aca843dc10544 ""
+  "getting_started.toc" 1581704839 1049 336b13f6da8d40ea3ca6548fdd322623 ""
   (generated)
   "getting_started.pdf"
-  "getting_started.toc"
-  "getting_started.out"
-  "getting_started.aux"
   "getting_started.log"
+  "getting_started.aux"
+  "getting_started.out"
+  "getting_started.toc"
