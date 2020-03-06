@@ -67,6 +67,8 @@ mathrsfs}
 %make arxiv links actually link to the website
 \renewcommand{\eprint}[1]{\href{https://arxiv.org/abs/#1}{arXiv:#1}}
 
+\crefname{item}{Item}{Items}
+
 %ENVIRONMENTS
 %environments get:
 %	definition
@@ -77,15 +79,18 @@ mathrsfs}
 \newtheorem{thm}{Theorem}
 \crefname{thm}{Theorem}{Theorems}
 \newtheorem*{thm*}{Theorem}
-\crefname{thm*}{Theorem}{Theorems}
 \newtheorem{lem}[thm]{Lemma}
 \crefname{lem}{Lemma}{Lemmata}
+\newtheorem*{lem*}{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \crefname{prop}{Proposition}{Propositions}
+\newtheorem*{prop*}{Proposition}
 \newtheorem{cor}[thm]{Corollary}
 \crefname{cor}{Corollary}{Corollaries}
+\newtheorem*{cor*}{Corollary}
 \newtheorem{con}{Conjecture}
 \crefname{con}{Conjecture}{Conjectures}
+\newtheorem*{con*}{Conjecture}
 \newtheorem{fact}{Fact}
 \Crefname{fact}{Fact}{Facts}
 \newtheorem{obs}{Observation}
@@ -114,8 +119,12 @@ mathrsfs}
 \theoremstyle{remark}
 \newtheorem{rmk}{Remark}
 \Crefname{rmk}{Remark}{Remarks}
+\newtheorem*{rmk*}{Remark}
+\newtheorem*{imp}{Important}
 \newtheorem{dig}{Digression}
 \Crefname{dig}{Digression}{Digressions}
+\newtheorem{joke}{Joke}
+\Crefname{joke}{Joke}{Jokes}
 %%%
 \Crefname{axiom}{Axiom}{Axioms}
 %%%
@@ -128,15 +137,15 @@ mathrsfs}
 % new environment for customclm rather than just typing claim into custom whenever I want
 % a custom label on a claim, because I want cref to
 % still control its capitalization.
-\newtheorem{innercustomthm}{}
+\newtheorem{innercustom}{}
 \newenvironment{custom}[1]
-  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+  {\renewcommand\theinnercustom{#1}\innercustom}
   {\endinnercustomthm}
 %
 \newtheorem{innercustomclm}{Claim}
 \newenvironment{custom_clm}[1]
   {\renewcommand\theinnercustomclm{#1}\innercustomclm}
-  {\endinnercustomthm}
+  {\endinnercustomclm}
 \Crefname{innercustomclm}{Claim}{Claims}
 
 \usepackage{array}
@@ -381,12 +390,13 @@ mathrsfs}
 \newcommand{\io}{\iota}
 \newcommand{\Lam}{\Lambda}
 \newcommand{\lam}{\lambda}
-\renewcommand{\l}{\lambda}
 \newcommand{\Om}{\Omega}
 \newcommand{\om}{\omega}
 \newcommand{\p}{\partial}
 \newcommand{\z}{\zeta}
 \newcommand{\gam}{\gamma}
+\newcommand{\ZHS}{$\ZZ$HS}
+\newcommand{\QHS}{$\QQ$HS}
 
 
 % TEXT 
@@ -482,6 +492,7 @@ mathrsfs}
 \newcommand{\acted}{\backto}
 \newcommand{\tvi}{\looparrowright}%this is for self transverse immersion (princeton summer 18, Pardon)
 \newcommand{\paut}{\dashrightarrow}%partial automorphism (ucb model theory (229) spring 19)
+\newcommand{\dto}{\dashrightarrow}
 \newcommand{\rinf}{\rightarrow \infty}
 \newcommand{\rhup}{\rightharpoonup}
 \newcommand{\rhdown}{\rightharpoondown}
@@ -517,6 +528,7 @@ mathrsfs}
 \newcommand{\bwsum}{\bigvee}
 \newcommand{\sprod}{\wedge}
 \newcommand{\bsprod}{\bigwedge}
+\newcommand{\join}{\star}
 \newcommand{\csum}{\#}
 \newcommand{\bcsum}{\mathlarger{\mathlarger{\#}}}
 %\newcommand{\bcsum}[1]{\underset{#1}{\largecsum}}
@@ -628,7 +640,9 @@ mathrsfs}
 \newcommand{\tens}[2]{\tensor{#1}{#2}}
 \newcommand{\ttilde}[1]{\widetilde{#1}}
 \newcommand{\uc}[1]{\widetilde{#1}}
+%barr is a wider bar, bbar is a "taller" bar. (This is useful for when we want brackets to automatically get taller around it. I.e. \left[ \barr{-}\right] looks very bad, but not with \bbar inside.
 \newcommand{\barr}[1]{\overline{#1}}
+\newcommand{\bbar}[1]{\overset{\ }{\barr{#1}}}
 \newcommand{\hatt}[1]{\widehat{#1}}
 \newcommand{\shff}[1]{#1^{\textrm{Sh}}}
 \newcommand{\squo}[2]{#1/\!\!/#2}
@@ -697,9 +711,11 @@ mathrsfs}
 %CATEGORIES
 \newcommand{\cat}{\mathbf}
 \newcommand{\Space}{\cat{Space}}
+\newcommand{\Spaces}{\cat{Spaces}}
 \newcommand{\ShvCat}{\cat{ShvCat}}
 \newcommand{\RW}{\cat{RW}}
 \newcommand{\Cob}{\cat{Cob}}
+\newcommand{\Bord}{\cat{Bord}}
 \newcommand{\Hilb}{\cat{Hilb}}
 \newcommand{\Rep}{\cat{Rep}}
 \newcommand{\lRep}[1]{#1\text{-}\cat{Rep}}
@@ -712,10 +728,12 @@ mathrsfs}
 \newcommand{\Mfd}{\cat{Mfd}}
 \newcommand{\SymplMfd}{\cat{Sympl Mfd}}
 \newcommand{\Mon}{\cat{Mon}}
+\newcommand{\LinCat}{\cat{LinCat}}
 \newcommand{\Cat}{\cat{Cat}}
 \newcommand{\Ab}{\cat{Ab}}
 \newcommand{\Fr}{\cat{Fr}}
 \newcommand{\Set}{\cat{Set}} 
+\newcommand{\Sets}{\cat{Sets}} 
 \newcommand{\Pos}{\cat{Pos}}
 \newcommand{\Pre}{\cat{Pre}}
 \newcommand{\Rg}{\cat{Rg}}
@@ -779,12 +797,14 @@ mathrsfs}
 \newcommand{\QCoh}{\cat{QCoh}}
 \newcommand{\Qcoh}{\cat{QCoh}}
 \newcommand{\QC}{\cat{QC}}
+\newcommand{\IndCoh}{\cat{IndCoh}}
 \newcommand{\Functors}{\cat{Functors}}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
 \DeclareMathOperator{\hilb}{Hilb}
 \DeclareMathOperator{\MCG}{MCG}
+\DeclareMathOperator{\mcg}{Mod}
 \DeclareMathOperator{\inner}{inner}
 \DeclareMathOperator{\Bun}{Bun}
 \DeclareMathOperator{\FQ}{FQ}
@@ -900,6 +920,7 @@ mathrsfs}
 \DeclareMathOperator{\height}{ht}
 \DeclareMathOperator{\Diff}{Diff}
 \DeclareMathOperator{\Diffeo}{Diffeo}
+\DeclareMathOperator{\Isom}{Isom}
 \DeclareMathOperator{\vect}{Vect}
 \DeclareMathOperator{\Split}{Split}
 \DeclareMathOperator{\Tors}{Tors}
