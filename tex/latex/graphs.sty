@@ -1,7 +1,31 @@
 \makeatletter
-\tikzset{my loop/.style =  {to path={
+\tikzset{up loop/.style =  {to path={
   \pgfextra{\let\tikztotarget=\tikztostart}
   [looseness=12,min distance=10mm]
+  \tikz@to@curve@path},font=\sffamily\small
+  }}
+\makeatletter
+
+\makeatletter
+\tikzset{down loop/.style =  {to path={
+  \pgfextra{\let\tikztotarget=\tikztostart}
+  [looseness=12,min distance=10mm, out=-45, in=225]
+  \tikz@to@curve@path},font=\sffamily\small
+  }}
+\makeatletter
+
+\makeatletter
+\tikzset{left loop/.style =  {to path={
+  \pgfextra{\let\tikztotarget=\tikztostart}
+  [looseness=12, min distance=10mm, out=135, in=225]
+  \tikz@to@curve@path},font=\sffamily\small
+  }}
+\makeatletter
+
+\makeatletter
+\tikzset{right loop/.style =  {to path={
+  \pgfextra{\let\tikztotarget=\tikztostart}
+  [looseness=12, min distance=10mm, out=45, in=-45]
   \tikz@to@curve@path},font=\sffamily\small
   }}
 \makeatletter

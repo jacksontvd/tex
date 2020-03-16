@@ -41,8 +41,10 @@ mathrsfs}
 %\makeatother
 
 %suppress pagenumbers:
-%\usepackage[margin=1in]{geometry}
 %\pagenumbering{gobble}
+
+%margin sizes
+%\usepackage[margin=1in]{geometry}
 
 %suppress numbering subsections within sections:
 % \usepackage{chngcntr}
@@ -400,6 +402,7 @@ mathrsfs}
 
 
 % TEXT 
+\newcommand{\trop}{\text{trop}}
 \newcommand{\sing}{\text{sing}}
 \newcommand{\nov}{\text{nov}}
 \newcommand{\virt}{\text{virt}}
@@ -547,6 +550,7 @@ mathrsfs}
 % stackrel puts things directly above a symbol 
 \newcommand\dtp{\stackrel{L}{\otimes}}
 \newcommand\dertp{\stackrel{L}{\otimes}}
+\newcommand\shrtp{\stackrel{!}{\otimes}}
 \newcommand{\boxtp}{\boxtimes}
 \newcommand{\dun}{\amalg}
 \newcommand{\bdun}{\mathop{\coprod}}
@@ -573,7 +577,6 @@ mathrsfs}
 \newcommand\chom{\mathrel{\stackrel{\makebox[0pt]{\mbox{\normalfont\tiny c}}}{\cong}}}
 \newcommand{\orth}{\perp}
 \newcommand{\msin}{\perp}
-\newcommand{\act}{\cdot}
 \newcommand{\something}{\bullet}
 \newcommand{\dott}{\bullet}
 \newcommand{\point}{\bullet}
@@ -634,6 +637,8 @@ mathrsfs}
 \newcommand{\rightdual}[1]{ #1^\vee }
 \newcommand{\rdual}{\rightdual}
 \newcommand{\dual}[1]{ #1^* }
+%Langlands dual
+\newcommand{\Ldual}[1]{{}^L #1}
 \newcommand{\hodge}[1]{\star #1}
 \newcommand{\ddual}[1]{ #1^{**} }
 \newcommand{\tpose}[1]{#1^{T}}
@@ -710,9 +715,12 @@ mathrsfs}
 
 %CATEGORIES
 \newcommand{\cat}{\mathbf}
+\newcommand{\Symdelcx}{\cat{Sym}\Del\text{-}\cat{Cx}}
+\newcommand{\Delcx}{\Del\text{-}\cat{Cx}}
 \newcommand{\Space}{\cat{Space}}
 \newcommand{\Spaces}{\cat{Spaces}}
 \newcommand{\ShvCat}{\cat{ShvCat}}
+\newcommand{\Shv}{\cat{Shv}}
 \newcommand{\RW}{\cat{RW}}
 \newcommand{\Cob}{\cat{Cob}}
 \newcommand{\Bord}{\cat{Bord}}
@@ -753,19 +761,26 @@ mathrsfs}
 \newcommand{\Top}{\cat{Top}}
 \newcommand{\TVS}{\cat{TVS}}
 \newcommand{\ExtGr}{\cat{ExtGr}}
+\newcommand{\Loc}{\cat{Loc}}
 \newcommand{\LocSys}{\cat{LocSys}}
 \newcommand{\Uni}{\cat{Uni}}
 \newcommand{\Vect}{\cat{Vect}}
 \newcommand{\FVect}{\cat{FDVect}}
 \newcommand{\GVect}{\cat{GrdVect}}
 \newcommand{\GFVect}{\cat{GrdFDVect}}
-\newcommand{\DAMod}[2]{^{#1}\cat{Mod}_{#2}}
+\newcommand{\DMod}{\cat{D}\text{-}\cat{Mod}}
+\newcommand{\Crys}{\cat{Crys}}
 \newcommand{\Rmod}{R\text{-}\cat{Mod}}
-\newcommand{\dMod}[1]{^{#1}\cat{Mod}}
-\newcommand{\aMod}[1]{\cat{Mod}_{#1}}
+% Heegaard Floer
+%\newcommand{\dMod}[1]{^{#1}\cat{Mod}}
+%\newcommand{\aMod}[1]{\cat{Mod}_{#1}}
+%\newcommand{\DAMod}[2]{^{#1}\cat{Mod}_{#2}}
 \newcommand{\lMod}[1]{#1\text{-}\cat{Mod}}
+\newcommand{\lcoMod}[1]{#1\text{-}\cat{coMod}}
 \newcommand{\rMod}[1]{\cat{Mod}\text{-}#1}
+\newcommand{\rcoMod}[1]{\cat{coMod}\text{-}#1}
 \newcommand{\Mod}[2]{#1\text{-}\cat{Mod}\text{-}#2}
+\newcommand{\coMod}[2]{#1\text{-}\cat{coMod}\text{-}#2}
 \newcommand{\Module}{\cat{Mod}}
 \newcommand{\Alg}{\cat{Alg}}
 \newcommand{\lAlg}[1]{#1\text{-}\cat{Alg}}
@@ -798,10 +813,13 @@ mathrsfs}
 \newcommand{\Qcoh}{\cat{QCoh}}
 \newcommand{\QC}{\cat{QC}}
 \newcommand{\IndCoh}{\cat{IndCoh}}
+\newcommand{\MF}{\cat{MF}}
 \newcommand{\Functors}{\cat{Functors}}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
+\DeclareMathOperator{\act}{act}
+\DeclareMathOperator{\coact}{co-act}
 \DeclareMathOperator{\hilb}{Hilb}
 \DeclareMathOperator{\MCG}{MCG}
 \DeclareMathOperator{\mcg}{Mod}
@@ -925,7 +943,6 @@ mathrsfs}
 \DeclareMathOperator{\Split}{Split}
 \DeclareMathOperator{\Tors}{Tors}
 \DeclareMathOperator{\val}{val}
-\DeclareMathOperator{\MF}{ MF}
 \DeclareMathOperator{\Dehn}{Dehn}
 \DeclareMathOperator{\Fl}{Fl}
 \DeclareMathOperator{\LGr}{LGr}
@@ -1034,6 +1051,8 @@ mathrsfs}
 \newcommand{\so}{\mfrak{so}}
 \DeclareMathOperator{\Sp}{Sp}
 \renewcommand{\sp}{\mfrak{sp}}
+\DeclareMathOperator{\Mp}{Mp}
+\renewcommand{\mp}{\mfrak{mp}}
 \DeclareMathOperator{\SU}{SU}
 \newcommand{\su}{\mfrak{su}}
 \let\U\undefined
