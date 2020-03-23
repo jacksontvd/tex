@@ -402,6 +402,8 @@ mathrsfs}
 
 
 % TEXT 
+\newcommand{\dR}{\text{dR}}
+\newcommand{\sm}{\text{sm}}
 \newcommand{\trop}{\text{trop}}
 \newcommand{\sing}{\text{sing}}
 \newcommand{\nov}{\text{nov}}
@@ -618,7 +620,7 @@ mathrsfs}
 
 
 %COMMAND WITH ARGUMENTS
-\renewcommand{\d}[1]{\, d #1 \,}
+\renewcommand{\d}[1]{\, d #1 }
 \newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\lr}[1]{\left\langle #1 \right\rangle}
@@ -639,6 +641,7 @@ mathrsfs}
 \newcommand{\dual}[1]{ #1^* }
 %Langlands dual
 \newcommand{\Ldual}[1]{{}^L #1}
+\newcommand{\langdual}[1]{#1^\vee}
 \newcommand{\hodge}[1]{\star #1}
 \newcommand{\ddual}[1]{ #1^{**} }
 \newcommand{\tpose}[1]{#1^{T}}
@@ -715,6 +718,9 @@ mathrsfs}
 
 %CATEGORIES
 \newcommand{\cat}{\mathbf}
+\newcommand{\SP}{\cat{Sp}}
+\newcommand{\Aff}{\cat{Aff}}
+\newcommand{\Funct}{\cat{Funct}}
 \newcommand{\Symdelcx}{\cat{Sym}\Del\text{-}\cat{Cx}}
 \newcommand{\Delcx}{\Del\text{-}\cat{Cx}}
 \newcommand{\Space}{\cat{Space}}
@@ -731,6 +737,7 @@ mathrsfs}
 \newcommand{\Sh}{\cat{Sh}}
 \newcommand{\PreSh}{\cat{PreSh}}
 \newcommand{\Grp}{\cat{Grp}}
+\newcommand{\FGrp}{\cat{FGrp}}
 \newcommand{\Grpd}{\cat{Grpd}}
 \newcommand{\TopGrp}{\cat{TopGrp}}
 \newcommand{\Mfd}{\cat{Mfd}}
@@ -738,6 +745,7 @@ mathrsfs}
 \newcommand{\Mon}{\cat{Mon}}
 \newcommand{\LinCat}{\cat{LinCat}}
 \newcommand{\Cat}{\cat{Cat}}
+\newcommand{\DGCat}{\cat{DGCat}}
 \newcommand{\Ab}{\cat{Ab}}
 \newcommand{\Fr}{\cat{Fr}}
 \newcommand{\Set}{\cat{Set}} 
@@ -818,6 +826,7 @@ mathrsfs}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
+\DeclareMathOperator{\oblv}{oblv}
 \DeclareMathOperator{\act}{act}
 \DeclareMathOperator{\coact}{co-act}
 \DeclareMathOperator{\hilb}{Hilb}
@@ -869,11 +878,13 @@ mathrsfs}
 \DeclareMathOperator{\codim}{Codim}
 \DeclareMathOperator{\component}{comp}
 \DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\SingSupp}{SingSupp}
 \DeclareMathOperator{\centerr}{center}
 \DeclareMathOperator{\Pin}{Pin}
 \DeclareMathOperator{\Tw}{Tw}
 \DeclareMathOperator{\Fuk}{Fuk}
 \DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\coev}{coev}
 \DeclareMathOperator{\Slope}{Sl}
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\nd}{nd}
@@ -882,6 +893,8 @@ mathrsfs}
 %Hochschild homology
 \DeclareMathOperator{\Hh}{HH}
 \DeclareMathOperator{\HC}{HC}
+%Periodic cyclic homology
+\DeclareMathOperator{\Hp}{HP}
 %Symplectic homology
 \DeclareMathOperator{\SH}{SH}
 \DeclareMathOperator{\HFK}{HFK}

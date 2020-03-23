@@ -36,6 +36,16 @@ great. For more information and a much better technical introduction to how this
 actually works, I suggest the canonical reference, \textit{The Texbook}, available
 \href{http://www.ctex.org/documents/shredder/src/texbook.pdf}{here}.
 
+Vim is a text editor which uses keystrokes (rather than menus and the cursor) to navigate and edit text documents. 
+In other words you use combinations of keys on your keyboard to toggle through lines,
+copy, paste, find, etc.
+It can be used from a command line interface or as a standalone applications in 
+a graphical user interface. So you can edit documents using Vim directly in the terminal
+or by opening the Vim application as you would open Microsoft Word. 
+The fact that it uses keystrokes makes it hard to learn, but much faster once you do. 
+It is also highly customizable with what it called a vimrc. We will learn about this
+in \cref{sec:vimrc}.
+
 \section{Setting up \LaTeX}
 
 \subsection{Installation}
@@ -72,6 +82,7 @@ brew install vim
 \end{verbatim}
 
 \subsection{Writing a \texttt{vimrc}}
+\label{sec:vimrc}
 
 The content of a \texttt{vimrc} file should be thought of as custom settings for Vim.
 When starting out it is tempting to copy and past someone else's. If you would like to do
