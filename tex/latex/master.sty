@@ -493,6 +493,7 @@ mathrsfs}
 \newcommand{\lbij}{\xleftrightarrow}
 \newcommand{\backto}{ \ \rotatebox[origin=c]{90}{$\circlearrowleft$}\ }
 \newcommand{\acts}{ \ \rotatebox[origin=c]{-90}{$\circlearrowright$}\ }
+\newcommand{\upacts}{ \ \rotatebox[origin=c]{0}{$\circlearrowright$}\ }
 \newcommand{\racts}{\backto}
 \newcommand{\acted}{\backto}
 \newcommand{\tvi}{\looparrowright}%this is for self transverse immersion (princeton summer 18, Pardon)
@@ -506,6 +507,8 @@ mathrsfs}
 \newcommand{\bleadsto}{\leftrightsquigarrow}
 
 % SYMBOLS
+\newcommand{\upin}{\rotatebox[origin=c]{90}{$\in$}}
+\newcommand{\downin}{\rotatebox[origin=c]{90}{$\in$}}
 \newcommand{\adj}{\dashv}
 \newcommand{\frowny}{\frownie}
 \newcommand{\lineheight}{\baselineskip}
@@ -550,8 +553,9 @@ mathrsfs}
 \newcommand{\btp}{\bigotimes}
 \newcommand{\tp}{\otimes}
 % stackrel puts things directly above a symbol 
-\newcommand\dtp{\stackrel{L}{\otimes}}
-\newcommand\dertp{\stackrel{L}{\otimes}}
+\newcommand\dtp{\stackrel{\LL}{\otimes}}
+\newcommand\dertp{\stackrel{\LL}{\otimes}}
+\newcommand\dHom{\RR\Hom}
 \newcommand\shrtp{\stackrel{!}{\otimes}}
 \newcommand{\boxtp}{\boxtimes}
 \newcommand{\dun}{\amalg}
@@ -746,6 +750,9 @@ mathrsfs}
 \newcommand{\LinCat}{\cat{LinCat}}
 \newcommand{\Cat}{\cat{Cat}}
 \newcommand{\DGCat}{\cat{DGCat}}
+\newcommand{\dgcat}{\cat{dgcat}}
+\newcommand{\Stable}{\cat{St}}
+\newcommand{\stable}{\cat{st}}
 \newcommand{\Ab}{\cat{Ab}}
 \newcommand{\Fr}{\cat{Fr}}
 \newcommand{\Set}{\cat{Set}} 
@@ -826,6 +833,7 @@ mathrsfs}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
+\DeclareMathOperator{\Mat}{Mat}
 \DeclareMathOperator{\oblv}{oblv}
 \DeclareMathOperator{\act}{act}
 \DeclareMathOperator{\coact}{co-act}
