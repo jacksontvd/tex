@@ -76,7 +76,8 @@ mathrsfs}
 %	definition
 %	crefname (theorems, lemmas, propositions, and conjectures are always capitalized.
 %	Everything else is controlled by cref)
-%	numberwithin setting(in cls files)
+%	numberwithin setting(in cls files) (e.g. 
+%\numberwithin{equation}{chapter})
 %	Snippet
 \newtheorem{thm}{Theorem}
 \crefname{thm}{Theorem}{Theorems}
@@ -149,6 +150,12 @@ mathrsfs}
   {\renewcommand\theinnercustomclm{#1}\innercustomclm}
   {\endinnercustomclm}
 \Crefname{innercustomclm}{Claim}{Claims}
+%
+\newtheorem{innercustomthm}{Theorem}
+\newenvironment{custom_thm}[1]
+  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+  {\endinnercustomthm}
+\Crefname{innercustomthm}{Theorem}{Theorems}
 
 \usepackage{array}
 \newcolumntype{L}{>{$}l<{$}}
@@ -504,6 +511,7 @@ mathrsfs}
 \newcommand{\rhdown}{\rightharpoondown}
 \newcommand{\down}{\downarrow}
 \newcommand{\up}{\uparrow}
+\newcommand{\lup}[1]{{\left\uparrow\vbox to #1{}\right.\kern-\nulldelimiterspace}}
 \newcommand{\bleadsto}{\leftrightsquigarrow}
 
 % SYMBOLS
@@ -772,6 +780,7 @@ mathrsfs}
 \newcommand{\Root}{\cat{Root}}
 \newcommand{\Semi}{\cat{Semi}}
 \newcommand{\Open}{\cat{Open}}
+\newcommand{\Disks}{\cat{Disks}}
 \newcommand{\Simp}{\cat{Simp}}
 \newcommand{\SN}{\cat{SN}}
 \newcommand{\Top}{\cat{Top}}
@@ -834,6 +843,8 @@ mathrsfs}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
+\DeclareMathOperator{\conf}{Conf}
+\DeclareMathOperator{\vcd}{vcd}
 \DeclareMathOperator{\Mat}{Mat}
 \DeclareMathOperator{\oblv}{oblv}
 \DeclareMathOperator{\act}{act}
@@ -987,6 +998,7 @@ mathrsfs}
 \DeclareMathOperator{\cHom}{\cH om}
 \DeclareMathOperator{\RHom}{RHom}
 \DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Emb}{Emb}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Out}{Out}
 \DeclareMathOperator{\Inn}{Inn}
