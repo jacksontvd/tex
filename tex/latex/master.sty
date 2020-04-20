@@ -1,16 +1,33 @@
-\usepackage{amsthm,amsfonts, amssymb, amsmath, amscd,  amsrefs, 
-nameref,mathtools, comment,
-mathrsfs}
-\usepackage{thmtools}
-\usepackage{graphics, slashed, multicol, latexsym, float, todonotes, enumitem, tensor,lipsum, graphicx, tikz, tikz-cd, tkz-berge, tkz-graph, color, cancel,marginnote,relsize}
+\usepackage{amsthm, amsfonts, amssymb, amsmath, amscd, 
+mathtools, comment}
+\usepackage{thmtools, mathrsfs, slashed, multicol, latexsym, float, cancel,
+todonotes, enumitem, tensor, marginnote, color, relsize}
+
+% show \label's and keys for references
+%\usepackage{showkeys}
+
+%graphics packages
+\usepackage{graphics, graphicx}
+%tikz packages
+\usepackage{tikz, tikz-cd, tkz-berge, tkz-graph}
 
 %The following must be loaded in this order
-\usepackage[hidelinks,hypertexnames=false]{hyperref}
+% hypertexnames is roughly for "things being numbered within other things" 
+% hidelinks hides the ugly borders
+% backref puts the back references in the references section at the end
+% alphabetic labels references with the authors' last names and year 
+\usepackage[backref=page]{hyperref}
+%\usepackage[hidelinks,hypertexnames=false,backref]{hyperref}
+\usepackage[backrefs,shortalphabetic]{amsrefs}
+\usepackage{nameref}
 \usepackage[nameinlink]{cleveref}
 % \usepackage[nameinlink,capitalise]{cleveref}
 
 %suppress equation numbers unless labeled (this package is out of date because it relies on etextools)
 %\usepackage{autonum}
+
+%Lorem ipsum dummy text
+%\usepackage{lipsum}
 
 % some heavy packages I don't always use
 %\usepackage{gensymb,polynom,relsize,dsfont,marvosym,mdframed}
@@ -82,38 +99,51 @@ mathrsfs}
 \newtheorem{thm}{Theorem}
 \crefname{thm}{Theorem}{Theorems}
 \newtheorem*{thm*}{Theorem}
+%
 \newtheorem{lem}[thm]{Lemma}
 \crefname{lem}{Lemma}{Lemmata}
 \newtheorem*{lem*}{Lemma}
+%
 \newtheorem{prop}[thm]{Proposition}
 \crefname{prop}{Proposition}{Propositions}
 \newtheorem*{prop*}{Proposition}
+%
 \newtheorem{cor}[thm]{Corollary}
 \crefname{cor}{Corollary}{Corollaries}
 \newtheorem*{cor*}{Corollary}
+%
 \newtheorem{con}{Conjecture}
 \crefname{con}{Conjecture}{Conjectures}
 \newtheorem*{con*}{Conjecture}
+%
 \newtheorem{fact}{Fact}
 \Crefname{fact}{Fact}{Facts}
+%
 \newtheorem{obs}{Observation}
 \Crefname{obs}{Observation}{Observations}
 %%%
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}
 \Crefname{defn}{Definition}{Definitions}
+%
 \newtheorem{exr}{Exercise}
 \Crefname{exr}{Exercise}{Exercises}
+%
 \newtheorem*{sol}{Solution}
 % \Crefname{sol}{Solution}{Solutions}
+%
 \newtheorem{exm}{Example}
 \Crefname{exm}{Example}{Examples}
+%
 \newtheorem{cexm}{Counterexample}
 \Crefname{cexm}{Counterexample}{Counterexamples}
+%
 \newtheorem{wrn}{Warning}
 \Crefname{wrn}{Warning}{Warnings}
+%
 \newtheorem{qn}{Question}
 \Crefname{qn}{Question}{Questions}
+%
 \newtheorem{clm}{Claim}
 \Crefname{clm}{Claim}{Claims}
 \newtheorem{proof_clm}{Claim}[thm]
@@ -123,9 +153,16 @@ mathrsfs}
 \newtheorem{rmk}{Remark}
 \Crefname{rmk}{Remark}{Remarks}
 \newtheorem*{rmk*}{Remark}
+%
+\newtheorem{note}{Note}
+\Crefname{note}{Note}{Notes}
+\newtheorem*{note*}{Note}
+%
 \newtheorem*{imp}{Important}
+%
 \newtheorem{dig}{Digression}
 \Crefname{dig}{Digression}{Digressions}
+%
 \newtheorem{joke}{Joke}
 \Crefname{joke}{Joke}{Jokes}
 %%%
@@ -135,11 +172,15 @@ mathrsfs}
 %%%
 %%% custom environments
 % i.e. environments where you can give it any label you like (this is useful for claim 1, claim 2, claim 2', claim 3)
+% exm: 
+% \begin{custom_clm}{2'}
 % custom must be referenced with ref, i.e. it must have the type in the label. This
 % explains why I made a
 % new environment for customclm rather than just typing claim into custom whenever I want
 % a custom label on a claim, because I want cref to
 % still control its capitalization.
+%% IMPORTANT: Do not use this to reference named theorems (e.g. Zorn's lemma). 
+%There is \nameref for this!
 \newtheorem{innercustom}{}
 \newenvironment{custom}[1]
   {\renewcommand\theinnercustom{#1}\innercustom}
@@ -151,11 +192,6 @@ mathrsfs}
   {\endinnercustomclm}
 \Crefname{innercustomclm}{Claim}{Claims}
 %
-\newtheorem{innercustomthm}{Theorem}
-\newenvironment{custom_thm}[1]
-  {\renewcommand\theinnercustomthm{#1}\innercustomthm}
-  {\endinnercustomthm}
-\Crefname{innercustomthm}{Theorem}{Theorems}
 
 \usepackage{array}
 \newcolumntype{L}{>{$}l<{$}}
@@ -551,7 +587,8 @@ mathrsfs}
 \newcommand{\comp}{\circ}
 \newcommand{\converse}{\Longleftarrow}
 \newcommand{\conv}{*}
-% mathop puts things directly underneath or above a symbol 
+% mathop treats the contents like an operator, so it puts subscripts directly underneath
+% or above a symbol
 \newcommand{\bconv}{\mathop{\scalebox{1.5}{\raisebox{-0.2ex}{$\ast$}}}}
 \newcommand{\fprod}{\ast}
 \newcommand{\bfprod}{\mathop{\scalebox{1.5}{\raisebox{-0.2ex}{$\ast$}}}}
@@ -731,7 +768,12 @@ mathrsfs}
 
 %CATEGORIES
 \newcommand{\cat}{\mathbf}
+\newcommand{\scat}{\mathcal}
 \newcommand{\SP}{\cat{Sp}}
+\newcommand{\Sector}{\cat{Sector}}
+\newcommand{\sSector}{\scat{S}\cat{ector}}
+\newcommand{\Arboreal}{\cat{Arboreal}}
+\newcommand{\Enter}{\cat{Enter}}
 \newcommand{\Aff}{\cat{Aff}}
 \newcommand{\Funct}{\cat{Funct}}
 \newcommand{\Symdelcx}{\cat{Sym}\Del\text{-}\cat{Cx}}
@@ -740,6 +782,7 @@ mathrsfs}
 \newcommand{\Spaces}{\cat{Spaces}}
 \newcommand{\ShvCat}{\cat{ShvCat}}
 \newcommand{\Shv}{\cat{Shv}}
+\newcommand{\coShv}{\cat{coShv}}
 \newcommand{\RW}{\cat{RW}}
 \newcommand{\Cob}{\cat{Cob}}
 \newcommand{\Bord}{\cat{Bord}}
@@ -810,6 +853,7 @@ mathrsfs}
 \newcommand{\Alg}{\cat{Alg}}
 \newcommand{\lAlg}[1]{#1\text{-}\cat{Alg}}
 \newcommand{\rAlg}[1]{\cat{Alg}\text{-}#1}
+\newcommand{\CAlg}{\cat{CAlg}}
 \newcommand{\Gset}{G\text{-} \cat{set}}
 \newcommand{\Biset}[2]{\cat{#1}\text{-}\Set\text{-}\cat{#2}}
 \newcommand{\lbis}[1]{#1\text{-}\Set}
@@ -843,6 +887,9 @@ mathrsfs}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
+\DeclareMathOperator{\AG}{AG}
+\DeclareMathOperator{\Star}{Star}
+% \DeclareMathOperator{\Ran}{Ran}
 \DeclareMathOperator{\conf}{Conf}
 \DeclareMathOperator{\vcd}{vcd}
 \DeclareMathOperator{\Mat}{Mat}
@@ -916,6 +963,7 @@ mathrsfs}
 %Periodic cyclic homology
 \DeclareMathOperator{\Hp}{HP}
 %Symplectic homology
+\DeclareMathOperator{\SC}{SC}
 \DeclareMathOperator{\SH}{SH}
 \DeclareMathOperator{\HFK}{HFK}
 \DeclareMathOperator{\DFK}{DFK}
@@ -1042,7 +1090,9 @@ mathrsfs}
 \DeclareMathOperator{\cont}{c}
 \DeclareMathOperator{\EL}{EL}
 \DeclareMathOperator{\Ball}{B}
-\DeclareMathOperator{\colim}{colim}
+% the star puts subscripts directly underneath
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator*{\coeq}{coeq}
 \DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\ind}{ind}
 \DeclareMathOperator{\Tor}{Tor}
