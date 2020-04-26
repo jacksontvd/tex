@@ -84,7 +84,7 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 \graphicspath{{visuals/}}
 
 %make arxiv links actually link to the website
-\renewcommand{\eprint}[1]{\href{https://arxiv.org/abs/#1}{arXiv:#1}}
+% \renewcommand{\eprint}[1]{\href{https://arxiv.org/abs/#1}{arXiv:#1}}
 
 \crefname{item}{Item}{Items}
 
@@ -591,7 +591,8 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 % or above a symbol
 \newcommand{\bconv}{\mathop{\scalebox{1.5}{\raisebox{-0.2ex}{$\ast$}}}}
 \newcommand{\fprod}{\ast}
-\newcommand{\bfprod}{\mathop{\scalebox{1.5}{\raisebox{-0.2ex}{$\ast$}}}}
+% \newcommand{\bfprod}{\mathop{\scalebox{1.5}{\raisebox{-0.2ex}{$\ast$}}}}
+\newcommand{\bfprod}{\mathop{\mathlarger{\mathlarger{\ast}}}}
 \newcommand{\btimes}{\bigtimes}
 \newcommand{\bdsum}{\bigoplus\limits}
 \newcommand{\dsum}{\oplus}
@@ -704,6 +705,7 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 \newcommand{\hatt}[1]{\widehat{#1}}
 \newcommand{\shff}[1]{#1^{\textrm{Sh}}}
 \newcommand{\squo}[2]{#1/\!\!/#2}
+\newcommand{\tripquo}[2]{#1/\!\!/\!\!/#2}
 \newcommand{\multunder}[1]{\substack{#1}}
 \newcommand{\mcal}[1]{\mathcal{#1}}
 \newcommand{\mfrak}[1]{\mathfrak{#1}}
@@ -801,6 +803,7 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 \newcommand{\Mon}{\cat{Mon}}
 \newcommand{\LinCat}{\cat{LinCat}}
 \newcommand{\Cat}{\cat{Cat}}
+\newcommand{\PR}{\cat{Pr}}
 \newcommand{\DGCat}{\cat{DGCat}}
 \newcommand{\dgcat}{\cat{dgcat}}
 \newcommand{\Stable}{\cat{St}}
