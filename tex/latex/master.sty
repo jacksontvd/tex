@@ -31,8 +31,16 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 
 % some heavy packages I don't always use
 %\usepackage{gensymb,polynom,relsize,dsfont,marvosym,mdframed}
-\usepackage{stmaryrd,framed,mdframed}
+\usepackage{framed,mdframed}
 \usepackage{moreenum}
+
+%this is for smiley and frownie
+% \usepackage{wasysym}
+
+% I am always getting warnings for this. I put this in individual documents that need it
+\usepackage{stmaryrd}
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
+
 
 %\usepackage{eqnnumwarn}
 \hypersetup{colorlinks = true,
@@ -78,8 +86,6 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 %this is for the crazier arrows in tikcd (squiggly etc)
 %\usetikzlibrary{decorations.pathmorphing}
 
-%this is for smiley and frownie
-\usepackage{wasysym}
 
 \graphicspath{{visuals/}}
 
@@ -165,6 +171,9 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 %
 \newtheorem{joke}{Joke}
 \Crefname{joke}{Joke}{Jokes}
+%
+\newtheorem{idea}{Idea}
+\Crefname{idea}{Idea}{Ideas}
 %%%
 \Crefname{axiom}{Axiom}{Axioms}
 %%%
@@ -445,6 +454,8 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 
 
 % TEXT 
+\newcommand{\et}{\text{\'et}}
+\newcommand{\super}{\text{super}}
 \newcommand{\dR}{\text{dR}}
 \newcommand{\sm}{\text{sm}}
 \newcommand{\trop}{\text{trop}}
@@ -705,7 +716,9 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 \newcommand{\hatt}[1]{\widehat{#1}}
 \newcommand{\shff}[1]{#1^{\textrm{Sh}}}
 \newcommand{\squo}[2]{#1/\!\!/#2}
+\newcommand{\dblslash}{/\!\!/}
 \newcommand{\tripquo}[2]{#1/\!\!/\!\!/#2}
+\newcommand{\tripslash}{/\!\!/\!\!/}
 \newcommand{\multunder}[1]{\substack{#1}}
 \newcommand{\mcal}[1]{\mathcal{#1}}
 \newcommand{\mfrak}[1]{\mathfrak{#1}}
@@ -890,7 +903,9 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
+\DeclareMathOperator{\GRT}{GRT}
 \DeclareMathOperator{\AG}{AG}
+\DeclareMathOperator{\jac}{Jac}
 \DeclareMathOperator{\Star}{Star}
 % \DeclareMathOperator{\Ran}{Ran}
 \DeclareMathOperator{\conf}{Conf}

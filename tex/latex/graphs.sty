@@ -1,3 +1,5 @@
+\usetikzlibrary{decorations.markings}
+
 \makeatletter
 \tikzset{up loop/.style =  {to path={
   \pgfextra{\let\tikztotarget=\tikztostart}
@@ -28,6 +30,12 @@
   [looseness=12, min distance=10mm, out=45, in=-45]
   \tikz@to@curve@path},font=\sffamily\small
   }}
+\makeatletter
+
+\makeatletter
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
 \makeatletter
 
 % graph triggered by snippet graph<tab>
