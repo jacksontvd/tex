@@ -22,6 +22,21 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 \usepackage{nameref}
 \usepackage[nameinlink]{cleveref}
 % \usepackage[nameinlink,capitalise]{cleveref}
+%aesthetic setup for links
+\hypersetup{colorlinks = true,
+            linkcolor = blue,
+            % linkbordercolor=red,
+            urlcolor  = blue,
+            citecolor = black,
+}
+% uncomment the following to have colored text and outlines (which look like underlines in Adobe)
+% \makeatletter
+% \Hy@AtBeginDocument{%
+%   \def\@pdfborder{0 0 1}% Overrides border definition set with colorlinks=true
+%   \def\@pdfborderstyle{/S/U/W 1}% Overrides border style set with colorlinks=true
+%                                 % Hyperlink border style will be underline of width 1pt
+% }
+% \makeatother
 
 %suppress equation numbers unless labeled (this package is out of date because it relies on etextools)
 %\usepackage{autonum}
@@ -43,11 +58,6 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 
 
 %\usepackage{eqnnumwarn}
-\hypersetup{colorlinks = true,
-            linkcolor = black,
-            urlcolor  = blue,
-            citecolor = black,
-}
 
 %used to silence warnings
 %\usepackage{silence}
@@ -903,6 +913,7 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 \newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
+\DeclareMathOperator{\lie}{Lie}
 \DeclareMathOperator{\GRT}{GRT}
 \DeclareMathOperator{\AG}{AG}
 \DeclareMathOperator{\jac}{Jac}
@@ -988,6 +999,8 @@ todonotes, enumitem, tensor, marginnote, color, relsize}
 \DeclareMathOperator{\AFK}{AFK}
 \DeclareMathOperator{\DAFK}{DAFK}
 \DeclareMathOperator{\CFK}{CFK}
+% Chevalley-Eilenberg
+\DeclareMathOperator{\CE}{CE}
 %Floer 
 \let\HF\undefined
 \DeclareMathOperator{\HF}{HF}

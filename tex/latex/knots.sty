@@ -1,0 +1,38 @@
+\usetikzlibrary{
+  knots,
+  hobby,
+  decorations.pathreplacing,
+  shapes.geometric,
+  calc
+}
+
+\tikzset{
+  knot diagram/every strand/.append style={
+    ultra thick,
+    red
+  },
+  show curve controls/.style={
+    postaction=decorate,
+    decoration={show path construction,
+      curveto code={
+        \draw [blue, dashed]
+        (\tikzinputsegmentfirst) -- (\tikzinputsegmentsupporta)
+        node [at end, draw, solid, red, inner sep=2pt]{};
+        \draw [blue, dashed]
+        (\tikzinputsegmentsupportb) -- (\tikzinputsegmentlast)
+        node [at start, draw, solid, red, inner sep=2pt]{}
+        node [at end, fill, blue, ellipse, inner sep=2pt]{}
+        ;
+      }
+    }
+  },
+  show curve endpoints/.style={
+    postaction=decorate,
+    decoration={show path construction,
+      curveto code={
+        \node [fill, blue, ellipse, inner sep=2pt] at (\tikzinputsegmentlast) {}
+        ;
+      }
+    }
+  }
+}

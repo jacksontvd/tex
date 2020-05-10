@@ -1,0 +1,56 @@
+\newcounter{braid}
+\newcounter{strands}
+\pgfkeyssetvalue{/tikz/braid height}{1cm}
+\pgfkeyssetvalue{/tikz/braid width}{1cm}
+\pgfkeyssetvalue{/tikz/braid start}{(0,0)}
+\pgfkeyssetvalue{/tikz/braid colour}{black}
+\pgfkeys{/tikz/strands/.code={\setcounter{strands}{#1}}}
+
+\makeatletter
+\def\cross{%
+  \@ifnextchar^{\message{Got sup}\cross@sup}{\cross@sub}}
+
+\def\cross@sup^#1_#2{\render@cross{#2}{#1}}
+
+\def\cross@sub_#1{\@ifnextchar^{\cross@@sub{#1}}{\render@cross{#1}{1}}}
+
+\def\cross@@sub#1^#2{\render@cross{#1}{#2}}
+
+
+\def\render@cross#1#2{
+  \def\strand{#1}
+  \def\crossing{#2}
+  \pgfmathsetmacro{\cross@y}{-\value{braid}*\braid@h}
+  \pgfmathtruncatemacro{\nextstrand}{#1+1}
+  \foreach \thread in {1,...,\value{strands}}
+  {
+    \pgfmathsetmacro{\strand@x}{\thread * \braid@w}
+    \ifnum\thread=\strand
+    \pgfmathsetmacro{\over@x}{\strand * \braid@w + .5*(1 - \crossing) * \braid@w}
+    \pgfmathsetmacro{\under@x}{\strand * \braid@w + .5*(1 + \crossing) * \braid@w}
+    \draw[braid] \pgfkeysvalueof{/tikz/braid start} +(\under@x pt,\cross@y pt) to[out=-90,in=90] +(\over@x pt,\cross@y pt -\braid@h);
+    \draw[braid] \pgfkeysvalueof{/tikz/braid start} +(\over@x pt,\cross@y pt) to[out=-90,in=90] +(\under@x pt,\cross@y pt -\braid@h);
+    \else
+    \ifnum\thread=\nextstrand
+    \else
+     \draw[braid] \pgfkeysvalueof{/tikz/braid start} ++(\strand@x pt,\cross@y pt) -- ++(0,-\braid@h);
+    \fi
+   \fi
+  }
+  \stepcounter{braid}
+}
+
+\tikzset{braid/.style={double=\pgfkeysvalueof{/tikz/braid colour},double distance=1pt,line width=2pt,white}}
+
+\newcommand{\braid}[2][]{%
+  \begingroup
+  \pgfkeys{/tikz/strands=2}
+  \tikzset{#1}
+  \pgfkeysgetvalue{/tikz/braid width}{\braid@w}
+  \pgfkeysgetvalue{/tikz/braid height}{\braid@h}
+  \setcounter{braid}{0}
+  \let\sigma=\cross
+  #2
+  \endgroup
+}
+\makeatother
