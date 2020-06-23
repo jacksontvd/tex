@@ -267,8 +267,6 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/cleveref/cleveref.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/cleveref/cleveref.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/framed/framed.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/framed/framed.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/mdframed/mdframed.sty
@@ -306,10 +304,10 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/fmtcount/fcnumparser.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/fmtcount/fcnumparser.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/fmtcount/fc-english.def
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/fmtcount/fc-english.def
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
 INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/wasysym/wasysym.sty
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/wasysym/wasysym.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/tools/array.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/tools/array.sty
 INPUT getting_started.aux
@@ -350,11 +348,6 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/stmaryrd/Ustmry.fd
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/stmaryrd/stmary8.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/stmaryrd/stmary6.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/stmaryrd/stmary5.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/wasysym/uwasy.fd
-INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/wasysym/uwasy.fd
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/wasy/wasy8.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/wasy/wasy6.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/wasy/wasy5.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/mathabx/mathx10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/mathabx/mathx10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/mathabx/mathx10.tfm
@@ -390,8 +383,6 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/latex-fonts/lasy7.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/stmaryrd/stmary10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/stmaryrd/stmary7.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/wasy/wasy10.tfm
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/wasy/wasy7.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/mathabx/mathx10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/mathabx/mathx10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm

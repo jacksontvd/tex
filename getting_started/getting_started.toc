@@ -6,8 +6,11 @@
 \contentsline {subsection}{\tocsubsection {}{3.1}{Installation}}{2}{subsection.3.1}
 \contentsline {subsection}{\tocsubsection {}{3.2}{Writing a \texttt {vimrc}}}{2}{subsection.3.2}
 \contentsline {subsection}{\tocsubsection {}{3.3}{Packages for Vim}}{2}{subsection.3.3}
+\contentsline {subsection}{\tocsubsection {}{3.4}{Using Vim}}{3}{subsection.3.4}
+\contentsline {subsection}{\tocsubsection {}{3.5}{Opening a document}}{3}{subsection.3.5}
+\contentsline {subsection}{\tocsubsection {}{3.6}{Remapping your caps lock key}}{3}{subsection.3.6}
 \contentsline {section}{\tocsection {}{4}{Displaying the PDF}}{3}{section.4}
-\contentsline {subsection}{\tocsubsection {}{4.1}{Using Skim}}{3}{subsection.4.1}
-\contentsline {subsection}{\tocsubsection {}{4.2}{Using Zathura}}{3}{subsection.4.2}
-\contentsline {subsection}{\tocsubsection {}{4.3}{Making a choice}}{3}{subsection.4.3}
-\contentsline {section}{\tocsection {}{5}{Writing a document}}{3}{section.5}
+\contentsline {subsection}{\tocsubsection {}{4.1}{Using Skim}}{4}{subsection.4.1}
+\contentsline {subsection}{\tocsubsection {}{4.2}{Using Zathura}}{4}{subsection.4.2}
+\contentsline {subsection}{\tocsubsection {}{4.3}{Making a choice}}{4}{subsection.4.3}
+\contentsline {section}{\tocsection {}{5}{Writing a document}}{4}{section.5}

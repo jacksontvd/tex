@@ -120,6 +120,46 @@ example, sections will be collapsed to a single line on ones display when they a
 being edited. 
 \end{enumerate}
 
+\subsection{Using Vim}
+
+I won't even attempt to give a full overview of how to use vim. There are many better
+sources online. 
+I will give the bare minimum. 
+
+\subsection{Opening a document}
+
+In the command line navigate to the directory containing the document you want to edit.
+Call it example.tex. Enter the following into the command line.
+\begin{center}
+\begin{verbatim}
+$ vim example.tex
+\end{verbatim}
+\end{center}
+This will open the document in the terminal window. Vim can be in different 
+``modes''. The default being called ``normal mode''. In this mode you can navigate the
+document, delete things (characters, words, lines, etcetera), copy (called ``yank'' for vim),
+paste, etcetera. To move one symbol to the right, use the `l' key; to move one symbol to
+the left, use the `h' key; to move one line down, use the `j' key; and to move one line
+up, use the `k' key. To actually type text, you need to enter the 
+``insert mode'' by pressing the `i' key. Once in this mode the h,j,k, and l keys no longer
+navigate since they now need to perform their original function of entering the letters
+h,j,k, and l. To get back to normal mode, press the escape key. 
+
+\subsection{Remapping your caps lock key}
+
+When using vim one presses the escape key constantly to return to normal mode. The result
+is the famous ``vim pinkey''. To avoid stretching for the escape button so much, some
+people (including me) remap the caps lock key to be act as a second escape key instead. 
+
+To do this on mac:
+\begin{enumerate}
+\item go to system preferences,
+\item click on ``keyboard'', 
+\item click on the ``keyboard'' tab, 
+\item click on ``modifier keys'' in the bottom right, and
+\item choose ``escape'' from the drop-down menu next to ``caps lock''.
+\end{enumerate}
+
 \section{Displaying the PDF}
 
 When editing notes quickly, it is useful to let the compiler run every time the document
