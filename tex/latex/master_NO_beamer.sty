@@ -1,0 +1,26 @@
+% these packages are incompatible with beamer so I had to move it
+\usepackage{enumitem}
+\usepackage{moreenum}
+
+% beamer also hates some of my environments
+%ENVIRONMENTS
+%environments get:
+%	definition
+%	crefname (theorems, lemmas, propositions, and conjectures are always capitalized.
+%	Everything else is controlled by cref)
+%	numberwithin setting(in cls files) (e.g. 
+%\numberwithin{equation}{chapter})
+%	Snippet
+\newtheorem{fact}{Fact}
+\Crefname{fact}{Fact}{Facts}
+\newtheorem*{fact*}{Fact}
+%
+\newtheorem{note}{Note}
+\Crefname{note}{Note}{Notes}
+\newtheorem*{note*}{Note}
+%
+\newenvironment{Proof}
+    {\begin{proof}}
+    {\renewcommand{\qedsymbol}{$\blacksquare$}
+    \end{proof}
+    \renewcommand{\qedsymbol}{$\square$}}
