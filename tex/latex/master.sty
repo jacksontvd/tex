@@ -1,7 +1,9 @@
-% Most of my macros are in master_SUB
+% Most of my macros are in master_SMALL. These work for every type of document. 
+% Specialized documents get special things in their preamble snippet in the texmath
+% ultisnips file
+% I load hyperref first because it needs to be before cleveref, 
+% which I need to load in order to define all my environments (and give them a cref label).
+% It can't be called inside of master_SMALL because backrefs are incompatible with  beamer
+\usepackage[backref=page]{hyperref}
 \usepackage{master_SMALL}
-
-% beamer hates some of my environments, so I put them in a separate style file. 
 \usepackage{master_NO_beamer}
-
-% So in a beamer file I call for master_SMALL.sty, and master_ENVIRON2.sty manually. This way I can isolate further elements of these macros for certain situations (publication-specific document classes, etc.) while maintaining backwards compatibility. 

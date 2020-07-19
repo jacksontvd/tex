@@ -4,42 +4,14 @@ mathtools, comment}
 todonotes, tensor, marginnote, color, relsize}
 
 % show \label's and keys for references
-%\usepackage{showkeys}
+% \usepackage{showkeys}
 
 %graphics packages
 \usepackage{graphics, graphicx}
 %tikz packages
 \usepackage{tikz, tikz-cd, tkz-berge, tkz-graph}
 
-%The following must be loaded in this order
-% hypertexnames is roughly for "things being numbered within other things" 
-% hidelinks hides the ugly borders
-% backref puts the back references in the references section at the end
-% alphabetic labels references with the authors' last names and year 
-\usepackage{hyperref}
-% These are for "backrefs" but it's best to put them only if you need them.
-% \usepackage{amsrefs}
-% \usepackage[backrefs,shortalphabetic]{amsrefs}
-% \usepackage[backref=page]{hyperref}
-%\usepackage[hidelinks,hypertexnames=false,backref]{hyperref}
-\usepackage{nameref}
 \usepackage[nameinlink]{cleveref}
-% \usepackage[nameinlink,capitalise]{cleveref}
-%aesthetic setup for links
-\hypersetup{colorlinks = true,
-            linkcolor = blue,
-            % linkbordercolor=red,
-            urlcolor  = blue,
-            citecolor = black,
-}
-% uncomment the following to have colored text and outlines (which look like underlines in Adobe)
-% \makeatletter
-% \Hy@AtBeginDocument{%
-%   \def\@pdfborder{0 0 1}% Overrides border definition set with colorlinks=true
-%   \def\@pdfborderstyle{/S/U/W 1}% Overrides border style set with colorlinks=true
-%                                 % Hyperlink border style will be underline of width 1pt
-% }
-% \makeatother
 
 %suppress equation numbers unless labeled (this package is out of date because it relies on etextools)
 %\usepackage{autonum}
@@ -633,7 +605,8 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand\dHom{\RR\Hom}
 \newcommand\shrtp{\stackrel{!}{\otimes}}
 \newcommand{\boxtp}{\boxtimes}
-\newcommand{\dun}{\amalg}
+% \newcommand{\dun}{\amalg}
+\newcommand{\dun}{\sqcup}
 \newcommand{\bdun}{\mathop{\coprod}}
 \newcommand{\bcoprod}{\mathop{\coprod}}
 \newcommand{\un}{\cup}
