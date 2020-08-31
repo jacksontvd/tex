@@ -169,7 +169,8 @@ todonotes, tensor, marginnote, color, relsize}
 \crefformat{footnote}{#2\footnotemark[#1]#3}
 %%%
 %%% custom environments
-% i.e. environments where you can give it any label you like (this is useful for claim 1, claim 2, claim 2', claim 3)
+% i.e. environments where you can give it any label you like (this is useful for e.g. claim 1,
+% claim 2, claim 2', claim 3, or e.g. ``Zorn's lemma'')
 % exm: 
 % \begin{custom_clm}{2'}
 % custom must be referenced with ref, i.e. it must have the type in the label. This
@@ -182,7 +183,7 @@ todonotes, tensor, marginnote, color, relsize}
 \newtheorem{innercustom}{}
 \newenvironment{custom}[1]
   {\renewcommand\theinnercustom{#1}\innercustom}
-  {\endinnercustomthm}
+  {\endinnercustom}
 %
 \newtheorem{innercustomclm}{Claim}
 \newenvironment{custom_clm}[1]
