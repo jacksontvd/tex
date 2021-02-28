@@ -618,6 +618,8 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\dun}{\sqcup}
 \newcommand{\bdun}{\mathop{\coprod}}
 \newcommand{\bcoprod}{\mathop{\coprod}}
+% restricted product (prime on usual large product symbol)
+\newcommand{\rprod}{\sideset{}{'}\prod}
 \newcommand{\un}{\cup}
 \newcommand{\bun}{\bigcup}
 \newcommand{\inter}{\cap}
@@ -701,6 +703,7 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\rightdual}[1]{ #1^\vee }
 \newcommand{\rdual}{\rightdual}
 \newcommand{\dual}[1]{ #1^* }
+\newcommand{\pdual}[1]{ #1^\vee }
 %Langlands dual
 \newcommand{\Ldual}[1]{{}^L #1}
 \newcommand{\langdual}[1]{#1^\vee}
@@ -833,7 +836,6 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\Stable}{\cat{St}}
 \newcommand{\stable}{\cat{st}}
 \newcommand{\Ab}{\cat{Ab}}
-\newcommand{\Fr}{\cat{Fr}}
 \newcommand{\Set}{\cat{Set}} 
 \newcommand{\Sets}{\cat{Sets}} 
 \newcommand{\Pos}{\cat{Pos}}
@@ -857,8 +859,6 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\Top}{\cat{Top}}
 \newcommand{\TVS}{\cat{TVS}}
 \newcommand{\ExtGr}{\cat{ExtGr}}
-\newcommand{\Loc}{\cat{Loc}}
-\newcommand{\LocSys}{\cat{LocSys}}
 \newcommand{\Uni}{\cat{Uni}}
 \newcommand{\Vect}{\cat{Vect}}
 \newcommand{\FVect}{\cat{FDVect}}
@@ -912,9 +912,12 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\IndCoh}{\cat{IndCoh}}
 \newcommand{\MF}{\cat{MF}}
 \newcommand{\Functors}{\cat{Functors}}
-\newcommand{\Jac}{\cat{Jac}}
 
 %OPERATORS
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\Jac}{Jac}
+\DeclareMathOperator{\Loc}{Loc}
+\DeclareMathOperator{\LocSys}{LocSys}
 \DeclareMathOperator{\YM}{YM}
 \DeclareMathOperator{\conn}{conn}
 \DeclareMathOperator{\FGL}{FGL}
@@ -1121,6 +1124,7 @@ todonotes, tensor, marginnote, color, relsize}
 \DeclareMathOperator{\type}{tp}
 \DeclareMathOperator{\cliff}{Cliff}
 \DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\clg}{\mathcal{C}\ell}
 \DeclareMathOperator{\DCL}{Cl}
 \DeclareMathOperator{\Cadiv}{CaDiv}
 \DeclareMathOperator{\Cacl}{CaCl}
