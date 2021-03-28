@@ -703,8 +703,12 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\rightdual}[1]{ #1^\vee }
 \newcommand{\rdual}{\rightdual}
 \newcommand{\dual}[1]{ #1^* }
-% Poincar\'e/Pontrjagin dual
-\newcommand{\pdual}[1]{ #1^\vee }
+% Cartier dual
+% \newcommand{\cdual}[1]{\widehat{#1}}
+\newcommand{\cdual}[1]{#1^\vee}
+% Pontrjagin dual
+% \newcommand{\pdual}[1]{ \widehat{#1} }
+\newcommand{\pdual}[1]{#1^\vee}
 % Fourier-Mukai dual
 \newcommand{\fmdual}[1]{ #1^\vee \left[1\right]}
 %Langlands dual
@@ -917,8 +921,12 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\IndCoh}{\cat{IndCoh}}
 \newcommand{\MF}{\cat{MF}}
 \newcommand{\Functors}{\cat{Functors}}
+\newcommand{\cLoc}{\cat{Loc}}
+\newcommand{\cConn}{\cat{Conn}}
 
 %OPERATORS
+\DeclareMathOperator{\Hitch}{Hitch}
+\DeclareMathOperator{\Conn}{Conn}
 \DeclareMathOperator{\AJ}{AJ}
 \DeclareMathOperator{\Alb}{Alb}
 \DeclareMathOperator{\Fr}{Fr}
