@@ -713,6 +713,8 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\pdual}[1]{#1^\vee}
 % Fourier-Mukai dual
 \newcommand{\fmdual}[1]{ #1^\vee \left[1\right]}
+% unitary dual
+\newcommand{\udual}[1]{ \widehat{#1}}
 %Langlands dual
 \newcommand{\Ldual}[1]{{}^L #1}
 \newcommand{\langdual}[1]{#1^\vee}
@@ -786,10 +788,13 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\agnum}[1]{\text{anti-gh}\#\left(#1\right)}
 \newcommand{\consh}[1]{\underline{\underline{#1}}}
 \newcommand{\dunder}[1]{\underline{\underline{#1}}}
-\newcommand{\lmod}[2]{^{#2}#1}
-\newcommand{\dmod}[2]{^{#2}#1}
-\newcommand{\amod}[2]{#1_{#2}}
-\newcommand{\damod}[3]{^{#2}{#1}_{#3}}
+\newcommand{\lmod}[2]{{}_{#2} #1}
+\newcommand{\bimod}[3]{{}_{#2} #1_{#3}}
+% for bordered knot invariants (Antonio)
+% \newcommand{\lmod}[2]{^{#2}#1}
+% \newcommand{\dmod}[2]{^{#2}#1}
+% \newcommand{\amod}[2]{#1_{#2}}
+% \newcommand{\damod}[3]{^{#2}{#1}_{#3}}
 \newcommand{\rad}[1]{\sqrt{#1}}
 %\newcommand{\rad}{\sqrt{\vphantom{x}}}
 
@@ -882,12 +887,13 @@ todonotes, tensor, marginnote, color, relsize}
 %\newcommand{\dMod}[1]{^{#1}\cat{Mod}}
 %\newcommand{\aMod}[1]{\cat{Mod}_{#1}}
 %\newcommand{\DAMod}[2]{^{#1}\cat{Mod}_{#2}}
-\newcommand{\lMod}[1]{#1\text{-}\cat{Mod}}
-\newcommand{\lcoMod}[1]{#1\text{-}\cat{coMod}}
-\newcommand{\rMod}[1]{\cat{Mod}\text{-}#1}
+\newcommand{\lMod}[1]{#1\text{-}\cat{mod}}
+\newcommand{\lcoMod}[1]{#1\text{-}\cat{comod}}
+\newcommand{\rMod}[1]{\cat{mod}\text{-}#1}
 \newcommand{\rcoMod}[1]{\cat{coMod}\text{-}#1}
-\newcommand{\Mod}[2]{#1\text{-}\cat{Mod}\text{-}#2}
-\newcommand{\coMod}[2]{#1\text{-}\cat{coMod}\text{-}#2}
+\newcommand{\biMod}[1]{#1\text{-}\cat{bimod}}
+\newcommand{\Mod}[2]{#1\text{-}\cat{mod}\text{-}#2}
+\newcommand{\coMod}[2]{#1\text{-}\cat{comod}\text{-}#2}
 \newcommand{\Module}{\cat{Mod}}
 \newcommand{\Alg}{\cat{Alg}}
 \newcommand{\lAlg}[1]{#1\text{-}\cat{Alg}}
