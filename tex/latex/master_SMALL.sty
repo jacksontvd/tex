@@ -22,6 +22,9 @@ todonotes, tensor, marginnote, color, relsize}
 % some heavy packages I don't always use
 %\usepackage{gensymb,polynom,relsize,dsfont,marvosym,mdframed}
 \usepackage{framed,mdframed}
+% package to include full pdfs
+% % Usage: \includepdf[pages=-]{FILE.pdf}
+% \usepackage{pdfpages}
 
 %this is for smiley and frownie
 % \usepackage{wasysym}
@@ -609,6 +612,8 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\dsum}{\oplus}
 \newcommand{\btp}{\bigotimes}
 \newcommand{\tp}{\otimes}
+% restricted tensor product (prime on usual large tensor product symbol)
+\newcommand{\rtp}{\sideset{}{'}\btp}
 % stackrel puts things directly above a symbol 
 \newcommand\dtp{\stackrel{\LL}{\otimes}}
 \newcommand\dertp{\stackrel{\LL}{\otimes}}
@@ -717,6 +722,7 @@ todonotes, tensor, marginnote, color, relsize}
 %Langlands dual
 \newcommand{\Ldual}[1]{{}^L #1}
 \newcommand{\langdual}[1]{#1^\vee}
+\newcommand{\ldual}[1]{#1^\vee}
 \newcommand{\hodge}[1]{\star #1}
 \newcommand{\ddual}[1]{ #1^{**} }
 \newcommand{\tpose}[1]{#1^{T}}
@@ -800,11 +806,13 @@ todonotes, tensor, marginnote, color, relsize}
 %CATEGORIES
 \newcommand{\cat}{\mathbf}
 \newcommand{\scat}{\mathcal}
+\newcommand{\Corr}{\cat{Corr}}
 \newcommand{\SP}{\cat{Sp}}
 \newcommand{\Sector}{\cat{Sector}}
 \newcommand{\sSector}{\scat{S}\cat{ector}}
 \newcommand{\Arboreal}{\cat{Arboreal}}
 \newcommand{\Enter}{\cat{Enter}}
+\newcommand{\Exit}{\cat{Exit}}
 \newcommand{\Aff}{\cat{Aff}}
 \newcommand{\Funct}{\cat{Funct}}
 \newcommand{\Symdelcx}{\cat{Sym}\Del\text{-}\cat{Cx}}
@@ -886,14 +894,19 @@ todonotes, tensor, marginnote, color, relsize}
 %\newcommand{\dMod}[1]{^{#1}\cat{Mod}}
 %\newcommand{\aMod}[1]{\cat{Mod}_{#1}}
 %\newcommand{\DAMod}[2]{^{#1}\cat{Mod}_{#2}}
+
+% Left modules: #1-Mod
 \newcommand{\lMod}[1]{#1\text{-}\cat{mod}}
 \newcommand{\lcoMod}[1]{#1\text{-}\cat{comod}}
+% Right modules: Mod-#1
 \newcommand{\rMod}[1]{\cat{mod}\text{-}#1}
 \newcommand{\rcoMod}[1]{\cat{coMod}\text{-}#1}
-\newcommand{\biMod}[1]{#1\text{-}\cat{bimod}}
-\newcommand{\Mod}[2]{#1\text{-}\cat{mod}\text{-}#2}
-\newcommand{\coMod}[2]{#1\text{-}\cat{comod}\text{-}#2}
-\newcommand{\Module}{\cat{Mod}}
+% Bimodules #1-mod-#2
+% \newcommand{\biMod}[1]{#1\text{-}\cat{bimod}}
+\newcommand{\biMod}[2]{#1\text{-}\cat{mod}\text{-}#2}
+% multipurpose Mod
+\newcommand{\Mod}{\cat{mod}}
+% \newcommand{\Module}{\cat{Mod}}
 \newcommand{\Alg}{\cat{Alg}}
 \newcommand{\lAlg}[1]{#1\text{-}\cat{Alg}}
 \newcommand{\rAlg}[1]{\cat{Alg}\text{-}#1}
@@ -932,9 +945,12 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\cConn}{\cat{Conn}}
 % spherical Hecke cat
 \newcommand{\Sph}{\cat{Sph}}
+% spherical Hecke alg
+\newcommand{\sph}{Sph}
 
 %OPERATORS
 \DeclareMathOperator{\Hecke}{\cH ecke}
+\DeclareMathOperator{\Lang}{Lang}
 \DeclareMathOperator{\aff}{Aff}
 \DeclareMathOperator{\Hitch}{Hitch}
 \DeclareMathOperator{\Conn}{Conn}
