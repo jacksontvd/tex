@@ -6,6 +6,35 @@ todonotes, tensor, marginnote, color, relsize}
 % show \label's and keys for references
 % \usepackage{showkeys}
 
+% % find unused references:
+% \usepackage{refcheck}
+
+% % Filter out all marginpar warnings:
+% \usepackage{silence}
+% \WarningFilter*{latex}{Marginpar on page \thepage\space moved}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% BIB INFO %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% I typically use bibtex, so just add this to the end of the file:
+% Fakesection REFERENCES
+% \bibliographystyle{amsalpha}
+% \bibliographystyle{alpha}
+% \bibliographystyle{plain}
+% \bibliography{references}
+%%%%%% Otherwise, I sometimes use biblatex, but then you have to add the following to the preamble:
+% bibLAtex (more modern than bibtex):
+% \usepackage[citestyle=alphabetic]{biblatex}
+% \addbibresource{references.bib}
+% href must be after biblatex, and before cleveref:
+% \usepackage[backref=page]{hyperref}
+% \usepackage{hyperref}
+% standard macros (no href_
+% \usepackage{master_SMALL}
+%%%% And this to the end:
+% \printbibliography
+
+
+
+
 %graphics packages
 \usepackage{graphics, graphicx}
 %tikz packages
@@ -82,44 +111,61 @@ todonotes, tensor, marginnote, color, relsize}
 %ENVIRONMENTS
 %environments get:
 %	definition
-%	crefname (theorems, lemmas, propositions, and conjectures are always capitalized.
-%	Everything else is controlled by cref)
+%	crefname
 %	numberwithin setting(in cls files) (e.g. 
-%\numberwithin{equation}{chapter})
+%       \numberwithin{equation}{chapter})
 %	Snippet
-% SOME ARE COMMENTED OUT BECAUSE BEAMER GETS MAD. SEE 
-\newtheorem{thm}{Theorem}
-\crefname{thm}{Theorem}{Theorems}
+% SOME ARE COMMENTED OUT BECAUSE BEAMER GETS MAD
+
+% number equations within sections:
+\numberwithin{equation}{section}
+% Then everything else follows the equation counter:
+
+\newtheorem{theorem}[equation]{Theorem}
+% \crefname{thm}{Theorem}{Theorems}
 \newtheorem*{thm*}{Theorem}
 %
-\newtheorem{lem}[thm]{Lemma}
+\newtheorem{lem}[equation]{Lemma}
 \crefname{lem}{Lemma}{Lemmata}
 \newtheorem*{lem*}{Lemma}
 %
-\newtheorem{prop}[thm]{Proposition}
+\newtheorem{prop}[equation]{Proposition}
 \crefname{prop}{Proposition}{Propositions}
 \newtheorem*{prop*}{Proposition}
 %
-\newtheorem{cor}[thm]{Corollary}
+\newtheorem{cor}[equation]{Corollary}
 \crefname{cor}{Corollary}{Corollaries}
 \newtheorem*{cor*}{Corollary}
 %
-\newtheorem{con}{Conjecture}
+\newtheorem{con}[equation]{Conjecture}
 \crefname{con}{Conjecture}{Conjectures}
 \newtheorem*{con*}{Conjecture}
+%
+\newtheorem{hyp}{Hypothesis}
+\crefname{hyp}{Hypothesis}{Hypotheses}
+\newtheorem*{hyp*}{Hypothesis}
 %
 % not compatible with beamer. Moved to master_NO_beamer.sty
 % \newtheorem{fact}{Fact}
 % \Crefname{fact}{Fact}{Facts}
 % \newtheorem*{fact*}{Fact}
 %
-\newtheorem{obs}{Observation}
+\newtheorem{obs}[equation]{Observation}
 \Crefname{obs}{Observation}{Observations}
+%
+\newtheorem{goal}[equation]{Goal}
+\crefname{goal}{Goal}{Goals}
+\newtheorem*{goal*}{Goal}
 %%%
 \theoremstyle{definition}
-\newtheorem{defn}{Definition}
+\newtheorem{defn}[equation]{Definition}
 \newtheorem*{defn*}{Definition}
-\Crefname{defn}{Definition}{Definitions}
+\crefname{defn}{Definition}{Definitions}
+%
+\theoremstyle{remark}
+\newtheorem{rmk}[equation]{Remark}
+\Crefname{rmk}{Remark}{Remarks}
+\newtheorem*{rmk*}{Remark}
 %
 \newtheorem{axiom}{Axiom}
 \newtheorem*{axiom*}{Axiom}
@@ -134,7 +180,7 @@ todonotes, tensor, marginnote, color, relsize}
 \newtheorem*{sol}{Solution}
 % \Crefname{sol}{Solution}{Solutions}
 %
-\newtheorem{exm}{Example}
+\newtheorem{exm}[equation]{Example}
 \newtheorem*{exm*}{Example}
 \Crefname{exm}{Example}{Examples}
 %
@@ -152,13 +198,9 @@ todonotes, tensor, marginnote, color, relsize}
 %
 \newtheorem{clm}{Claim}
 \Crefname{clm}{Claim}{Claims}
-\newtheorem{proof_clm}{Claim}[thm]
+\newtheorem{proof_clm}{Claim}
 % proof_clm is for claims inside of a proof. So they are numbered within theorems
 %%%
-\theoremstyle{remark}
-\newtheorem{rmk}{Remark}
-\Crefname{rmk}{Remark}{Remarks}
-\newtheorem*{rmk*}{Remark}
 %
 % \newtheorem{note}{Note}
 % \Crefname{note}{Note}{Notes}
@@ -174,6 +216,7 @@ todonotes, tensor, marginnote, color, relsize}
 %
 \newtheorem{idea}{Idea}
 \Crefname{idea}{Idea}{Ideas}
+
 %%%
 \crefformat{footnote}{#2\footnotemark[#1]#3}
 %%%
@@ -189,10 +232,12 @@ todonotes, tensor, marginnote, color, relsize}
 % still control its capitalization.
 %% IMPORTANT: Do not use this to reference named theorems (e.g. Zorn's lemma). 
 %There is \nameref for this!
+\theoremstyle{plain}
 \newtheorem{innercustom}{}
 \newenvironment{custom}[1]
   {\renewcommand\theinnercustom{#1}\innercustom}
   {\endinnercustom}
+\Crefname{innercustom}{}{}
 %
 \newtheorem{innercustomclm}{Claim}
 \newenvironment{custom_clm}[1]
@@ -454,6 +499,10 @@ todonotes, tensor, marginnote, color, relsize}
 
 % TEXT 
 \newcommand{\et}{\text{\'et}}
+% framed bordisms
+\newcommand{\fra}{\text{fr}}
+% oriented bordisms
+\newcommand{\ori}{\text{or}}
 \newcommand{\super}{\text{super}}
 \newcommand{\dR}{\text{dR}}
 \newcommand{\Dol}{\text{Dol}}
@@ -470,6 +519,7 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\topo}{\text{top}}
 \newcommand{\hw}{\text{hw}}
 \newcommand{\findim}{\text{fd}}
+\newcommand{\fdim}{\text{fd}}
 \newcommand{\splitt}{\text{split}}
 \newcommand{\red}{\text{red}}
 \newcommand{\eqs}{ \text{eqs}}
@@ -517,9 +567,11 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\GW}{\text{GW}}
 \newcommand{\redvir}{\text{red vir}}
 \newcommand{\AdS}{\text{AdS}}
-\newcommand{\pt}{\text{pt}}
+% \newcommand{\pt}{\text{pt}}
+\newcommand{\pt}{*}
 \newcommand{\graded}{\text{grd}}
 \newcommand{\preq}{/_{\text{pre}} \, }
+\newcommand{\gp}{\text{grp}}
 
 %ARROWS
 \newcommand{\rarrow}{\rightarrow}
@@ -573,7 +625,7 @@ todonotes, tensor, marginnote, color, relsize}
 \renewcommand{\phi}{\varphi}
 \newcommand{\bphi}{\bar\varphi}
 \newcommand{\bpsi}{\bar\psi}
-\newcommand{\trans}{\pitchfork}
+\newcommand{\transv}{\pitchfork}
 \newcommand{\minus}{\setminus}
 \newcommand{\corr}{\;\, \widehat{ = } \;\,}
 \newcommand{\dalem}{\square}
@@ -776,7 +828,6 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\ubr}[2]{\underbrace{#1}_{#2}}
 \newcommand{\obr}[2]{\overbrace{#1}^{#2}}
 \newcommand{\units}[1]{{#1^\times}}
-\newcommand{\ps}[1]{\left\llbracket #1 \right\rrbracket}
 \newcommand{\ls}[1]{\left(\!\left( #1 \right)\!\right)}
 \newcommand{\tv}[1]{\left\llbracket #1 \right\rrbracket}
 \newcommand{\ext}{\wedge}
@@ -806,6 +857,18 @@ todonotes, tensor, marginnote, color, relsize}
 %CATEGORIES
 \newcommand{\cat}{\mathbf}
 \newcommand{\scat}{\mathcal}
+% finite homotopy
+\newcommand{\FH}{\cat{FH}}
+% Fam (L:CH \S 2.3)
+\newcommand{\Fam}{\cat{Fam}}
+\newcommand{\Fus}{\cat{Fus}}
+\newcommand{\BrFus}{\cat{BrFus}}
+% tensor categories
+\newcommand{\Tens}{\cat{Tens}}
+% braided tensor categories
+\newcommand{\BrTens}{\cat{BrTens}}
+\newcommand{\EqBr}{\cat{EqBr}}
+\newcommand{\Osc}{\cat{Osc}}
 \newcommand{\Corr}{\cat{Corr}}
 \newcommand{\SP}{\cat{Sp}}
 \newcommand{\Sector}{\cat{Sector}}
@@ -830,6 +893,8 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\RW}{\cat{RW}}
 % Chern-Simons
 \newcommand{\CS}{\cat{CS}}
+% Dijkgraaf-Witten
+\newcommand{\DW}{\cat{DW}}
 % Quantum Mechanics
 \newcommand{\QM}{\cat{QM}}
 \newcommand{\RT}{\cat{RT}}
@@ -849,6 +914,8 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\TopGrp}{\cat{TopGrp}}
 \newcommand{\AlgGrp}{\cat{TopGrp}}
 \newcommand{\Mfd}{\cat{Mfd}}
+% manifold
+\newcommand{\Man}{\cat{Man}}
 \newcommand{\grMfld}{\cat{grMfld}}
 \newcommand{\SymplMfd}{\cat{Sympl Mfd}}
 \newcommand{\Mon}{\cat{Mon}}
@@ -859,6 +926,7 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\ECat}{\cat{ECat}}
 \newcommand{\FacCat}{\cat{FacCat}}
 \newcommand{\PR}{\cat{Pr}}
+\newcommand{\Pres}{\cat{Pr}}
 \newcommand{\DGCat}{\cat{DGCat}}
 \newcommand{\dgcat}{\cat{dgcat}}
 \newcommand{\Stable}{\cat{St}}
@@ -866,8 +934,10 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\Ab}{\cat{Ab}}
 \newcommand{\Set}{\cat{Set}} 
 \newcommand{\Sets}{\cat{Sets}} 
+% simplicial sets
+\newcommand{\sSet}{\cat{sSet}} 
 \newcommand{\Pos}{\cat{Pos}}
-\newcommand{\Pre}{\cat{Pre}}
+\newcommand{\Pre}{\cat{Pr}}
 \newcommand{\Rg}{\cat{Rg}}
 \newcommand{\Rig}{\cat{Rig}}
 \newcommand{\Rng}{\cat{Rng}}
@@ -907,8 +977,9 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\rMod}[1]{\cat{mod}\text{-}#1}
 \newcommand{\rcoMod}[1]{\cat{coMod}\text{-}#1}
 % Bimodules #1-mod-#2
-% \newcommand{\biMod}[1]{#1\text{-}\cat{bimod}}
 \newcommand{\biMod}[2]{#1\text{-}\cat{mod}\text{-}#2}
+% Bimodules #1-bimod
+\newcommand{\Bimod}[1]{#1\text{-}\cat{bimod}}
 % multipurpose Mod
 \newcommand{\Mod}{\cat{mod}}
 % \newcommand{\Module}{\cat{Mod}}
@@ -956,11 +1027,22 @@ todonotes, tensor, marginnote, color, relsize}
 \newcommand{\sph}{Sph}
 
 %OPERATORS
-\DeclareMathOperator{\Hecke}{\cH ecke}
+\DeclareMathOperator{\Sum}{Sum}
+\DeclareMathOperator{\lax}{lax}
+\DeclareMathOperator{\oplax}{oplax}
+\DeclareMathOperator{\Fields}{Fields}
+% Pontrjagin-Whitehead quadratic function
+\DeclareMathOperator{\PW}{PW}
+% free Lie algebra
+\DeclareMathOperator{\FL}{FL}
+\DeclareMathOperator{\FM}{FM}
+% alternating map
+\DeclareMathOperator{\alt}{alt}
 \DeclareMathOperator{\Lang}{Lang}
 \DeclareMathOperator{\aff}{Aff}
 \DeclareMathOperator{\Hitch}{Hitch}
 \DeclareMathOperator{\Conn}{Conn}
+\DeclareMathOperator{\hofib}{hofib}
 \DeclareMathOperator{\AJ}{AJ}
 \DeclareMathOperator{\Alb}{Alb}
 \DeclareMathOperator{\Fr}{Fr}
@@ -971,7 +1053,6 @@ todonotes, tensor, marginnote, color, relsize}
 \DeclareMathOperator{\conn}{conn}
 \DeclareMathOperator{\FGL}{FGL}
 \DeclareMathOperator{\Riem}{Riem}
-\DeclareMathOperator{\Fields}{Fields}
 \DeclareMathOperator{\Gerbes}{Gerbes}
 \DeclareMathOperator{\Sol}{Sol}
 \DeclareMathOperator{\Frob}{Frob}
@@ -1030,6 +1111,7 @@ todonotes, tensor, marginnote, color, relsize}
 \DeclareMathOperator{\dcl}{dcl}
 \DeclareMathOperator{\Forb}{Forb}
 \DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\BrPic}{BrPic}
 \DeclareMathOperator{\FT}{FT}
 \DeclareMathOperator{\sh}{sh}
 \DeclareMathOperator{\Proj}{Proj}
@@ -1043,8 +1125,8 @@ todonotes, tensor, marginnote, color, relsize}
 \DeclareMathOperator{\component}{comp}
 \DeclareMathOperator{\Supp}{Supp}
 \DeclareMathOperator{\SingSupp}{SingSupp}
+\DeclareMathOperator{\ssupp}{SingSupp}
 \DeclareMathOperator{\centerr}{center}
-\DeclareMathOperator{\Pin}{Pin}
 \DeclareMathOperator{\Tw}{Tw}
 \DeclareMathOperator{\Fuk}{Fuk}
 \DeclareMathOperator{\ev}{ev}
@@ -1100,8 +1182,6 @@ todonotes, tensor, marginnote, color, relsize}
 \DeclareMathOperator{\rel}{rel}
 \DeclareMathOperator{\Arg}{Arg}
 \DeclareMathOperator{\Foc}{Foc}
-\DeclareMathOperator{\Fus}{Fus}
-\DeclareMathOperator{\BrFus}{BrFus}
 \DeclareMathOperator{\Fun}{Fun}
 \DeclareMathOperator{\Cts}{Cts}
 \DeclareMathOperator{\Tot}{Tot}
@@ -1173,6 +1253,7 @@ todonotes, tensor, marginnote, color, relsize}
 \DeclareMathOperator{\Free}{Free}
 \DeclareMathOperator{\type}{tp}
 \DeclareMathOperator{\cliff}{Cliff}
+\DeclareMathOperator{\heis}{Heis}
 \DeclareMathOperator{\Cl}{Cl}
 \DeclareMathOperator{\clg}{\mathcal{C}\ell}
 \DeclareMathOperator{\DCL}{Cl}
@@ -1190,6 +1271,7 @@ todonotes, tensor, marginnote, color, relsize}
 \DeclareMathOperator{\circles}{circ}
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\trans}{trans}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\coim}{coim}
@@ -1205,6 +1287,8 @@ todonotes, tensor, marginnote, color, relsize}
 \DeclareMathOperator{\ind}{ind}
 \DeclareMathOperator{\Tor}{Tor}
 \DeclareMathOperator{\Ext}{Ext}
+% quadratic forms
+\DeclareMathOperator{\Quad}{Quad}
 \DeclareMathOperator{\sExt}{\mathcal{E}xt}
 \DeclareMathOperator{\cExt}{\mathcal{E}xt}
 \DeclareMathOperator{\Der}{Der}
@@ -1223,7 +1307,10 @@ todonotes, tensor, marginnote, color, relsize}
 \DeclareMathOperator{\Im}{Im}
 \DeclareMathOperator{\Rea}{Re}
 \DeclareMathOperator*{\Residue}{Res}
-\DeclareMathOperator{\ch}{ch}
+% chern class
+\DeclareMathOperator{\ch}{Ch}
+% Todd class
+\DeclareMathOperator{\td}{Td}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\meas}{m}
 \DeclareMathOperator{\ess}{ess}
@@ -1253,15 +1340,21 @@ todonotes, tensor, marginnote, color, relsize}
 \renewcommand{\u}{\mfrak{u}}
 \DeclareMathOperator{\BSO}{BSO}
 \DeclareMathOperator{\BO}{BO}
+% Spin group
 \DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\SSpin}{3Spin}
+% Lipschitz group
+\DeclareMathOperator{\Lip}{Lip}
+\DeclareMathOperator{\LLip}{3Lip}
+\DeclareMathOperator{\Pin}{Pin}
+\DeclareMathOperator{\PPin}{3Pin}
 \DeclareMathOperator{\pin}{pin}
 \DeclareMathOperator{\BSpin}{BSpin}
 \DeclareMathOperator{\TOP}{TOP}
 \DeclareMathOperator{\BTOP}{BTOP}
 \DeclareMathOperator{\PL}{PL}
 \DeclareMathOperator{\BPL}{BPL}
-
+\DeclareMathOperator{\String}{String}
 
 \newcommand{\lienil}{\mfrak{nil}}
 \newcommand{\lierad}{\mfrak{rad}}
-

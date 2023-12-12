@@ -8,3 +8,5 @@
 \usepackage[backref=page]{hyperref}
 \usepackage{master_SMALL}
 \usepackage{master_NO_beamer}
+% the letter document class already has \ps (for a P.S.) so this creates an error
+\newcommand{\ps}[1]{\left\llbracket #1 \right\rrbracket}
