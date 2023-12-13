@@ -33,14 +33,13 @@ todonotes, tensor, marginnote, color, relsize}
 % \printbibliography
 
 
+% \usepackage[nameinlink]{cleveref}
 
 
 %graphics packages
 \usepackage{graphics, graphicx}
 %tikz packages
 \usepackage{tikz, tikz-cd, tkz-berge, tkz-graph}
-
-\usepackage[nameinlink]{cleveref}
 
 %suppress equation numbers unless labeled (this package is out of date because it relies on etextools)
 %\usepackage{autonum}
@@ -121,9 +120,9 @@ todonotes, tensor, marginnote, color, relsize}
 \numberwithin{equation}{section}
 % Then everything else follows the equation counter:
 
-\newtheorem{theorem}[equation]{Theorem}
+% \newtheorem{theorem}[equation]{Theorem}
 % \crefname{thm}{Theorem}{Theorems}
-\newtheorem*{thm*}{Theorem}
+\newtheorem*{theorem*}{Theorem}
 %
 \newtheorem{lem}[equation]{Lemma}
 \crefname{lem}{Lemma}{Lemmata}
@@ -1036,8 +1035,6 @@ todonotes, tensor, marginnote, color, relsize}
 % free Lie algebra
 \DeclareMathOperator{\FL}{FL}
 \DeclareMathOperator{\FM}{FM}
-% alternating map
-\DeclareMathOperator{\alt}{alt}
 \DeclareMathOperator{\Lang}{Lang}
 \DeclareMathOperator{\aff}{Aff}
 \DeclareMathOperator{\Hitch}{Hitch}

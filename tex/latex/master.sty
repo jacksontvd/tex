@@ -4,9 +4,61 @@
 % I load hyperref first because it needs to be before cleveref, 
 % which I need to load in order to define all my environments (and give them a cref label).
 % It can't be called inside of master_SMALL because backrefs are incompatible with  beamer
+% I call hyperref in the preamble of the "beam" ultisnip instead.
 % \usepackage{hyperref}
 \usepackage[backref=page]{hyperref}
+\usepackage[nameinlink]{cleveref}
+\usepackage{nameref}
 \usepackage{master_SMALL}
-\usepackage{master_NO_beamer}
+
+%aesthetic setup for links
+\hypersetup{colorlinks = true,
+            linkcolor = blue,
+            % linkbordercolor=red,
+            urlcolor  = blue,
+            citecolor = black,
+}
+% uncomment the following to have colored text and outlines (which look like underlines in Adobe)
+% \makeatletter
+% \Hy@AtBeginDocument{%
+%   \def\@pdfborder{0 0 1}% Overrides border definition set with colorlinks=true
+%   \def\@pdfborderstyle{/S/U/W 1}% Overrides border style set with colorlinks=true
+%                                 % Hyperlink border style will be underline of width 1pt
+% }
+% \makeatother
+
+% these packages are incompatible with beamer so I had to move them:
+\usepackage{enumitem}
+\usepackage{moreenum}
+
+% for some reason "alt" is taken in beamer:
+% alternating map
+\DeclareMathOperator{\alt}{alt}
 % the letter document class already has \ps (for a P.S.) so this creates an error
 \newcommand{\ps}[1]{\left\llbracket #1 \right\rrbracket}
+
+% beamer also hates some of my environments
+%ENVIRONMENTS
+%environments get:
+%	definition
+%	crefname (theorems, lemmas, propositions, and conjectures are always capitalized.
+%	Everything else is controlled by cref)
+%	numberwithin setting(in cls files) (e.g. 
+%\numberwithin{equation}{chapter})
+%	Snippet
+
+\theoremstyle{plain}
+\newtheorem{fact}{Fact}
+\Crefname{fact}{Fact}{Facts}
+\newtheorem*{fact*}{Fact}
+%
+\newtheorem{note}{Note}
+\Crefname{note}{Note}{Notes}
+\newtheorem*{note*}{Note}
+%
+\newenvironment{Proof}
+    {\begin{proof}}
+    {\renewcommand{\qedsymbol}{$\blacksquare$}
+    \end{proof}
+    \renewcommand{\qedsymbol}{$\square$}}
+
